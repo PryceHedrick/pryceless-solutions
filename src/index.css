@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-900 text-gray-100 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary-500/30 text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-600;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card effect */
+  .glass-card {
+    @apply bg-dark-800/50 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-primary-500 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  /* Primary button style */
+  .btn-primary {
+    @apply px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg
+           transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25
+           active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary-500/50;
+  }
+
+  /* Secondary button style */
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border border-primary-500/50 hover:border-primary-500
+           text-primary-400 hover:text-primary-300 font-semibold rounded-lg
+           transition-all duration-300 hover:bg-primary-500/10
+           active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary-500/50;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4;
+  }
+
+  /* Section subheading */
+  .section-subheading {
+    @apply text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto;
+  }
+
+  /* Input field styles */
+  .form-input {
+    @apply w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white
+           placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-1
+           focus:ring-primary-500 transition-colors;
+  }
+
+  .form-select {
+    @apply w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white
+           focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500
+           transition-colors appearance-none cursor-pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg text-white
+           placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-1
+           focus:ring-primary-500 transition-colors resize-none;
+  }
+
+  /* Nav link with underline animation */
+  .nav-link {
+    @apply relative text-gray-300 hover:text-white transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-primary-500 transition-all duration-300;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  .nav-link.active {
+    @apply text-primary-400;
+  }
+}
+
+@layer utilities {
+  /* Animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-800 { animation-delay: 800ms; }
+
+  /* Opacity helper for animations */
+  .animate-hidden {
+    opacity: 0;
+  }
+
+  /* Animated gradient background */
+  .animated-gradient {
+    background: linear-gradient(-45deg, #0f172a, #1e3a5f, #0f172a, #1e293b);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+}

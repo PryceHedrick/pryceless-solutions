@@ -1,0 +1,358 @@
+import { useState } from 'react'
+import useScrollAnimation from '../hooks/useScrollAnimation'
+
+// EDIT: Project type options for the dropdown
+const projectTypes = [
+  { value: '', label: 'Select project type' },
+  { value: 'website', label: 'Website' },
+  { value: 'webapp', label: 'Web Application' },
+  { value: 'ecommerce', label: 'E-Commerce' },
+  { value: 'consulting', label: 'Technical Consulting' },
+  { value: 'other', label: 'Other' }
+]
+
+// EDIT: Budget range options for the dropdown
+const budgetRanges = [
+  { value: '', label: 'Select budget range' },
+  { value: 'under-500', label: 'Under $500' },
+  { value: '500-1500', label: '$500 - $1,500' },
+  { value: '1500-3000', label: '$1,500 - $3,000' },
+  { value: '3000-plus', label: '$3,000+' },
+  { value: 'not-sure', label: 'Not sure yet' }
+]
+
+function Contact() {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
+  const [formRef, formVisible] = useScrollAnimation({ threshold: 0.1 })
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    projectType: '',
+    budget: '',
+    message: ''
+  })
+
+  const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success' | 'error' | null
+
+  const validateForm = () => {
+    const newErrors = {}
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required'
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email'
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required'
+    } else if (formData.message.trim().length < 20) {
+      newErrors.message = 'Please provide more details (at least 20 characters)'
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }))
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    if (!validateForm()) return
+
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      // EDIT: Replace YOUR_FORM_ID with your actual Formspree form ID
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          projectType: formData.projectType,
+          budget: formData.budget,
+          message: formData.message
+        })
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({
+          name: '',
+          email: '',
+          projectType: '',
+          budget: '',
+          message: ''
+        })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <section id="contact" className="py-20 lg:py-32 bg-dark-900">
+      <div className="section-container">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Left Column - Info */}
+          <div
+            ref={headerRef}
+            className={`transition-all duration-700 ${
+              headerVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            }`}
+          >
+            <h2 className="section-heading">
+              {/* EDIT: Section heading */}
+              Let's Build <span className="gradient-text">Something</span>
+            </h2>
+            <p className="text-lg text-gray-300 mb-8">
+              {/* EDIT: Section description */}
+              Ready to bring your idea to life? Fill out the form and I'll get back to you within 24 hours. No spam, no pressure—just a friendly conversation about your project.
+            </p>
+
+            {/* Contact Info */}
+            <div className="space-y-6 mb-8">
+              {/* Email */}
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary-500/20 flex items-center justify-center text-primary-400">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-gray-400 text-sm">Prefer email?</p>
+                  {/* EDIT: Your email address */}
+                  <a href="mailto:contact@prycelesssolutions.com" className="text-white hover:text-primary-400 transition-colors">
+                    contact@prycelesssolutions.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Response Time */}
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-gray-400 text-sm">Response time</p>
+                  <p className="text-white">Usually within 24 hours</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Calendly Placeholder */}
+            <div className="glass-card p-6">
+              <h3 className="font-semibold text-white mb-2">Prefer to schedule directly?</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                {/* EDIT: Calendly integration note */}
+                Book a free 30-minute consultation at a time that works for you.
+              </p>
+              {/* EDIT: Replace with your Calendly link or embed */}
+              <a
+                href="#" // Replace with your Calendly link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary inline-flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Schedule a Call
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column - Form */}
+          <div
+            ref={formRef}
+            className={`transition-all duration-700 delay-200 ${
+              formVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+            }`}
+          >
+            <div className="glass-card p-6 lg:p-8">
+              {/* Success Message */}
+              {submitStatus === 'success' && (
+                <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
+                  <div className="flex items-center gap-3">
+                    <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <div>
+                      <p className="font-semibold text-green-400">Message sent successfully!</p>
+                      <p className="text-green-300 text-sm">I'll get back to you within 24 hours.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg">
+                  <div className="flex items-center gap-3">
+                    <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                      <p className="font-semibold text-red-400">Something went wrong</p>
+                      <p className="text-red-300 text-sm">Please try again or email me directly.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Name */}
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    Name <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    className={`form-input ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  />
+                  {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    Email <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@example.com"
+                    className={`form-input ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  />
+                  {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
+                </div>
+
+                {/* Project Type & Budget - Side by Side on Desktop */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  {/* Project Type */}
+                  <div>
+                    <label htmlFor="projectType" className="block text-sm font-medium text-gray-300 mb-2">
+                      Project Type
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className="form-select"
+                    >
+                      {projectTypes.map((type) => (
+                        <option key={type.value} value={type.value}>
+                          {type.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Budget */}
+                  <div>
+                    <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-2">
+                      Budget Range
+                    </label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="form-select"
+                    >
+                      {budgetRanges.map((range) => (
+                        <option key={range.value} value={range.value}>
+                          {range.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    Tell me about your project <span className="text-red-400">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="What are you looking to build? What problems are you trying to solve?"
+                    rows={5}
+                    className={`form-textarea ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  />
+                  {errors.message && <p className="mt-1 text-sm text-red-400">{errors.message}</p>}
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+
+                <p className="text-center text-gray-500 text-sm">
+                  I'll never share your information with anyone else.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Contact

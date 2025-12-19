@@ -1,0 +1,161 @@
+import useScrollAnimation from '../hooks/useScrollAnimation'
+
+// EDIT: Services offered - Modify your services here
+const services = [
+  {
+    title: 'Custom Websites',
+    description: 'Landing pages, portfolios, small business sites. Clean, fast, mobile-friendly.',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+      </svg>
+    ),
+    features: ['Responsive Design', 'Fast Loading', 'SEO Optimized', 'Modern Aesthetics'],
+    gradient: 'from-blue-500 to-cyan-500'
+  },
+  {
+    title: 'Web Applications',
+    description: 'Dashboards, internal tools, inventory systems, custom business logic.',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    ),
+    features: ['Custom Logic', 'User Authentication', 'Database Design', 'Admin Panels'],
+    gradient: 'from-purple-500 to-pink-500'
+  },
+  {
+    title: 'E-Commerce Solutions',
+    description: 'Shopify setup, custom stores, payment integration, inventory management.',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    ),
+    features: ['Payment Processing', 'Inventory Sync', 'Order Management', 'Shopping Cart'],
+    gradient: 'from-green-500 to-emerald-500'
+  },
+  {
+    title: 'API Integration & Automation',
+    description: 'Connect your tools, automate workflows, sync data between platforms.',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+    ),
+    features: ['REST APIs', 'Data Sync', 'Workflow Automation', 'Third-Party Integrations'],
+    gradient: 'from-orange-500 to-red-500'
+  },
+  {
+    title: 'Technical Consulting',
+    description: "Not sure what you need? I'll help you figure it out and create a roadmap.",
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      </svg>
+    ),
+    features: ['Requirements Analysis', 'Tech Stack Advice', 'Project Roadmapping', 'Architecture Design'],
+    gradient: 'from-yellow-500 to-orange-500'
+  }
+]
+
+function Services() {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
+
+  return (
+    <section id="services" className="py-20 lg:py-32 bg-dark-900">
+      <div className="section-container">
+        {/* Header */}
+        <div
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h2 className="section-heading">
+            {/* EDIT: Section heading */}
+            What I <span className="gradient-text">Build</span>
+          </h2>
+          <p className="section-subheading">
+            {/* EDIT: Section description */}
+            From simple landing pages to complex web applications, I've got you covered
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {services.map((service, index) => (
+            <ServiceCard key={index} service={service} index={index} />
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-12">
+          <p className="text-gray-400 mb-4">
+            {/* EDIT: CTA text */}
+            Not sure which service fits your needs?
+          </p>
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault()
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            className="btn-secondary inline-flex items-center gap-2"
+          >
+            Let's Talk About Your Project
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ServiceCard({ service, index }) {
+  const [cardRef, isVisible] = useScrollAnimation({ threshold: 0.1 })
+
+  return (
+    <div
+      ref={cardRef}
+      className={`group transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div className="glass-card h-full p-6 lg:p-8 hover:bg-dark-700/50 transition-all duration-300 relative overflow-hidden">
+        {/* Gradient Glow Effect */}
+        <div
+          className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-500 rounded-full`}
+        />
+
+        {/* Icon */}
+        <div
+          className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} bg-opacity-10 flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform duration-300`}
+        >
+          {service.icon}
+        </div>
+
+        {/* Content */}
+        <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
+        <p className="text-gray-400 mb-5">{service.description}</p>
+
+        {/* Features List */}
+        <ul className="space-y-2">
+          {service.features.map((feature, i) => (
+            <li key={i} className="flex items-center gap-2 text-sm text-gray-300">
+              <svg className="w-4 h-4 text-primary-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              {feature}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+export default Services
