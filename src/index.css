@@ -140,3 +140,22 @@
     animation: gradient 15s ease infinite;
   }
 }
+
+/* Mouse scroll indicator animation */
+@keyframes mouse-scroll {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(8px); }
+}
+
+.mouse-scroll-dot {
+  animation: mouse-scroll 1.5s ease-out infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
