@@ -72,11 +72,11 @@ function Footer() {
               className="flex items-center gap-2 mb-4"
             >
               {/* EDIT: Logo - Match your navbar logo */}
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-cyan-400 flex items-center justify-center font-bold text-white text-xl">
-                P
+              <div className="w-9 h-9 flex items-center justify-center">
+                <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none"><path d="M12 8L4 16L12 24" stroke="url(#footerGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M20 8L28 16L20 24" stroke="url(#footerGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><defs><linearGradient id="footerGrad" x1="4" y1="8" x2="28" y2="24" gradientUnits="userSpaceOnUse"><stop stopColor="#3B82F6"/><stop offset="1" stopColor="#22D3EE"/></linearGradient></defs></svg>
               </div>
               <span className="text-xl font-bold text-white">
-                Pryceless<span className="text-primary-400">Solutions</span>
+                Pryceless<span className="gradient-text">Solutions</span>
               </span>
             </a>
 

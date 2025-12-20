@@ -83,9 +83,11 @@ function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
+            <div key={index} className="w-full md:w-[calc(50%-1rem)]">
+              <ServiceCard service={service} index={index} />
+            </div>
           ))}
         </div>
 

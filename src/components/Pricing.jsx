@@ -4,14 +4,14 @@ import useScrollAnimation from '../hooks/useScrollAnimation'
 const pricingTiers = [
   {
     name: 'Starter',
-    price: '$500',
+    price: '$750+',
     priceNote: 'Starting at',
     description: 'Perfect for personal sites and coming soon pages',
     features: [
-      'Single landing page',
+      '1-2 page website',
       'Mobile responsive design',
       'Contact form integration',
-      '1 round of revisions',
+      '2 rounds of revisions',
       'Basic SEO setup'
     ],
     bestFor: 'Personal sites, coming soon pages',
@@ -28,7 +28,7 @@ const pricingTiers = [
       'Custom design & branding',
       'Basic animations & interactions',
       'Full SEO optimization',
-      '2 rounds of revisions',
+      '3 rounds of revisions',
       'Google Analytics setup'
     ],
     bestFor: 'Small businesses, portfolios',
@@ -38,7 +38,7 @@ const pricingTiers = [
   {
     name: 'Custom',
     price: "Let's Talk",
-    priceNote: 'Tailored pricing',
+    priceNote: 'Starting at $3,000+',
     description: 'For complex projects requiring custom functionality',
     features: [
       'Web applications & dashboards',
@@ -50,7 +50,7 @@ const pricingTiers = [
     ],
     bestFor: 'Businesses with specific needs',
     highlighted: false,
-    ctaText: 'Contact Me'
+    ctaText: 'Get Started'
   }
 ]
 

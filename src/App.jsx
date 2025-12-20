@@ -6,7 +6,7 @@ import HowItWorks from './components/HowItWorks'
 import Services from './components/Services'
 import Portfolio from './components/Portfolio'
 import Credentials from './components/Credentials'
-import Testimonials from './components/Testimonials'
+import WhyWorkWithMe from './components/WhyWorkWithMe'
 import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
@@ -52,7 +52,7 @@ function App() {
         <Services />
         <Portfolio />
         <Credentials />
-        <Testimonials />
+        <WhyWorkWithMe />
         <Pricing />
         <FAQ />
         <Contact />

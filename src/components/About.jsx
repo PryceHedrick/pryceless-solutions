@@ -57,22 +57,10 @@ function About() {
               imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}
           >
-            <div className="relative aspect-[4/5] max-w-md mx-auto lg:mx-0">
+            <div className="relative max-w-md mx-auto lg:mx-0">
               {/* Main Image Placeholder */}
-              <div className="absolute inset-0 rounded-2xl overflow-hidden glass-card">
-                {/* EDIT: Replace with your professional headshot */}
-                {/* <img src="/path-to-your-headshot.jpg" alt="Pryce Hedrick" className="w-full h-full object-cover" /> */}
-                <div className="w-full h-full bg-gradient-to-br from-primary-500/20 to-cyan-500/20 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-dark-700 flex items-center justify-center">
-                      <svg className="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                    </div>
-                    <p className="text-gray-400 text-sm">Professional headshot placeholder</p>
-                    <p className="text-gray-500 text-xs mt-1">Replace in About.jsx</p>
-                  </div>
-                </div>
+              <div className="rounded-2xl overflow-hidden glass-card">
+                <img src="/headshot.png" alt="Pryce Hedrick" className="w-full h-auto block" />
               </div>
 
               {/* Decorative Elements */}
@@ -80,7 +68,7 @@ function About() {
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-cyan-500/20 rounded-2xl -z-10" />
 
               {/* Floating Badge */}
-              <div className="absolute -bottom-6 -right-6 glass-card p-4 animate-float">
+              <div className="absolute -bottom-14 -right-4 glass-card p-4 animate-float">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-primary-500/20 flex items-center justify-center">
                     <svg className="w-6 h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,19 +97,11 @@ function About() {
             </h2>
 
             <div className="space-y-4 text-gray-300 mb-8">
-              {/* EDIT: About section paragraphs */}
               <p className="text-lg">
-                I'm a Computer Science graduate from the University of Southern Indiana with a passion for building digital solutions that actually solve problems.
+                Developer with degrees in Computer Science and Business Administration, a finance minor, and an award-winning senior project. I don't just write code—I build solutions that are technically sound and make sense for your bottom line.
               </p>
               <p>
-                By day, I work as an IT Specialist managing infrastructure for 500+ devices. By night (and weekends), I help entrepreneurs and small businesses bring their digital ideas to life through custom development work.
-              </p>
-              <p>
-                My approach combines formal CS training, real-world IT experience, and modern AI tools to deliver quality results efficiently. Whether you need a sleek landing page, a complex web application, or help integrating your tools—I've got you covered.
-              </p>
-              <p className="text-gray-400 italic">
-                {/* EDIT: Personal touch */}
-                When I'm not coding, I run a trading card business—so I understand what it means to build something from scratch and make it work.
+                Landing pages, web apps, or system integrations—delivered on time, built to last.
               </p>
             </div>
 

@@ -124,8 +124,8 @@ function Hero() {
       <div className="relative z-20 section-container text-center py-20">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm mb-8 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800/50 border border-primary-500/30 text-gray-300 shadow-[0_0_15px_rgba(59,130,246,0.3),0_0_30px_rgba(34,211,238,0.15)] text-sm mb-8 animate-fade-in">
+            <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
             {/* EDIT: Badge text */}
             Available for new projects
           </div>
