@@ -26,15 +26,15 @@ const projects = [
   {
     id: 2,
     title: 'CardGuys.store E-Commerce Platform',
-    shortDescription: 'Custom e-commerce platform for a trading card business',
-    fullDescription: 'A fully custom e-commerce solution built for my trading card business. Integrates with eBay API for inventory synchronization, features PayPal/Venmo payment processing, and includes comprehensive search, filtering, and shopping cart functionality.',
+    shortDescription: 'E-commerce platform built as Trading Card Sales Lead',
+    fullDescription: 'E-commerce platform I helped design and launch as Trading Card Sales Lead at Card Guys Sports Cards. Built a user-friendly storefront with eBay API integration for inventory syncing, PayPal/Venmo payment processing, categorized navigation, and email subscription system. Expanded the business beyond eBay to a dedicated online presence.',
     image: '/images/portfolio/cardguys/homepage.png',
     tags: ['Python', 'SQL', 'HTML/CSS', 'eBay API', 'Git'],
     features: [
       'eBay API integration for inventory sync',
       'PayPal/Venmo payment processing',
-      'Advanced search and filtering',
-      'Full shopping cart functionality'
+      'Categorized navigation system',
+      'Email subscription system'
     ],
     links: {
       
