@@ -78,8 +78,8 @@ function Contact() {
     setSubmitStatus(null)
 
     try {
-      // EDIT: Replace YOUR_FORM_ID with your actual Formspree form ID
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      // EDIT: Replace xzdpvvlr with your actual Formspree form ID
+      const response = await fetch('https://formspree.io/f/xzdpvvlr', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -144,8 +144,8 @@ function Contact() {
                 <div>
                   <p className="text-gray-400 text-sm">Prefer email?</p>
                   {/* EDIT: Your email address */}
-                  <a href="mailto:contact@prycelesssolutions.com" className="text-white hover:text-primary-400 transition-colors">
-                    contact@prycelesssolutions.com
+                  <a href="mailto:prycehedrick@gmail.com" className="text-white hover:text-primary-400 transition-colors">
+                    prycehedrick@gmail.com
                   </a>
                 </div>
               </div>
@@ -173,7 +173,7 @@ function Contact() {
               </p>
               {/* EDIT: Replace with your Calendly link or embed */}
               <a
-                href="#" // Replace with your Calendly link
+                href="https://calendly.com/prycehedrick/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary inline-flex items-center gap-2"
