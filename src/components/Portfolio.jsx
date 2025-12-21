@@ -8,7 +8,7 @@ const projects = [
     title: 'Vault - Pokemon TCG Portfolio Tracker',
     shortDescription: 'Full-stack web application for collectors to track their card investments',
     fullDescription: 'A comprehensive portfolio tracking application designed for Pokemon TCG collectors. Features real-time price fetching, financial analytics including P&L tracking and portfolio health scoring, plus AI-powered investment insights.',
-    image: null, // EDIT: Add project image path
+    image: '/images/portfolio/vault/dashboard.png',
     tags: ['Python', 'Flask', 'SQL', 'REST API', 'Tailwind CSS'],
     features: [
       'Real-time price fetching via Pokemon TCG API',
@@ -17,8 +17,8 @@ const projects = [
       'Chart.js visualizations for data analysis'
     ],
     links: {
-      // EDIT: Add your actual links
-      github: '#', // Replace with actual GitHub URL
+      
+      github: 'https://github.com/PryceHedrick/vault',
       live: null
     },
     featured: true
@@ -28,7 +28,7 @@ const projects = [
     title: 'CardGuys.store E-Commerce Platform',
     shortDescription: 'Custom e-commerce platform for a trading card business',
     fullDescription: 'A fully custom e-commerce solution built for my trading card business. Integrates with eBay API for inventory synchronization, features PayPal/Venmo payment processing, and includes comprehensive search, filtering, and shopping cart functionality.',
-    image: null, // EDIT: Add project image path
+    image: '/images/portfolio/cardguys/homepage.png',
     tags: ['Python', 'SQL', 'HTML/CSS', 'eBay API', 'Git'],
     features: [
       'eBay API integration for inventory sync',
@@ -37,30 +37,31 @@ const projects = [
       'Full shopping cart functionality'
     ],
     links: {
-      // EDIT: Add your actual links
+      
       github: null,
-      live: '#' // Replace with actual live URL
+      live: 'https://cardguys.store'
     },
+    clientWork: true,
     featured: true
   },
   {
     id: 3,
-    title: 'Shipping API Integration',
-    shortDescription: 'Award-winning senior capstone project for Panda International',
-    fullDescription: 'Enterprise-grade shipping data integration system developed as a senior capstone project for Panda International. Features real-time shipping data integration for order management with a scalable API architecture. This project won the Outstanding Senior Project Award in 2024.',
-    image: null, // EDIT: Add project image path
-    tags: ['C#', 'ASP.NET', 'SQL', 'REST API'],
+    title: 'Panda International OMS',
+    shortDescription: 'Award-winning senior capstone project - Order Management System',
+    fullDescription: 'Enterprise-grade Order Management System developed as a senior capstone project for Panda International. Features FedEx API integration for shipping labels, real-time tracking, inventory management, and multi-warehouse support. This project won the Outstanding Senior Project Award at USI in 2024.',
+    image: '/images/portfolio/panda-oms/Panda_OMS_Dashboard.png',
+    tags: ['C#', 'ASP.NET Core', 'SQL Server', 'REST API', 'FedEx API'],
     features: [
-      'Real-time shipping data integration',
-      'Scalable API architecture',
-      'Order management system integration',
-      'Enterprise-grade reliability'
+      'FedEx API integration for shipping labels',
+      'Real-time shipment tracking',
+      'Multi-warehouse inventory management',
+      'Platform order aggregation (Amazon, eBay)'
     ],
     links: {
-      github: null,
+      github: 'https://github.com/PryceHedrick/OrderManagementSystem',
       live: null
     },
-    award: 'Outstanding Senior Project Award 2024',
+    award: 'Outstanding Senior Project Award - USI 2024',
     featured: true
   },
   {
