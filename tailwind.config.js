@@ -40,8 +40,10 @@ export default {
         'scale-in': 'scaleIn 0.5s ease-out forwards',
         'gradient': 'gradient 8s ease infinite',
         'gradient-slow': 'gradient 15s ease infinite',
+        'gradient-x': 'gradientX 3s ease infinite',
         'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'pulse-slow': 'pulseSlow 3s ease-in-out infinite',
         'dot-pulse': 'dotPulse 2s ease-in-out infinite',
         'subtle-pulse': 'subtlePulse 2.5s ease-in-out infinite',
         'shimmer': 'shimmer 3s ease-in-out infinite',
@@ -108,6 +110,14 @@ export default {
           '50%': { transform: 'scale(1.05)' },
           '70%': { transform: 'scale(0.9)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        gradientX: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        pulseSlow: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.6' },
         },
         badgePulse: {
           '0%, 100%': { boxShadow: '0 0 15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(34, 211, 238, 0.15)' },
