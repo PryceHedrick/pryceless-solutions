@@ -8,8 +8,8 @@ const reasons = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
       </svg>
     ),
-    title: 'Formal CS Education',
-    description: 'BS in Computer Science from the University of Southern Indiana. Strong foundation in algorithms, data structures, and software engineering principles.'
+    title: 'Solid Foundation',
+    description: "A Computer Science degree teaches you how to think, not just how to code. Four years of algorithms, system design, and engineering principles means I build software that's architected correctly from the start—not patched together and hoping for the best."
   },
   {
     icon: (
@@ -17,8 +17,8 @@ const reasons = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
       </svg>
     ),
-    title: 'Award-Winning Work',
-    description: 'Outstanding Senior Project Award 2024. My capstone project for Panda International delivered an enterprise-grade solution that is still in use today.'
+    title: 'Proven Results',
+    description: "My senior project wasn't a demo that got deleted after graduation. I built a full order management system with shipping API integration for Panda International—and it earned the Outstanding Senior Project Award at USI. That system is still in production today."
   },
   {
     icon: (
@@ -26,8 +26,8 @@ const reasons = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
-    title: 'Clean Code Practices',
-    description: 'Readable, maintainable, well-documented. Code that you or another developer can build on down the road.'
+    title: 'Code That Lasts',
+    description: "Every line I write is meant to be read by someone else. Clean architecture, meaningful documentation, and zero \"I'll fix it later\" shortcuts. When your business scales or you bring on another developer, the codebase will be an asset, not a liability."
   },
   {
     icon: (
@@ -35,8 +35,8 @@ const reasons = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
       </svg>
     ),
-    title: 'Clear Communication',
-    description: 'Regular updates, honest timelines, and straightforward explanations. You will always know where your project stands.'
+    title: 'No Surprises',
+    description: "You'll get regular updates without having to ask. Timelines are realistic, not optimistic. And if anything changes, you hear it from me first—not when you're wondering why something is late. That's not extra service; that's just how projects should run."
   }
 ]
 

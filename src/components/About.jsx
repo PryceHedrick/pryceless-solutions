@@ -98,7 +98,7 @@ function About() {
 
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="text-lg">
-                Computer Science degree. Business background. Award-winning senior project. I build solutions that work technically AND make sense for your bottom line.
+                I graduated from the University of Southern Indiana with degrees in Computer Science and Business Administration—while working full-time and raising a family. That taught me more than any textbook: how to manage time, prioritize ruthlessly, and deliver under real constraints. My senior capstone earned the Outstanding Senior Project Award, and that same discipline guides every project I take on: technically excellent, strategically sound, built to deliver.
               </p>
             </div>
 
