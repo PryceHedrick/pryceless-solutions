@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import HolidayBanner from './components/HolidayBanner'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -43,6 +44,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-dark-900">
+      <HolidayBanner />
       <Navbar activeSection={activeSection} />
 
       <main>
