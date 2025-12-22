@@ -133,15 +133,15 @@ function ServiceCard({ service, index }) {
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="glass-card h-full p-6 lg:p-8 hover:bg-dark-700/50 transition-all duration-300 relative overflow-hidden">
+      <div className="glass-card h-full p-6 lg:p-8 hover:bg-dark-700/50 transition-all duration-300 ease-out relative overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/10 gradient-border-animate rounded-2xl">
         {/* Gradient Glow Effect */}
         <div
           className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-500 rounded-full`}
         />
 
-        {/* Icon */}
+        {/* Icon with glow effect */}
         <div
-          className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} bg-opacity-10 flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform duration-300`}
+          className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} bg-opacity-10 flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-all duration-300 icon-glow`}
         >
           {service.icon}
         </div>

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
 const reasons = [
@@ -74,6 +75,12 @@ function WhyWorkWithMe() {
 
 function ReasonCard({ reason, index }) {
   const [cardRef, isVisible] = useScrollAnimation({ threshold: 0.2 })
+  const [hasAnimated, setHasAnimated] = useState(false)
+
+  // Only animate once
+  if (isVisible && !hasAnimated) {
+    setHasAnimated(true)
+  }
 
   return (
     <div
@@ -83,9 +90,9 @@ function ReasonCard({ reason, index }) {
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className="glass-card p-6 lg:p-8 h-full hover:bg-dark-700/50 transition-colors group">
-        {/* Icon */}
-        <div className="w-14 h-14 rounded-xl bg-primary-500/10 flex items-center justify-center text-primary-400 mb-5 group-hover:bg-primary-500/20 group-hover:scale-110 transition-all duration-300">
+      <div className="glass-card p-6 lg:p-8 h-full hover:bg-dark-700/50 transition-all duration-300 ease-out group hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/10">
+        {/* Icon with bounce animation on scroll */}
+        <div className={`w-14 h-14 rounded-xl bg-primary-500/10 flex items-center justify-center text-primary-400 mb-5 group-hover:bg-primary-500/20 group-hover:scale-110 transition-all duration-300 ${hasAnimated ? 'animate-bounce-in' : 'opacity-0'}`} style={{ animationDelay: `${index * 100 + 200}ms` }}>
           {reason.icon}
         </div>
 

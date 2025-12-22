@@ -62,7 +62,7 @@ function Credentials() {
           {credentials.map((credential, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 px-4 py-3 glass-card hover:bg-dark-700/50 transition-colors w-full sm:w-auto min-h-[72px]"
+              className="flex items-center gap-3 px-4 py-3 glass-card hover:bg-dark-700/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/10 w-full sm:w-auto min-h-[72px]"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="w-10 h-10 flex-shrink-0 rounded-lg bg-primary-500/20 flex items-center justify-center text-primary-400">

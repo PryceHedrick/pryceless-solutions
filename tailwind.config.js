@@ -39,11 +39,15 @@ export default {
         'slide-in-right': 'slideInRight 0.6s ease-out forwards',
         'scale-in': 'scaleIn 0.5s ease-out forwards',
         'gradient': 'gradient 8s ease infinite',
+        'gradient-slow': 'gradient 15s ease infinite',
         'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
         'dot-pulse': 'dotPulse 2s ease-in-out infinite',
         'subtle-pulse': 'subtlePulse 2.5s ease-in-out infinite',
         'shimmer': 'shimmer 3s ease-in-out infinite',
+        'shimmer-border': 'shimmerBorder 4s ease-in-out infinite',
+        'bounce-in': 'bounceIn 0.6s ease-out forwards',
+        'badge-pulse': 'badgePulse 3s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -94,6 +98,20 @@ export default {
           '0%': { opacity: '0.5' },
           '50%': { opacity: '1' },
           '100%': { opacity: '0.5' },
+        },
+        shimmerBorder: {
+          '0%, 100%': { backgroundPosition: '200% center' },
+          '50%': { backgroundPosition: '-200% center' },
+        },
+        bounceIn: {
+          '0%': { opacity: '0', transform: 'scale(0.3)' },
+          '50%': { transform: 'scale(1.05)' },
+          '70%': { transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        badgePulse: {
+          '0%, 100%': { boxShadow: '0 0 15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(34, 211, 238, 0.15)' },
+          '50%': { boxShadow: '0 0 25px rgba(59, 130, 246, 0.5), 0 0 50px rgba(34, 211, 238, 0.25)' },
         },
       },
       backdropBlur: {

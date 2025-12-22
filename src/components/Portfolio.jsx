@@ -149,7 +149,7 @@ function ProjectCard({ project, index, onClick }) {
         onClick={onClick}
         className={`glass-card overflow-hidden h-full group ${
           project.cta ? '' : 'cursor-pointer'
-        } hover:bg-dark-700/50 transition-all duration-300`}
+        } hover:bg-dark-700/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/10`}
       >
         {/* Project Image */}
         <div className="relative h-48 bg-gradient-to-br from-dark-700 to-dark-800 overflow-hidden">
@@ -206,12 +206,13 @@ function ProjectCard({ project, index, onClick }) {
           <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
           <p className="text-gray-400 mb-4">{project.shortDescription}</p>
 
-          {/* Tags */}
+          {/* Tags with stagger animation on hover */}
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag, i) => (
               <span
                 key={i}
-                className="px-3 py-1 text-xs font-medium bg-dark-700 text-gray-300 rounded-full"
+                className="px-3 py-1 text-xs font-medium bg-dark-700 text-gray-300 rounded-full transition-all duration-300 group-hover:bg-primary-500/20 group-hover:text-primary-300"
+                style={{ transitionDelay: `${i * 50}ms` }}
               >
                 {tag}
               </span>

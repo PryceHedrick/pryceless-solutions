@@ -91,8 +91,8 @@ function StepCard({ step, index }) {
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       <div className="glass-card p-8 text-center h-full hover:bg-dark-700/50 transition-all duration-300 group">
-        {/* Step Number */}
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary-500 rounded-full text-white font-bold text-sm">
+        {/* Step Number with hover effect */}
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary-500 rounded-full text-white font-bold text-sm transition-all duration-300 group-hover:bg-cyan-500 group-hover:shadow-lg group-hover:shadow-cyan-500/30">
           {step.number}
         </div>
 
