@@ -8,8 +8,8 @@ function HolidayBanner() {
     // Check if banner was dismissed (persists across sessions)
     const dismissed = localStorage.getItem('holidayBannerDismissed')
 
-    // Check if offer has expired (after January 1st, 2025)
-    const expirationDate = new Date('2025-01-01T00:00:00')
+    // Check if offer has expired (after January 1st, 2026)
+    const expirationDate = new Date('2026-01-01T00:00:00')
     const isExpired = new Date() >= expirationDate
 
     if (!dismissed && !isExpired) {
