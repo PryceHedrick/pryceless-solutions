@@ -1,18 +1,19 @@
+/* HOLIDAY PROMO - Remove by setting HOLIDAY_PROMO.active = false in src/config/promo.js */
 import { useState, useEffect } from 'react'
+import { HOLIDAY_PROMO, isPromoActive } from '../config/promo'
 
 function HolidayBanner() {
   const [isVisible, setIsVisible] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
+    // Check master promo switch and expiration
+    if (!isPromoActive()) return
+
     // Check if banner was dismissed (persists across sessions)
     const dismissed = localStorage.getItem('holidayBannerDismissed')
 
-    // Check if offer has expired (after January 1st, 2026)
-    const expirationDate = new Date('2026-01-01T00:00:00')
-    const isExpired = new Date() >= expirationDate
-
-    if (!dismissed && !isExpired) {
+    if (!dismissed) {
       setIsVisible(true)
       // Trigger slide-down animation after mount
       setTimeout(() => setIsLoaded(true), 50)
@@ -36,7 +37,7 @@ function HolidayBanner() {
 
   return (
     <>
-      {/* Fixed banner at absolute top */}
+      {/* HOLIDAY PROMO BANNER - Fixed at absolute top */}
       <div
         onClick={handleClick}
         className={`fixed top-0 left-0 right-0 z-[100] cursor-pointer
@@ -60,7 +61,7 @@ function HolidayBanner() {
                 <span className="font-bold text-white">Holiday Special:</span>
                 {' '}
                 <span className="inline-block animate-shimmer bg-gradient-to-r from-cyan-400 via-white to-cyan-400 bg-[length:200%_100%] bg-clip-text text-transparent font-bold">
-                  $150 off
+                  ${HOLIDAY_PROMO.discount} off
                 </span>
                 {' '}any project booked before Jan 1st
               </span>

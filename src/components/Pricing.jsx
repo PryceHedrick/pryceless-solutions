@@ -1,5 +1,7 @@
+/* HOLIDAY PROMO - Remove by setting HOLIDAY_PROMO.active = false in src/config/promo.js */
 import { useState, useEffect, useRef } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
+import { HOLIDAY_PROMO, isPromoActive, getDiscountedPrice } from '../config/promo'
 
 // EDIT: Pricing tiers - Modify pricing and features here
 const pricingTiers = [
@@ -60,6 +62,7 @@ const pricingTiers = [
 
 function Pricing() {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
+  const showPromo = isPromoActive()
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
@@ -93,6 +96,7 @@ function Pricing() {
               tier={tier}
               index={index}
               onCtaClick={scrollToContact}
+              showPromo={showPromo}
             />
           ))}
         </div>
@@ -149,12 +153,15 @@ function useCountUp(end, duration = 1500, shouldStart = false) {
   return count
 }
 
-function PricingCard({ tier, index, onCtaClick }) {
+function PricingCard({ tier, index, onCtaClick, showPromo }) {
   const [cardRef, isVisible] = useScrollAnimation({ threshold: 0.2 })
-  const animatedPrice = useCountUp(tier.price, 1200, isVisible)
+
+  // Animate to discounted price if promo is active, otherwise original price
+  const targetPrice = showPromo ? getDiscountedPrice(tier.price) : tier.price
+  const animatedPrice = useCountUp(targetPrice, 1200, isVisible)
 
   const formatPrice = (num) => {
-    return '$' + num.toLocaleString() + '+'
+    return '$' + num.toLocaleString()
   }
 
   return (
@@ -165,6 +172,16 @@ function PricingCard({ tier, index, onCtaClick }) {
       } ${tier.highlighted ? 'md:-mt-4 md:mb-4' : ''}`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
+      {/* HOLIDAY PROMO BADGE - Top right corner (responsive positioning) */}
+      {showPromo && (
+        <div className="absolute -top-2.5 right-2 sm:right-3 z-20">
+          <span className="relative px-2 sm:px-2.5 py-1 bg-gradient-to-r from-cyan-500 to-cyan-400 text-dark-900 text-[10px] sm:text-xs font-bold rounded-full shadow-lg shadow-cyan-500/30 flex items-center gap-1">
+            <span>🎄</span>
+            <span>{HOLIDAY_PROMO.badgeText}</span>
+          </span>
+        </div>
+      )}
+
       {/* Highlighted Badge with shimmer */}
       {tier.highlighted && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
@@ -191,14 +208,40 @@ function PricingCard({ tier, index, onCtaClick }) {
         {/* Tier Name */}
         <h3 className="text-xl font-bold text-white mb-2">{tier.name}</h3>
 
-        {/* Price with count-up animation */}
+        {/* Price Section */}
         <div className="mb-4">
           <span className="text-sm text-gray-400">{tier.priceNote}</span>
-          <div className="flex items-baseline gap-1">
-            <span className="text-4xl font-bold text-white">
-              {isVisible ? formatPrice(animatedPrice) : '$0+'}
-            </span>
-          </div>
+
+          {/* HOLIDAY PROMO PRICING */}
+          {showPromo ? (
+            <div className="flex flex-col gap-1">
+              {/* Original price - strikethrough */}
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <span className="text-base sm:text-lg text-slate-500 line-through font-medium">
+                  {tier.priceDisplay}
+                </span>
+                {/* Holiday savings badge */}
+                <span className="px-1.5 sm:px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap">
+                  Save ${HOLIDAY_PROMO.discount}
+                </span>
+              </div>
+              {/* New discounted price with animation */}
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white animate-pulse-slow">
+                  {isVisible ? formatPrice(animatedPrice) : '$0'}
+                </span>
+                <span className="text-xl sm:text-2xl font-bold text-cyan-400">+</span>
+              </div>
+            </div>
+          ) : (
+            /* Regular pricing (non-promo) */
+            <div className="flex items-baseline gap-1">
+              <span className="text-4xl font-bold text-white">
+                {isVisible ? formatPrice(animatedPrice) : '$0'}
+              </span>
+              <span className="text-2xl font-bold text-white">+</span>
+            </div>
+          )}
         </div>
 
         {/* Description */}
