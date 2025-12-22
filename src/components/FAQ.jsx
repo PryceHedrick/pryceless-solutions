@@ -5,35 +5,35 @@ import useScrollAnimation from '../hooks/useScrollAnimation'
 const faqItems = [
   {
     question: 'How does the free consultation work?',
-    answer: "We hop on a 30-minute call where you share your vision. I ask questions to understand scope, then follow up with a proposal if it's a fit. No pressure, no obligation—just a conversation to see if we're a good match for your project."
+    answer: "We hop on a 30-minute call, you tell me what you're building, I ask questions to understand the scope. If it's a fit, I send a proposal. No pressure, no obligation."
   },
   {
     question: "What's your typical turnaround time?",
-    answer: 'Landing pages: 1-2 weeks. Multi-page sites: 2-4 weeks. Web apps: 4-8 weeks depending on complexity. These are estimates—I\'ll give you a specific timeline in my proposal after understanding your project.'
+    answer: "Landing pages: 1-2 weeks. Multi-page sites: 2-4 weeks. Web apps: 4-8 weeks. You'll get a specific timeline in your proposal."
   },
   {
     question: "I don't know exactly what I need. Can you help?",
-    answer: "Absolutely. That's what the consultation is for. Many clients come to me with just an idea or a problem they're trying to solve. I'll help you clarify requirements, suggest the right approach, and create a roadmap that makes sense for your goals and budget."
+    answer: "That's exactly what the consultation is for. Bring the idea, I'll help you shape it into a plan that fits your goals and budget."
   },
   {
     question: 'Do you offer maintenance and support?',
-    answer: 'Yes. I offer monthly maintenance packages for ongoing updates, security patches, and performance monitoring. I also provide hourly support for ad-hoc fixes, improvements, or feature additions. We can discuss what makes sense for your project.'
+    answer: "Yes—monthly packages for ongoing updates and security, or hourly support for one-off fixes. We'll figure out what makes sense for you."
   },
   {
     question: "What's the payment structure?",
-    answer: '50% upfront to start work, 50% on completion before launch. For larger projects (typically $5,000+), we can break payments into milestones so you\'re not paying everything at once. I accept payment via invoice (PayPal, bank transfer, etc.).'
+    answer: '50% to start, 50% on completion. Larger projects can be split into milestones. I invoice via PayPal or bank transfer.'
   },
   {
     question: 'Can you work with my existing website?',
-    answer: 'Yes. I can update, redesign, or add features to existing sites depending on the platform. During our consultation, I\'ll take a look at what you have and let you know what\'s possible. Some platforms are easier to work with than others, but most are doable.'
+    answer: "Usually, yes. I'll take a look during our consultation and tell you what's possible. Most platforms are workable."
   },
   {
-    question: 'What if I need changes after the project is done?',
-    answer: 'Revisions during the project are included as specified in your package. After launch, I offer a 30-day warranty period for bug fixes. Beyond that, I\'m available for ongoing support at hourly rates or through a maintenance package.'
+    question: 'What if I need changes after launch?',
+    answer: 'Revisions during the project are included. After launch, you get 30 days of bug fixes. Beyond that, I offer hourly support or maintenance packages.'
   },
   {
     question: 'Do you work with clients outside your area?',
-    answer: 'Absolutely! Most of my work is done remotely. We\'ll communicate via video calls, email, and messaging. I\'ve successfully worked with clients across different time zones. As long as we can schedule occasional calls, location isn\'t an issue.'
+    answer: "Absolutely. Most of my work is remote—video calls, email, messaging. Time zones aren't an issue."
   }
 ]
 
@@ -114,20 +114,32 @@ function FAQItem({ item, index, isOpen, onToggle }) {
       }`}
       style={{ transitionDelay: `${index * 75}ms` }}
     >
-      <div className="glass-card overflow-hidden">
+      <div
+        className={`glass-card overflow-hidden transition-all duration-300 ${
+          isOpen ? 'border-l-2 border-l-cyan-400' : 'border-l-2 border-l-transparent'
+        }`}
+      >
         {/* Question Button */}
         <button
           onClick={onToggle}
-          className="w-full flex items-center justify-between p-5 text-left hover:bg-dark-700/30 transition-colors"
+          className={`w-full flex items-center justify-between p-5 text-left transition-colors duration-300 ${
+            isOpen ? 'bg-dark-700/50' : 'hover:bg-dark-700/30'
+          }`}
         >
-          <span className="font-semibold text-white pr-4">{item.question}</span>
+          <span className={`font-semibold pr-4 transition-colors duration-300 ${
+            isOpen ? 'text-cyan-400' : 'text-white'
+          }`}>
+            {item.question}
+          </span>
           <span
-            className={`flex-shrink-0 w-8 h-8 rounded-full bg-dark-700 flex items-center justify-center transition-transform duration-300 ${
-              isOpen ? 'rotate-180' : ''
+            className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+              isOpen ? 'bg-cyan-500/20 rotate-180' : 'bg-dark-700'
             }`}
           >
             <svg
-              className="w-4 h-4 text-primary-400"
+              className={`w-4 h-4 transition-colors duration-300 ${
+                isOpen ? 'text-cyan-400' : 'text-primary-400'
+              }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -137,14 +149,16 @@ function FAQItem({ item, index, isOpen, onToggle }) {
           </span>
         </button>
 
-        {/* Answer */}
+        {/* Answer with smooth height animation */}
         <div
-          className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          className={`grid transition-all duration-300 ease-in-out ${
+            isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
           }`}
         >
-          <div className="px-5 pb-5 text-gray-300 border-t border-dark-700/50 pt-4">
-            {item.answer}
+          <div className="overflow-hidden">
+            <div className="px-5 pb-5 text-gray-300 border-t border-dark-700/50 pt-4">
+              {item.answer}
+            </div>
           </div>
         </div>
       </div>

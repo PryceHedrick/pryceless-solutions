@@ -123,9 +123,9 @@ function Hero() {
       {/* Content */}
       <div className="relative z-20 section-container text-center py-20">
         <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-sm mb-8 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse" />
+          {/* Badge with pulse animation */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800/50 border border-primary-500/30 text-gray-300 text-sm mb-8 animate-fade-in animate-badge-pulse">
+            <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
             {/* EDIT: Badge text */}
             Available for new projects
           </div>
@@ -133,19 +133,19 @@ function Hero() {
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up">
             {/* EDIT: Business name */}
-            <span className="gradient-text">Pryceless</span> Solutions
+            Pryceless <span className="gradient-text">Solutions</span>
           </h1>
 
           {/* Tagline */}
           <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-light mb-6 animate-fade-in-up delay-100">
-            {/* EDIT: Tagline - Options: "Your Vision. Built Right." or "Ideas Deserve Better Than Templates" */}
+            {/* EDIT: Tagline */}
             Your Vision. Built Right.
           </p>
 
           {/* Value Proposition */}
           <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200">
             {/* EDIT: Value proposition */}
-            I partner with entrepreneurs and small businesses to turn ideas into custom digital solutions—websites, web apps, and automation tools built to actually work for you.
+            Custom websites and web apps for small businesses—built to work, priced to fit, delivered on time.
           </p>
 
           {/* CTA Buttons */}

@@ -1,0 +1,13 @@
+{
+  "projectName": "Pryceless Solutions",
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Edit(*)",
+      "Write(src/**)",
+      "Write(public/**)",
+      "Bash(npm run *)",
+      "Bash(npx *)"
+    ]
+  }
+}

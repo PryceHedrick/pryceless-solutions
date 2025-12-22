@@ -1,68 +1,72 @@
+/* HOLIDAY PROMO - Remove by setting HOLIDAY_PROMO.active = false in src/config/promo.js */
+import { useState, useEffect, useRef } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
+import { isPromoActive } from '../config/promo'
 
 // EDIT: Pricing tiers - Modify pricing and features here
-// Holiday pricing: originalPrice, holidayPrice, percentOff for seasonal promotions
+// Holiday pricing: originalPrice (number), holidayPrice (number), percentOff for badges
 const pricingTiers = [
   {
     name: 'Starter',
-    price: '$600',
-    originalPrice: '$750',
+    price: 600,
+    originalPrice: 750,
     percentOff: '20',
     priceNote: 'Holiday Special',
-    description: 'Perfect for personal sites and coming soon pages',
+    description: 'Clean and simple - perfect for getting online fast',
     features: [
-      'Single landing page',
+      '1-2 page website',
       'Mobile responsive design',
       'Contact form integration',
-      '1 round of revisions',
-      'Basic SEO setup'
+      '2 rounds of revisions',
+      '1-2 week delivery'
     ],
-    bestFor: 'Personal sites, coming soon pages',
+    bestFor: 'Personal sites, landing pages, coming soon pages',
     highlighted: false,
     ctaText: 'Get Started'
   },
   {
     name: 'Professional',
-    price: '$1,650',
-    originalPrice: '$1,800',
+    price: 1650,
+    originalPrice: 1800,
     percentOff: '8',
     priceNote: 'Holiday Special',
-    description: 'Ideal for small businesses looking to establish their online presence',
+    description: 'Everything a growing business needs to stand out',
     features: [
-      'Multi-page website (up to 5 pages)',
+      'Up to 5 pages',
       'Custom design & branding',
-      'Basic animations & interactions',
-      'Full SEO optimization',
-      '2 rounds of revisions',
-      'Google Analytics setup'
+      'Smooth animations & interactions',
+      'SEO optimization + Google Analytics',
+      '3 rounds of revisions',
+      '2-4 week delivery'
     ],
-    bestFor: 'Small businesses, portfolios',
+    bestFor: 'Small businesses, professional portfolios',
     highlighted: true,
     ctaText: 'Get Started'
   },
   {
     name: 'Custom',
-    price: '$3,350',
-    originalPrice: '$3,500',
+    price: 3350,
+    originalPrice: 3500,
     percentOff: '4',
     priceNote: 'Holiday Special',
-    description: 'For complex projects requiring custom functionality',
+    description: 'Built from scratch for your specific needs',
     features: [
       'Web applications & dashboards',
-      'E-commerce builds',
+      'E-commerce solutions',
       'API integrations',
-      'Complex business logic',
+      'Complex functionality',
       'Ongoing support available',
       'Priority communication'
     ],
-    bestFor: 'Businesses with specific needs',
+    bestFor: 'Businesses with unique requirements',
     highlighted: false,
-    ctaText: 'Contact Me'
+    ctaText: 'Get Started'
   }
 ]
 
 function Pricing() {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
+  const showPromo = isPromoActive()
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
@@ -89,13 +93,14 @@ function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch">
           {pricingTiers.map((tier, index) => (
             <PricingCard
               key={index}
               tier={tier}
               index={index}
               onCtaClick={scrollToContact}
+              showPromo={showPromo}
             />
           ))}
         </div>
@@ -113,6 +118,46 @@ function Pricing() {
   )
 }
 
+// Animated counter hook for price
+function useCountUp(end, duration = 1500, shouldStart = false) {
+  const [count, setCount] = useState(0)
+  const countRef = useRef(null)
+
+  useEffect(() => {
+    if (!shouldStart) return
+
+    let startTime = null
+    const startValue = 0
+
+    const animate = (currentTime) => {
+      if (startTime === null) startTime = currentTime
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+
+      // Ease out cubic
+      const easeOut = 1 - Math.pow(1 - progress, 3)
+      const currentCount = Math.floor(startValue + (end - startValue) * easeOut)
+
+      setCount(currentCount)
+
+      if (progress < 1) {
+        countRef.current = requestAnimationFrame(animate)
+      }
+    }
+
+    countRef.current = requestAnimationFrame(animate)
+
+    return () => {
+      if (countRef.current) {
+        cancelAnimationFrame(countRef.current)
+      }
+    }
+  }, [end, duration, shouldStart])
+
+  return count
+}
+
+// Holiday percentage badge component
 function HolidayBadge({ percentOff, isVisible, delay }) {
   return (
     <div
@@ -123,7 +168,7 @@ function HolidayBadge({ percentOff, isVisible, delay }) {
     >
       <div className="relative">
         {/* Badge with shimmer effect */}
-        <div className="px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500
+        <div className="px-2.5 py-1.5 sm:px-3 sm:py-2 bg-gradient-to-r from-cyan-500 via-cyan-400 to-cyan-500
                         rounded-lg shadow-lg shadow-cyan-500/30 transform rotate-[-12deg]
                         overflow-hidden">
           {/* Shimmer overlay */}
@@ -131,7 +176,7 @@ function HolidayBadge({ percentOff, isVisible, delay }) {
                           animate-shimmer bg-[length:200%_100%]" />
           <div className="flex items-center gap-1 relative">
             <span className="text-xs sm:text-sm">✨</span>
-            <span className="text-white font-bold text-sm sm:text-base">{percentOff}% OFF</span>
+            <span className="text-white font-bold text-xs sm:text-sm">{percentOff}% OFF</span>
           </div>
         </div>
       </div>
@@ -139,27 +184,35 @@ function HolidayBadge({ percentOff, isVisible, delay }) {
   )
 }
 
-function PricingCard({ tier, index, onCtaClick }) {
+function PricingCard({ tier, index, onCtaClick, showPromo }) {
   const [cardRef, isVisible] = useScrollAnimation({ threshold: 0.2 })
   const delay = index * 150
+
+  // Animate to holiday price if promo is active, otherwise original price
+  const targetPrice = showPromo ? tier.price : tier.originalPrice
+  const animatedPrice = useCountUp(targetPrice, 1200, isVisible)
+
+  const formatPrice = (num) => {
+    return '$' + num.toLocaleString()
+  }
 
   return (
     <div
       ref={cardRef}
       className={`relative transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      } ${tier.highlighted ? 'md:-mt-4 md:mb-4' : ''}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {/* Holiday Percentage Badge - Top Right */}
-      {tier.percentOff && (
+      {showPromo && tier.percentOff && (
         <HolidayBadge percentOff={tier.percentOff} isVisible={isVisible} delay={delay} />
       )}
 
       {/* Most Popular Badge - Top Left (for highlighted tier) */}
       {tier.highlighted && (
         <div className="absolute -top-3 -left-3 z-20">
-          <span className={`px-3 py-1.5 sm:px-4 sm:py-2 bg-primary-500 text-white text-xs sm:text-sm
+          <span className={`px-2.5 py-1.5 sm:px-3 sm:py-2 bg-primary-500 text-white text-xs sm:text-sm
                            font-semibold rounded-lg shadow-lg shadow-primary-500/30
                            transform rotate-[12deg] inline-block transition-all duration-500 ${
                              isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
@@ -170,26 +223,51 @@ function PricingCard({ tier, index, onCtaClick }) {
         </div>
       )}
 
+      {/* Gradient glow for highlighted card */}
+      {tier.highlighted && (
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-cyan-400 rounded-2xl opacity-20 blur-sm" />
+      )}
+
       <div
-        className={`glass-card h-full flex flex-col p-6 lg:p-8 transition-all duration-300 overflow-hidden ${
+        className={`glass-card h-full flex flex-col p-6 lg:p-8 transition-all duration-300 group relative overflow-hidden ${
           tier.highlighted
-            ? 'border-primary-500/50 bg-dark-800/70 scale-[1.02]'
-            : 'hover:bg-dark-700/50'
+            ? 'border-primary-500/50 bg-dark-800/80 shadow-xl shadow-primary-500/10'
+            : 'hover:bg-dark-700/50 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary-500/5'
         }`}
       >
         {/* Tier Name */}
         <h3 className="text-xl font-bold text-white mb-2">{tier.name}</h3>
 
-        {/* Price with strikethrough for holiday pricing */}
+        {/* Price Section */}
         <div className="mb-4">
           <span className="text-sm text-cyan-400 font-medium">{tier.priceNote}</span>
-          <div className="flex items-baseline gap-2 flex-wrap">
-            {tier.originalPrice && (
-              <span className="text-xl text-gray-500 line-through">{tier.originalPrice}</span>
-            )}
-            <span className="text-4xl font-bold text-cyan-400">{tier.price}</span>
-            {tier.price.startsWith('$') && <span className="text-gray-400">+</span>}
-          </div>
+
+          {/* HOLIDAY PROMO PRICING */}
+          {showPromo ? (
+            <div className="flex flex-col gap-1">
+              {/* Original price - strikethrough */}
+              <div className="flex items-baseline gap-2">
+                <span className="text-lg text-gray-500 line-through font-medium">
+                  ${tier.originalPrice.toLocaleString()}
+                </span>
+              </div>
+              {/* New discounted price with animation */}
+              <div className="flex items-baseline gap-1">
+                <span className="text-4xl font-bold text-cyan-400">
+                  {isVisible ? formatPrice(animatedPrice) : '$0'}
+                </span>
+                <span className="text-2xl font-bold text-cyan-400">+</span>
+              </div>
+            </div>
+          ) : (
+            /* Regular pricing (non-promo) */
+            <div className="flex items-baseline gap-1">
+              <span className="text-4xl font-bold text-white">
+                {isVisible ? formatPrice(animatedPrice) : '$0'}
+              </span>
+              <span className="text-2xl font-bold text-white">+</span>
+            </div>
+          )}
         </div>
 
         {/* Description */}
@@ -222,13 +300,13 @@ function PricingCard({ tier, index, onCtaClick }) {
           </p>
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Button with smooth hover */}
         <button
           onClick={onCtaClick}
-          className={`w-full py-3 font-semibold rounded-lg transition-all duration-300 ${
+          className={`w-full py-3 font-semibold rounded-lg transition-all duration-300 transform ${
             tier.highlighted
-              ? 'bg-primary-500 hover:bg-primary-600 text-white shadow-lg shadow-primary-500/25'
-              : 'bg-dark-700 hover:bg-dark-600 text-white'
+              ? 'bg-primary-500 hover:bg-primary-400 text-white shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-[1.02]'
+              : 'bg-dark-700 hover:bg-dark-600 text-white hover:scale-[1.02]'
           }`}
         >
           {tier.ctaText}

@@ -1,11 +1,11 @@
 // EDIT: Footer navigation links
 const footerLinks = {
   services: [
-    { label: 'Custom Websites', href: '#services' },
-    { label: 'Web Applications', href: '#services' },
-    { label: 'E-Commerce', href: '#services' },
-    { label: 'API Integration', href: '#services' },
-    { label: 'Consulting', href: '#services' }
+    { label: 'Custom Websites', href: '#service-custom-websites' },
+    { label: 'Web Applications', href: '#service-web-applications' },
+    { label: 'E-Commerce', href: '#service-ecommerce' },
+    { label: 'API Integration', href: '#service-api-integration' },
+    { label: 'Consulting', href: '#service-consulting' }
   ],
   company: [
     { label: 'About', href: '#about' },
@@ -30,7 +30,7 @@ const socialLinks = [
   {
     name: 'GitHub',
     // EDIT: Replace with your GitHub URL
-    href: 'https://github.com/prycehedrick',
+    href: 'https://github.com/PryceHedrick',
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/>
@@ -47,11 +47,30 @@ function Footer() {
       const element = document.getElementById(href.slice(1))
       if (element) {
         const navHeight = 80
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY
-        window.scrollTo({
-          top: elementPosition - navHeight,
-          behavior: 'smooth'
-        })
+        const targetPosition = element.getBoundingClientRect().top + window.scrollY - navHeight
+
+        // Use manual smooth scroll for better iOS Safari support
+        const startPosition = window.scrollY
+        const distance = targetPosition - startPosition
+        const duration = 800
+        let startTime = null
+
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
+
+        const animateScroll = (currentTime) => {
+          if (startTime === null) startTime = currentTime
+          const elapsed = currentTime - startTime
+          const progress = Math.min(elapsed / duration, 1)
+          const easeProgress = easeOutCubic(progress)
+
+          window.scrollTo(0, startPosition + distance * easeProgress)
+
+          if (progress < 1) {
+            requestAnimationFrame(animateScroll)
+          }
+        }
+
+        requestAnimationFrame(animateScroll)
       }
     }
   }
@@ -72,11 +91,11 @@ function Footer() {
               className="flex items-center gap-2 mb-4"
             >
               {/* EDIT: Logo - Match your navbar logo */}
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-cyan-400 flex items-center justify-center font-bold text-white text-xl">
-                P
+              <div className="w-9 h-9 flex items-center justify-center">
+                <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none"><path d="M12 8L4 16L12 24" stroke="url(#footerGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M20 8L28 16L20 24" stroke="url(#footerGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/><defs><linearGradient id="footerGrad" x1="4" y1="8" x2="28" y2="24" gradientUnits="userSpaceOnUse"><stop stopColor="#3B82F6"/><stop offset="1" stopColor="#22D3EE"/></linearGradient></defs></svg>
               </div>
               <span className="text-xl font-bold text-white">
-                Pryceless<span className="text-primary-400">Solutions</span>
+                Pryceless <span className="gradient-text">Solutions</span>
               </span>
             </a>
 

@@ -34,16 +34,16 @@ const credentials = [
 
 // EDIT: Tech stack - Add or modify technologies you work with
 const techStack = [
-  { name: 'Python', color: '#3776AB' },
-  { name: 'JavaScript', color: '#F7DF1E' },
-  { name: 'C#', color: '#239120' },
-  { name: 'React', color: '#61DAFB' },
-  { name: 'SQL', color: '#4479A1' },
-  { name: 'Flask', color: '#000000' },
-  { name: 'ASP.NET', color: '#512BD4' },
-  { name: 'Tailwind', color: '#06B6D4' },
-  { name: 'Git', color: '#F05032' },
-  { name: 'REST APIs', color: '#FF6C37' }
+  { name: 'Python', color: '#3B82F6' },      // Blue
+  { name: 'SQL', color: '#6366F1' },          // Blue-Indigo
+  { name: 'Flask', color: '#818CF8' },        // Indigo
+  { name: 'C#', color: '#A78BFA' },           // Purple
+  { name: 'ASP.NET', color: '#C084FC' },      // Violet
+  { name: 'React', color: '#22D3EE' },        // Cyan
+  { name: 'JavaScript', color: '#2DD4BF' },   // Teal
+  { name: 'Tailwind', color: '#34D399' },     // Teal-Green
+  { name: 'Git', color: '#FB923C' },          // Orange
+  { name: 'REST APIs', color: '#F87171' }     // Coral
 ]
 
 function Credentials() {
@@ -62,13 +62,13 @@ function Credentials() {
           {credentials.map((credential, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 px-4 py-3 glass-card hover:bg-dark-700/50 transition-colors"
+              className="flex items-center gap-3 px-4 py-3 glass-card hover:bg-dark-700/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/10 w-full sm:w-auto min-h-[72px]"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center text-primary-400">
+              <div className="w-10 h-10 flex-shrink-0 rounded-lg bg-primary-500/20 flex items-center justify-center text-primary-400">
                 {credential.icon}
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="font-semibold text-white">{credential.title}</p>
                 <p className="text-sm text-gray-400">{credential.subtitle}</p>
               </div>
@@ -86,15 +86,25 @@ function Credentials() {
             {techStack.map((tech, index) => (
               <div
                 key={index}
-                className="group relative px-4 py-2 glass-card hover:bg-dark-700/50 transition-all duration-300 cursor-default"
-                style={{ animationDelay: `${index * 50}ms` }}
+                className="group relative px-4 py-2 glass-card cursor-default
+                           transition-all duration-300 ease-out
+                           hover:bg-dark-700/50 hover:scale-105 hover:-translate-y-0.5
+                           hover:shadow-lg hover:shadow-primary-500/10
+                           animate-fade-in-up opacity-0"
+                style={{
+                  animationDelay: `${index * 80}ms`,
+                  animationFillMode: 'forwards'
+                }}
               >
                 <div className="flex items-center gap-2">
-                  <div
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: tech.color }}
-                  />
-                  <span className="text-gray-300 group-hover:text-white transition-colors">
+                  <div className="relative flex items-center justify-center">
+                    {/* Base dot with subtle synchronized pulse */}
+                    <div
+                      className="w-2 h-2 rounded-full animate-subtle-pulse"
+                      style={{ backgroundColor: tech.color }}
+                    />
+                  </div>
+                  <span className="text-gray-300 group-hover:text-white transition-colors duration-200">
                     {tech.name}
                   </span>
                 </div>
