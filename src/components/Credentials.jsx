@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
 // EDIT: Credentials and achievements
@@ -49,37 +48,6 @@ const techStack = [
 
 function Credentials() {
   const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 })
-  const [activeDotIndex, setActiveDotIndex] = useState(-1)
-
-  // Sequential pulse animation: one dot at a time, then 5s pause
-  useEffect(() => {
-    if (!isVisible) return
-
-    const pulseDelay = 300 // Time each dot stays highlighted (ms)
-    const pauseAfterSequence = 5000 // 5 second pause after all dots pulse
-    const totalDots = techStack.length
-
-    let currentIndex = 0
-    let timeoutId
-
-    const pulseNext = () => {
-      if (currentIndex < totalDots) {
-        setActiveDotIndex(currentIndex)
-        currentIndex++
-        timeoutId = setTimeout(pulseNext, pulseDelay)
-      } else {
-        // All dots have pulsed, reset and wait 5 seconds
-        setActiveDotIndex(-1)
-        currentIndex = 0
-        timeoutId = setTimeout(pulseNext, pauseAfterSequence)
-      }
-    }
-
-    // Start the sequence
-    timeoutId = setTimeout(pulseNext, 500)
-
-    return () => clearTimeout(timeoutId)
-  }, [isVisible])
 
   return (
     <section className="py-16 bg-dark-900 border-y border-dark-700/50">
@@ -115,49 +83,33 @@ function Credentials() {
             Technologies I Work With
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            {techStack.map((tech, index) => {
-              const isActive = activeDotIndex === index
-              return (
-                <div
-                  key={index}
-                  className="group relative px-4 py-2 glass-card cursor-default
-                             transition-all duration-300 ease-out
-                             hover:bg-dark-700/50 hover:scale-105 hover:-translate-y-0.5
-                             hover:shadow-lg hover:shadow-primary-500/10
-                             animate-fade-in-up opacity-0"
-                  style={{
-                    animationDelay: `${index * 80}ms`,
-                    animationFillMode: 'forwards'
-                  }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="relative">
-                      {/* Base dot */}
-                      <div
-                        className="w-2 h-2 rounded-full transition-all duration-300"
-                        style={{
-                          backgroundColor: tech.color,
-                          transform: isActive ? 'scale(1.5)' : 'scale(1)',
-                          boxShadow: isActive ? `0 0 12px ${tech.color}` : 'none'
-                        }}
-                      />
-                      {/* Pulse ring - only shows when active */}
-                      <div
-                        className="absolute inset-0 w-2 h-2 rounded-full transition-all duration-300"
-                        style={{
-                          backgroundColor: tech.color,
-                          opacity: isActive ? 0.4 : 0,
-                          transform: isActive ? 'scale(2.5)' : 'scale(1)'
-                        }}
-                      />
-                    </div>
-                    <span className="text-gray-300 group-hover:text-white transition-colors duration-200">
-                      {tech.name}
-                    </span>
+            {techStack.map((tech, index) => (
+              <div
+                key={index}
+                className="group relative px-4 py-2 glass-card cursor-default
+                           transition-all duration-300 ease-out
+                           hover:bg-dark-700/50 hover:scale-105 hover:-translate-y-0.5
+                           hover:shadow-lg hover:shadow-primary-500/10
+                           animate-fade-in-up opacity-0"
+                style={{
+                  animationDelay: `${index * 80}ms`,
+                  animationFillMode: 'forwards'
+                }}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="relative flex items-center justify-center">
+                    {/* Base dot with subtle synchronized pulse */}
+                    <div
+                      className="w-2 h-2 rounded-full animate-subtle-pulse"
+                      style={{ backgroundColor: tech.color }}
+                    />
                   </div>
+                  <span className="text-gray-300 group-hover:text-white transition-colors duration-200">
+                    {tech.name}
+                  </span>
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>

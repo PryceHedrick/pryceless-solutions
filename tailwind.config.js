@@ -42,6 +42,7 @@ export default {
         'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
         'dot-pulse': 'dotPulse 2s ease-in-out infinite',
+        'subtle-pulse': 'subtlePulse 2.5s ease-in-out infinite',
         'shimmer': 'shimmer 3s ease-in-out infinite',
       },
       keyframes: {
@@ -84,6 +85,10 @@ export default {
         dotPulse: {
           '0%, 100%': { opacity: '1', transform: 'scale(1)' },
           '50%': { opacity: '0.7', transform: 'scale(1.2)' },
+        },
+        subtlePulse: {
+          '0%, 100%': { opacity: '0.7', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.15)' },
         },
         shimmer: {
           '0%': { opacity: '0.5' },
