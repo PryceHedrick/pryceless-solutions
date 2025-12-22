@@ -3,6 +3,7 @@ import useScrollAnimation from '../hooks/useScrollAnimation'
 // EDIT: Services offered - Modify your services here
 const services = [
   {
+    id: 'service-custom-websites',
     title: 'Custom Websites',
     description: 'Landing pages, portfolios, small business sites. Clean, fast, mobile-friendly.',
     icon: (
@@ -14,6 +15,7 @@ const services = [
     gradient: 'from-blue-500 to-cyan-500'
   },
   {
+    id: 'service-web-applications',
     title: 'Web Applications',
     description: 'Dashboards, internal tools, inventory systems, custom business logic.',
     icon: (
@@ -25,6 +27,7 @@ const services = [
     gradient: 'from-purple-500 to-pink-500'
   },
   {
+    id: 'service-ecommerce',
     title: 'E-Commerce Solutions',
     description: 'Shopify setup, custom stores, payment integration, inventory management.',
     icon: (
@@ -36,6 +39,7 @@ const services = [
     gradient: 'from-green-500 to-emerald-500'
   },
   {
+    id: 'service-api-integration',
     title: 'API Integration & Automation',
     description: 'Connect your tools, automate workflows, sync data between platforms.',
     icon: (
@@ -47,6 +51,7 @@ const services = [
     gradient: 'from-orange-500 to-red-500'
   },
   {
+    id: 'service-consulting',
     title: 'Technical Consulting',
     description: "Not sure what you need? I'll help you figure it out and create a roadmap.",
     icon: (
@@ -121,6 +126,7 @@ function ServiceCard({ service, index }) {
 
   return (
     <div
+      id={service.id}
       ref={cardRef}
       className={`group transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'

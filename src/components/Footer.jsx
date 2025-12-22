@@ -1,11 +1,11 @@
 // EDIT: Footer navigation links
 const footerLinks = {
   services: [
-    { label: 'Custom Websites', href: '#services' },
-    { label: 'Web Applications', href: '#services' },
-    { label: 'E-Commerce', href: '#services' },
-    { label: 'API Integration', href: '#services' },
-    { label: 'Consulting', href: '#services' }
+    { label: 'Custom Websites', href: '#service-custom-websites' },
+    { label: 'Web Applications', href: '#service-web-applications' },
+    { label: 'E-Commerce', href: '#service-ecommerce' },
+    { label: 'API Integration', href: '#service-api-integration' },
+    { label: 'Consulting', href: '#service-consulting' }
   ],
   company: [
     { label: 'About', href: '#about' },
