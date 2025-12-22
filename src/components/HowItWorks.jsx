@@ -5,7 +5,7 @@ const steps = [
   {
     number: '01',
     title: 'Free Discovery Call',
-    description: 'We discuss your vision, goals, and timeline.',
+    description: 'We talk about your vision, goals, and timeline. No pressure.',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -15,7 +15,7 @@ const steps = [
   {
     number: '02',
     title: 'Custom Proposal',
-    description: 'Clear scope, fixed pricing, and realistic timeline.',
+    description: 'You get a clear scope, fixed price, and realistic timeline.',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -25,7 +25,7 @@ const steps = [
   {
     number: '03',
     title: 'I Build, You Launch',
-    description: 'Regular updates, revisions included, and support after launch.',
+    description: 'I build it, keep you updated, and support you after launch.',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />

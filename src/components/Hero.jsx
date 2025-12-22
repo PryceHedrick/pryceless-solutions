@@ -138,14 +138,14 @@ function Hero() {
 
           {/* Tagline */}
           <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-light mb-6 animate-fade-in-up delay-100">
-            {/* EDIT: Tagline - Options: "Your Vision. Built Right." or "Ideas Deserve Better Than Templates" */}
+            {/* EDIT: Tagline */}
             Your Vision. Built Right.
           </p>
 
           {/* Value Proposition */}
           <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200">
             {/* EDIT: Value proposition */}
-            I partner with entrepreneurs and small businesses to turn ideas into custom digital solutions—websites, web apps, and automation tools built to actually work for you.
+            Custom websites and web apps for small businesses—built to work, priced to fit, delivered on time.
           </p>
 
           {/* CTA Buttons */}

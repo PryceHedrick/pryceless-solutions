@@ -129,7 +129,7 @@ function Contact() {
             </h2>
             <p className="text-lg text-gray-300 mb-8">
               {/* EDIT: Section description */}
-              Ready to bring your idea to life? Fill out the form and I'll get back to you within 24 hours. No spam, no pressure—just a friendly conversation about your project.
+              Got a project in mind? Fill out the form—I'll get back to you within 24 hours.
             </p>
 
             {/* Contact Info */}
