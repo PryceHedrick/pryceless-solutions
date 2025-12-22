@@ -41,6 +41,8 @@ export default {
         'gradient': 'gradient 8s ease infinite',
         'float': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'shimmer': 'shimmer 2s ease-in-out infinite',
+        'badge-pop': 'badgePop 0.5s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -78,6 +80,15 @@ export default {
         pulseGlow: {
           '0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
           '50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.6)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        badgePop: {
+          '0%': { opacity: '0', transform: 'scale(0) rotate(-12deg)' },
+          '50%': { transform: 'scale(1.1) rotate(-12deg)' },
+          '100%': { opacity: '1', transform: 'scale(1) rotate(-12deg)' },
         },
       },
       backdropBlur: {
