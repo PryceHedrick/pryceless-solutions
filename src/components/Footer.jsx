@@ -47,11 +47,30 @@ function Footer() {
       const element = document.getElementById(href.slice(1))
       if (element) {
         const navHeight = 80
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY
-        window.scrollTo({
-          top: elementPosition - navHeight,
-          behavior: 'smooth'
-        })
+        const targetPosition = element.getBoundingClientRect().top + window.scrollY - navHeight
+
+        // Use manual smooth scroll for better iOS Safari support
+        const startPosition = window.scrollY
+        const distance = targetPosition - startPosition
+        const duration = 800
+        let startTime = null
+
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
+
+        const animateScroll = (currentTime) => {
+          if (startTime === null) startTime = currentTime
+          const elapsed = currentTime - startTime
+          const progress = Math.min(elapsed / duration, 1)
+          const easeProgress = easeOutCubic(progress)
+
+          window.scrollTo(0, startPosition + distance * easeProgress)
+
+          if (progress < 1) {
+            requestAnimationFrame(animateScroll)
+          }
+        }
+
+        requestAnimationFrame(animateScroll)
       }
     }
   }
