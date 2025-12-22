@@ -133,7 +133,7 @@ function Hero() {
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up">
             {/* EDIT: Business name */}
-            <span className="gradient-text">Pryceless</span> Solutions
+            Pryceless <span className="gradient-text">Solutions</span>
           </h1>
 
           {/* Tagline */}

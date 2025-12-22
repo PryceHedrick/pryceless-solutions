@@ -1,54 +1,58 @@
+import { useState, useEffect, useRef } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
 // EDIT: Pricing tiers - Modify pricing and features here
 const pricingTiers = [
   {
     name: 'Starter',
-    price: '$750+',
+    price: 750,
+    priceDisplay: '$750+',
     priceNote: 'Starting at',
-    description: 'Perfect for personal sites and coming soon pages',
+    description: 'Clean and simple - perfect for getting online fast',
     features: [
       '1-2 page website',
       'Mobile responsive design',
       'Contact form integration',
       '2 rounds of revisions',
-      'Basic SEO setup'
+      '1-2 week delivery'
     ],
-    bestFor: 'Personal sites, coming soon pages',
+    bestFor: 'Personal sites, landing pages, coming soon pages',
     highlighted: false,
     ctaText: 'Get Started'
   },
   {
     name: 'Professional',
-    price: '$1,500',
+    price: 1800,
+    priceDisplay: '$1,800+',
     priceNote: 'Starting at',
-    description: 'Ideal for small businesses looking to establish their online presence',
+    description: 'Everything a growing business needs to stand out',
     features: [
-      'Multi-page website (up to 5 pages)',
+      'Up to 5 pages',
       'Custom design & branding',
-      'Basic animations & interactions',
-      'Full SEO optimization',
+      'Smooth animations & interactions',
+      'SEO optimization + Google Analytics',
       '3 rounds of revisions',
-      'Google Analytics setup'
+      '2-4 week delivery'
     ],
-    bestFor: 'Small businesses, portfolios',
+    bestFor: 'Small businesses, professional portfolios',
     highlighted: true,
-    ctaText: 'Most Popular'
+    ctaText: 'Get Started'
   },
   {
     name: 'Custom',
-    price: "Let's Talk",
-    priceNote: 'Starting at $3,000+',
-    description: 'For complex projects requiring custom functionality',
+    price: 3500,
+    priceDisplay: '$3,500+',
+    priceNote: 'Starting at',
+    description: 'Built from scratch for your specific needs',
     features: [
       'Web applications & dashboards',
-      'E-commerce builds',
+      'E-commerce solutions',
       'API integrations',
-      'Complex business logic',
+      'Complex functionality',
       'Ongoing support available',
       'Priority communication'
     ],
-    bestFor: 'Businesses with specific needs',
+    bestFor: 'Businesses with unique requirements',
     highlighted: false,
     ctaText: 'Get Started'
   }
@@ -82,7 +86,7 @@ function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch">
           {pricingTiers.map((tier, index) => (
             <PricingCard
               key={index}
@@ -106,42 +110,94 @@ function Pricing() {
   )
 }
 
+// Animated counter hook for price
+function useCountUp(end, duration = 1500, shouldStart = false) {
+  const [count, setCount] = useState(0)
+  const countRef = useRef(null)
+
+  useEffect(() => {
+    if (!shouldStart) return
+
+    let startTime = null
+    const startValue = 0
+
+    const animate = (currentTime) => {
+      if (startTime === null) startTime = currentTime
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+
+      // Ease out cubic
+      const easeOut = 1 - Math.pow(1 - progress, 3)
+      const currentCount = Math.floor(startValue + (end - startValue) * easeOut)
+
+      setCount(currentCount)
+
+      if (progress < 1) {
+        countRef.current = requestAnimationFrame(animate)
+      }
+    }
+
+    countRef.current = requestAnimationFrame(animate)
+
+    return () => {
+      if (countRef.current) {
+        cancelAnimationFrame(countRef.current)
+      }
+    }
+  }, [end, duration, shouldStart])
+
+  return count
+}
+
 function PricingCard({ tier, index, onCtaClick }) {
   const [cardRef, isVisible] = useScrollAnimation({ threshold: 0.2 })
+  const animatedPrice = useCountUp(tier.price, 1200, isVisible)
+
+  const formatPrice = (num) => {
+    return '$' + num.toLocaleString() + '+'
+  }
 
   return (
     <div
       ref={cardRef}
       className={`relative transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
+      } ${tier.highlighted ? 'md:-mt-4 md:mb-4' : ''}`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
-      {/* Highlighted Badge */}
+      {/* Highlighted Badge with shimmer */}
       {tier.highlighted && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-          <span className="px-4 py-1 bg-primary-500 text-white text-sm font-semibold rounded-full">
-            Most Popular
+          <span className="relative px-4 py-1 bg-primary-500 text-white text-sm font-semibold rounded-full overflow-hidden">
+            <span className="relative z-10">Most Popular</span>
+            {/* Shimmer effect */}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
           </span>
         </div>
       )}
 
+      {/* Gradient glow for highlighted card */}
+      {tier.highlighted && (
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-cyan-400 rounded-2xl opacity-20 blur-sm" />
+      )}
+
       <div
-        className={`glass-card h-full flex flex-col p-6 lg:p-8 transition-all duration-300 ${
+        className={`glass-card h-full flex flex-col p-6 lg:p-8 transition-all duration-300 group relative ${
           tier.highlighted
-            ? 'border-primary-500/50 bg-dark-800/70 scale-[1.02]'
-            : 'hover:bg-dark-700/50'
+            ? 'border-primary-500/50 bg-dark-800/80 shadow-xl shadow-primary-500/10'
+            : 'hover:bg-dark-700/50 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary-500/5'
         }`}
       >
         {/* Tier Name */}
         <h3 className="text-xl font-bold text-white mb-2">{tier.name}</h3>
 
-        {/* Price */}
+        {/* Price with count-up animation */}
         <div className="mb-4">
           <span className="text-sm text-gray-400">{tier.priceNote}</span>
           <div className="flex items-baseline gap-1">
-            <span className="text-4xl font-bold text-white">{tier.price}</span>
-            {tier.price.startsWith('$') && <span className="text-gray-400">+</span>}
+            <span className="text-4xl font-bold text-white">
+              {isVisible ? formatPrice(animatedPrice) : '$0+'}
+            </span>
           </div>
         </div>
 
@@ -175,13 +231,13 @@ function PricingCard({ tier, index, onCtaClick }) {
           </p>
         </div>
 
-        {/* CTA Button */}
+        {/* CTA Button with smooth hover */}
         <button
           onClick={onCtaClick}
-          className={`w-full py-3 font-semibold rounded-lg transition-all duration-300 ${
+          className={`w-full py-3 font-semibold rounded-lg transition-all duration-300 transform ${
             tier.highlighted
-              ? 'bg-primary-500 hover:bg-primary-600 text-white shadow-lg shadow-primary-500/25'
-              : 'bg-dark-700 hover:bg-dark-600 text-white'
+              ? 'bg-primary-500 hover:bg-primary-400 text-white shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-[1.02]'
+              : 'bg-dark-700 hover:bg-dark-600 text-white hover:scale-[1.02]'
           }`}
         >
           {tier.ctaText}

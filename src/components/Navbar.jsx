@@ -68,7 +68,7 @@ function Navbar({ activeSection }) {
                   <defs><linearGradient id="logoGrad" x1="4" y1="8" x2="28" y2="24" gradientUnits="userSpaceOnUse"><stop stopColor="#3B82F6"/><stop offset="1" stopColor="#22D3EE"/></linearGradient></defs>
                 </svg>
               </div>
-              <span className="text-xl font-bold text-white">Pryceless<span className="gradient-text">Solutions</span></span>
+              <span className="text-xl font-bold text-white">Pryceless <span className="gradient-text">Solutions</span></span>
             </a>
 
             <div className="hidden md:flex items-center gap-8">
