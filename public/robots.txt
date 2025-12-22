@@ -1,0 +1,8 @@
+# Robots.txt for Pryceless Solutions
+# https://prycehedrick.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://prycehedrick.com/sitemap.xml
