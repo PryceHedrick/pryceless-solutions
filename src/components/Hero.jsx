@@ -152,10 +152,11 @@ function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
             <button
               onClick={() => scrollToSection('contact')}
-              className="btn-primary text-lg px-8 py-4 group"
+              className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-4 group"
             >
               {/* EDIT: Primary CTA text */}
-              Book a Free Consultation
+              <span className="sm:hidden">Free Consultation</span>
+              <span className="hidden sm:inline">Book a Free Consultation</span>
               <svg
                 className="inline-block w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                 fill="none"

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@anthropic-ai/mcp-server-filesystem",
+        "C:\\Users\\Pryce\\pryceless-solutions",
+        "C:\\Users\\Pryce\\Desktop\\Projects\\Pryceless Solutions"
+      ]
+    }
+  }
+}

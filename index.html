@@ -36,6 +36,151 @@
     <!-- Theme Color -->
     <meta name="theme-color" content="#0f172a" />
 
+    <!-- Structured Data - Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pryce Hedrick",
+      "jobTitle": "Web Developer",
+      "url": "https://prycehedrick.com",
+      "description": "Custom web development for small businesses",
+      "award": "Outstanding Senior Project Award",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Southern Indiana"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/prycehedrick",
+        "https://github.com/PryceHedrick"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Web Development",
+      "name": "Custom Web Development",
+      "description": "Custom websites and web applications for small businesses",
+      "provider": {
+        "@type": "Person",
+        "name": "Pryce Hedrick",
+        "url": "https://prycehedrick.com"
+      },
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Starter Website"
+            },
+            "priceCurrency": "USD",
+            "price": "750"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Professional Website"
+            },
+            "priceCurrency": "USD",
+            "price": "1800"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Web Application"
+            },
+            "priceCurrency": "USD",
+            "price": "3500"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Structured Data - FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the free consultation work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We hop on a 30-minute call, you tell me what you're building, I ask questions to understand the scope. If it's a fit, I send a proposal. No pressure, no obligation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's your typical turnaround time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Landing pages: 1-2 weeks. Multi-page sites: 2-4 weeks. Web apps: 4-8 weeks. You'll get a specific timeline in your proposal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I don't know exactly what I need. Can you help?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That's exactly what the consultation is for. Bring the idea, I'll help you shape it into a plan that fits your goals and budget."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer maintenance and support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes—monthly packages for ongoing updates and security, or hourly support for one-off fixes. We'll figure out what makes sense for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the payment structure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "50% to start, 50% on completion. Larger projects can be split into milestones. I invoice via PayPal or bank transfer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you work with my existing website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually, yes. I'll take a look during our consultation and tell you what's possible. Most platforms are workable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I need changes after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Revisions during the project are included. After launch, you get 30 days of bug fixes. Beyond that, I offer hourly support or maintenance packages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with clients outside your area?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Most of my work is remote—video calls, email, messaging. Time zones aren't an issue."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -14,11 +14,10 @@ const projectTypes = [
 // EDIT: Budget range options for the dropdown
 const budgetRanges = [
   { value: '', label: 'Select budget range' },
-  { value: 'under-500', label: 'Under $500' },
-  { value: '500-1500', label: '$500 - $1,500' },
-  { value: '1500-3000', label: '$1,500 - $3,000' },
-  { value: '3000-plus', label: '$3,000+' },
-  { value: 'not-sure', label: 'Not sure yet' }
+  { value: 'starter', label: 'Starter ($500 - $1,000)' },
+  { value: 'professional', label: 'Professional ($1,500 - $2,500)' },
+  { value: 'custom', label: 'Custom ($3,000+)' },
+  { value: 'not-sure', label: "Not sure yet — let's discuss" }
 ]
 
 function Contact() {

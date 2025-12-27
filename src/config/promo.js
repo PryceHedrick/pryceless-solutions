@@ -10,8 +10,8 @@
  */
 
 export const HOLIDAY_PROMO = {
-  // Master switch - set to false after Jan 1, 2026 to remove all holiday elements
-  active: true,
+  // Master switch - set to false to remove all holiday elements
+  active: false,
 
   // Discount amount in dollars
   discount: 150,

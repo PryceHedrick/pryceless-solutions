@@ -6,8 +6,20 @@
       "Edit(*)",
       "Write(src/**)",
       "Write(public/**)",
-      "Bash(npm run *)",
-      "Bash(npx *)"
+      "Write(.claude/**)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(git:*)",
+      "Bash(node:*)",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Edit(.env)",
+      "Edit(.env.*)"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true
 }
