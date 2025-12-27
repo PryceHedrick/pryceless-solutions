@@ -46,10 +46,11 @@ export default {
         'pulse-slow': 'pulseSlow 3s ease-in-out infinite',
         'dot-pulse': 'dotPulse 2s ease-in-out infinite',
         'subtle-pulse': 'subtlePulse 2.5s ease-in-out infinite',
-        'shimmer': 'shimmer 3s ease-in-out infinite',
+        'shimmer': 'shimmer 2s ease-in-out infinite',
         'shimmer-border': 'shimmerBorder 4s ease-in-out infinite',
         'bounce-in': 'bounceIn 0.6s ease-out forwards',
         'badge-pulse': 'badgePulse 3s ease-in-out infinite',
+        'badge-pop': 'badgePop 0.5s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -61,7 +62,7 @@ export default {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         fadeInDown: {
-          '0%': { opacity: '0', transform: 'translateY(-30px)' },
+          '0%': { opacity: '0', transform: 'translateY(-30deg)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         slideInLeft: {
@@ -97,13 +98,8 @@ export default {
           '50%': { opacity: '1', transform: 'scale(1.15)' },
         },
         shimmer: {
-          '0%': { backgroundPosition: '200% center' },
-          '100%': { backgroundPosition: '-200% center' },
-        },
-        shimmerOld: {
-          '0%': { opacity: '0.5' },
-          '50%': { opacity: '1' },
-          '100%': { opacity: '0.5' },
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
         },
         shimmerBorder: {
           '0%, 100%': { backgroundPosition: '200% center' },
@@ -126,6 +122,11 @@ export default {
         badgePulse: {
           '0%, 100%': { boxShadow: '0 0 15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(34, 211, 238, 0.15)' },
           '50%': { boxShadow: '0 0 25px rgba(59, 130, 246, 0.5), 0 0 50px rgba(34, 211, 238, 0.25)' },
+        },
+        badgePop: {
+          '0%': { opacity: '0', transform: 'scale(0) rotate(-12deg)' },
+          '50%': { transform: 'scale(1.1) rotate(-12deg)' },
+          '100%': { opacity: '1', transform: 'scale(1) rotate(-12deg)' },
         },
       },
       backdropBlur: {

@@ -1,14 +1,14 @@
 /* HOLIDAY PROMO - Remove by setting HOLIDAY_PROMO.active = false in src/config/promo.js */
 import { useState, useEffect, useRef } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
-import { HOLIDAY_PROMO, isPromoActive, getDiscountedPrice } from '../config/promo'
+import { isPromoActive } from '../config/promo'
 
 // EDIT: Pricing tiers - Modify pricing and features here
 const pricingTiers = [
   {
     name: 'Starter',
-    price: 750,
-    priceDisplay: '$750+',
+    price: 600,
+    originalPrice: 750,
     priceNote: 'Starting at',
     description: 'Clean and simple - perfect for getting online fast',
     features: [
@@ -24,8 +24,8 @@ const pricingTiers = [
   },
   {
     name: 'Professional',
-    price: 1800,
-    priceDisplay: '$1,800+',
+    price: 1650,
+    originalPrice: 1800,
     priceNote: 'Starting at',
     description: 'Everything a growing business needs to stand out',
     features: [
@@ -42,8 +42,8 @@ const pricingTiers = [
   },
   {
     name: 'Custom',
-    price: 3500,
-    priceDisplay: '$3,500+',
+    price: 3350,
+    originalPrice: 3500,
     priceNote: 'Starting at',
     description: 'Built from scratch for your specific needs',
     features: [
@@ -155,14 +155,29 @@ function useCountUp(end, duration = 1500, shouldStart = false) {
 
 function PricingCard({ tier, index, onCtaClick, showPromo }) {
   const [cardRef, isVisible] = useScrollAnimation({ threshold: 0.2 })
+  const delay = index * 150
 
-  // Animate to discounted price if promo is active, otherwise original price
-  const targetPrice = showPromo ? getDiscountedPrice(tier.price) : tier.price
+  // Animate to holiday price if promo is active, otherwise original price
+  const targetPrice = showPromo ? tier.price : tier.originalPrice
   const animatedPrice = useCountUp(targetPrice, 1200, isVisible)
 
   const formatPrice = (num) => {
     return '$' + num.toLocaleString()
   }
+
+  // Determine badge text - only ONE badge per card
+  const getBadgeText = () => {
+    if (tier.highlighted && showPromo) {
+      return 'Most Popular • Holiday Special'
+    } else if (tier.highlighted) {
+      return 'Most Popular'
+    } else if (showPromo) {
+      return 'Holiday Special'
+    }
+    return null
+  }
+
+  const badgeText = getBadgeText()
 
   return (
     <div
@@ -170,25 +185,21 @@ function PricingCard({ tier, index, onCtaClick, showPromo }) {
       className={`relative transition-all duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       } ${tier.highlighted ? 'md:-mt-4 md:mb-4' : ''}`}
-      style={{ transitionDelay: `${index * 150}ms` }}
+      style={{ transitionDelay: `${delay}ms` }}
     >
-      {/* HOLIDAY PROMO BADGE - Top right corner (responsive positioning) */}
-      {showPromo && (
-        <div className="absolute -top-2.5 right-2 sm:right-3 z-20">
-          <span className="relative px-2 sm:px-2.5 py-1 bg-gradient-to-r from-cyan-500 to-cyan-400 text-dark-900 text-[10px] sm:text-xs font-bold rounded-full shadow-lg shadow-cyan-500/30 flex items-center gap-1">
-            <span>🎄</span>
-            <span>{HOLIDAY_PROMO.badgeText}</span>
-          </span>
-        </div>
-      )}
-
-      {/* Highlighted Badge with shimmer */}
-      {tier.highlighted && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-          <span className="relative px-4 py-1 bg-primary-500 text-white text-sm font-semibold rounded-full overflow-hidden">
-            <span className="relative z-10">Most Popular</span>
-            {/* Shimmer effect */}
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+      {/* Single Badge - Top Right, Flat Design */}
+      {badgeText && (
+        <div className="absolute -top-3 right-4 z-20">
+          <span className={`px-3 py-1.5 text-xs font-semibold rounded-md inline-block
+                           transition-all duration-500 ${
+                             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                           } ${
+                             tier.highlighted
+                               ? 'bg-primary-500 text-white shadow-md shadow-primary-500/20'
+                               : 'bg-cyan-400 text-dark-900 shadow-md shadow-cyan-400/20'
+                           }`}
+               style={{ transitionDelay: `${delay + 200}ms` }}>
+            {badgeText}
           </span>
         </div>
       )}
@@ -199,7 +210,7 @@ function PricingCard({ tier, index, onCtaClick, showPromo }) {
       )}
 
       <div
-        className={`glass-card h-full flex flex-col p-6 lg:p-8 transition-all duration-300 group relative ${
+        className={`glass-card h-full flex flex-col p-6 lg:p-8 transition-all duration-300 group relative overflow-hidden ${
           tier.highlighted
             ? 'border-primary-500/50 bg-dark-800/80 shadow-xl shadow-primary-500/10'
             : 'hover:bg-dark-700/50 hover:-translate-y-2 hover:shadow-lg hover:shadow-primary-500/5'
@@ -214,23 +225,17 @@ function PricingCard({ tier, index, onCtaClick, showPromo }) {
 
           {/* HOLIDAY PROMO PRICING */}
           {showPromo ? (
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-0.5">
               {/* Original price - strikethrough */}
-              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                <span className="text-base sm:text-lg text-slate-500 line-through font-medium">
-                  {tier.priceDisplay}
-                </span>
-                {/* Holiday savings badge */}
-                <span className="px-1.5 sm:px-2 py-0.5 bg-cyan-500/20 text-cyan-400 text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap">
-                  Save ${HOLIDAY_PROMO.discount}
-                </span>
-              </div>
+              <span className="text-base text-gray-500 line-through">
+                ${tier.originalPrice.toLocaleString()}
+              </span>
               {/* New discounted price with animation */}
               <div className="flex items-baseline gap-1">
-                <span className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-white animate-pulse-slow">
+                <span className="text-4xl font-bold text-cyan-400">
                   {isVisible ? formatPrice(animatedPrice) : '$0'}
                 </span>
-                <span className="text-xl sm:text-2xl font-bold text-cyan-400">+</span>
+                <span className="text-xl font-bold text-cyan-400">+</span>
               </div>
             </div>
           ) : (
@@ -239,7 +244,7 @@ function PricingCard({ tier, index, onCtaClick, showPromo }) {
               <span className="text-4xl font-bold text-white">
                 {isVisible ? formatPrice(animatedPrice) : '$0'}
               </span>
-              <span className="text-2xl font-bold text-white">+</span>
+              <span className="text-xl font-bold text-white">+</span>
             </div>
           )}
         </div>
