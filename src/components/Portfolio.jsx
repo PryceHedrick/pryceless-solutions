@@ -6,16 +6,16 @@ const projects = [
   {
     id: 1,
     title: 'Vault - Pokemon TCG Portfolio Tracker',
-    shortDescription: 'Investment tracking app that helps collectors make smarter buying decisions',
-    fullDescription: 'A comprehensive portfolio tracking application designed for Pokemon TCG collectors. Track your collection value in real-time, see exactly what\'s making money and what isn\'t, and get AI-powered insights on when to buy or sell.',
+    shortDescription: 'AI-powered investment tracker with real-time pricing and financial analytics',
+    fullDescription: 'A comprehensive portfolio tracking application designed for Pokemon TCG collectors. Features a modern glassmorphism UI, AI-powered insights with portfolio health scoring, market momentum tracking, profit taking alerts, and concentration risk analysis. Track your collection value in real-time with beautiful animated dashboards.',
     image: '/images/portfolio/vault/dashboard.png',
-    tags: ['Web App', 'Real-Time Data', 'Analytics Dashboard'],
-    result: 'Tracks thousands of cards with live pricing',
+    tags: ['Python/Flask', 'AI Analytics', 'Real-Time Data'],
+    result: 'v2.0 released with AI-powered insights',
     features: [
-      'Live price updates — know your collection\'s value instantly',
-      'See exactly which cards are gaining or losing value',
-      'AI insights help you make better investment decisions',
-      'Visual charts make complex data easy to understand'
+      'AI portfolio health scoring and market momentum tracking',
+      'Top Movers dashboard — see gainers and losers at a glance',
+      'Profit taking alerts and loss review warnings',
+      'Glassmorphism UI with animated backgrounds'
     ],
     links: {
       github: 'https://github.com/PryceHedrick/vault',
