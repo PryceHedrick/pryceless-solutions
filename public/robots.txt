@@ -1,6 +1,6 @@
-# Robots.txt for prycehedrick.com
 User-agent: *
 Allow: /
 
-# Sitemap location
 Sitemap: https://prycehedrick.com/sitemap.xml
+
+Host: https://prycehedrick.com
