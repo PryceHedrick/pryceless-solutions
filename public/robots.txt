@@ -1,6 +1,47 @@
+# =====================================================
+# Robots.txt for Pryceless Solutions
+# https://prycehedrick.com
+# Last updated: 2025-12-28
+# =====================================================
+
+# Allow all search engines full access
 User-agent: *
 Allow: /
 
+# Sitemaps
 Sitemap: https://prycehedrick.com/sitemap.xml
 
+# Host directive
 Host: https://prycehedrick.com
+
+# Crawl-delay for politeness
+Crawl-delay: 1
+
+# Block paths that shouldn't be indexed
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /private/
+
+# Allow important resources
+Allow: /images/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.webp
+Allow: /*.svg
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
