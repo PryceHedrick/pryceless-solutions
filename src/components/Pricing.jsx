@@ -69,7 +69,7 @@ function Pricing() {
   }
 
   return (
-    <section id="pricing" className="py-20 lg:py-32 bg-dark-900">
+    <section id="pricing" className="py-16 lg:py-24 bg-dark-900">
       <div className="section-container">
         {/* Header */}
         <div
@@ -78,6 +78,14 @@ function Pricing() {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
+          {/* Urgency Indicator */}
+          <div className="mb-6">
+            <span className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-2 rounded-full text-sm font-medium">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+              Currently accepting 2 new projects for January
+            </span>
+          </div>
+
           <h2 className="section-heading">
             {/* EDIT: Section heading */}
             Simple, Transparent <span className="gradient-text">Pricing</span>

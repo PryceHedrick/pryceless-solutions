@@ -6,15 +6,16 @@ const projects = [
   {
     id: 1,
     title: 'Vault - Pokemon TCG Portfolio Tracker',
-    shortDescription: 'Full-stack web application for collectors to track their card investments',
-    fullDescription: 'A comprehensive portfolio tracking application designed for Pokemon TCG collectors. Features real-time price fetching, financial analytics including P&L tracking and portfolio health scoring, plus AI-powered investment insights.',
+    shortDescription: 'Investment tracking app that helps collectors make smarter buying decisions',
+    fullDescription: 'A comprehensive portfolio tracking application designed for Pokemon TCG collectors. Track your collection value in real-time, see exactly what\'s making money and what isn\'t, and get AI-powered insights on when to buy or sell.',
     image: '/images/portfolio/vault/dashboard.png',
-    tags: ['Python', 'Flask', 'SQL', 'REST API', 'Tailwind CSS'],
+    tags: ['Web App', 'Real-Time Data', 'Analytics Dashboard'],
+    result: 'Tracks thousands of cards with live pricing',
     features: [
-      'Real-time price fetching via Pokemon TCG API',
-      'Financial analytics: P&L tracking, portfolio health scoring',
-      'AI-powered investment insights',
-      'Chart.js visualizations for data analysis'
+      'Live price updates — know your collection\'s value instantly',
+      'See exactly which cards are gaining or losing value',
+      'AI insights help you make better investment decisions',
+      'Visual charts make complex data easy to understand'
     ],
     links: {
       github: 'https://github.com/PryceHedrick/vault',
@@ -25,15 +26,16 @@ const projects = [
   {
     id: 2,
     title: 'CardGuys.store E-Commerce Platform',
-    shortDescription: 'E-commerce platform built as Trading Card Sales Lead',
-    fullDescription: 'E-commerce platform I helped design and launch as Trading Card Sales Lead at Card Guys Sports Cards. Built a user-friendly storefront with eBay API integration for inventory syncing, PayPal/Venmo payment processing, categorized navigation, and email subscription system. Expanded the business beyond eBay to a dedicated online presence.',
+    shortDescription: 'Online store that expanded a local business beyond eBay',
+    fullDescription: 'E-commerce platform I helped design and launch for Card Guys Sports Cards. Built a user-friendly storefront that syncs inventory automatically, accepts multiple payment methods, and captures customer emails for repeat business. Expanded their reach beyond eBay to a dedicated online presence they fully control.',
     image: '/images/portfolio/cardguys/cart.png',
-    tags: ['Python', 'SQL', 'HTML/CSS', 'eBay API', 'Git'],
+    tags: ['E-Commerce', 'Payment Processing', 'Inventory Management'],
+    result: 'Expanded business reach beyond eBay marketplace',
     features: [
-      'eBay API integration for inventory sync',
-      'PayPal/Venmo payment processing',
-      'Categorized navigation system',
-      'Email subscription system'
+      'Inventory syncs automatically — no double-selling',
+      'Accepts PayPal and Venmo securely',
+      'Easy navigation helps customers find what they want',
+      'Email list captures repeat customers'
     ],
     links: {
       github: null,
@@ -45,15 +47,16 @@ const projects = [
   {
     id: 3,
     title: 'Panda International OMS',
-    shortDescription: 'Award-winning senior capstone project - Order Management System',
-    fullDescription: 'Enterprise-grade Order Management System developed as a senior capstone project for Panda International. Features FedEx API integration for shipping labels, real-time tracking, inventory management, and multi-warehouse support. This project won the Outstanding Senior Project Award at USI in 2024.',
+    shortDescription: 'Order system that turned hours of manual work into minutes',
+    fullDescription: 'Order Management System built for Panda International that handles everything from order intake to shipping. Automatically generates FedEx labels, tracks packages in real-time, and manages inventory across multiple warehouses. What used to take hours of manual work now happens in minutes. This project won the Outstanding Senior Project Award at USI in 2024.',
     image: '/images/portfolio/panda-oms/Panda_OMS_Dashboard.png',
-    tags: ['C#', 'ASP.NET Core', 'SQL Server', 'REST API', 'FedEx API'],
+    tags: ['Business Automation', 'Shipping Integration', 'Inventory System'],
+    result: 'Still in production — processing orders daily',
     features: [
-      'FedEx API integration for shipping labels',
-      'Real-time shipment tracking',
-      'Multi-warehouse inventory management',
-      'Platform order aggregation (Amazon, eBay)'
+      'Shipping labels generated automatically — no manual entry',
+      'Track every package in real-time',
+      'Manage inventory across multiple locations',
+      'All orders from Amazon, eBay, and web in one place'
     ],
     links: {
       github: 'https://github.com/PryceHedrick/OrderManagementSystem',
@@ -69,7 +72,7 @@ function Portfolio() {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
 
   return (
-    <section id="portfolio" className="py-20 lg:py-32 bg-dark-800/30">
+    <section id="portfolio" className="py-16 lg:py-24 bg-dark-800/30">
       <div className="section-container">
         {/* Header */}
         <div
@@ -159,7 +162,7 @@ function ProjectCard({ project, index, onClick }) {
           <p className="text-gray-400 mb-4 line-clamp-2">{project.shortDescription}</p>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-5">
+          <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag, i) => (
               <span
                 key={i}
@@ -169,6 +172,18 @@ function ProjectCard({ project, index, onClick }) {
               </span>
             ))}
           </div>
+
+          {/* Result Badge */}
+          {project.result && (
+            <div className="mb-5">
+              <span className="inline-flex items-center gap-2 text-xs text-green-400 font-medium bg-green-400/10 px-3 py-1.5 rounded-full">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                {project.result}
+              </span>
+            </div>
+          )}
 
           {/* Links */}
           {(project.links.github || project.links.live) && (

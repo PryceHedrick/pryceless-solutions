@@ -38,7 +38,7 @@ function HowItWorks() {
   const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 })
 
   return (
-    <section id="how-it-works" className="py-20 lg:py-32 bg-dark-800/30">
+    <section id="how-it-works" className="py-16 lg:py-24 bg-dark-800/30">
       <div className="section-container">
         {/* Header */}
         <div

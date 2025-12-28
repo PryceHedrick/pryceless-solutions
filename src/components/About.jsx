@@ -47,7 +47,7 @@ function About() {
   const [imageRef, imageVisible] = useScrollAnimation({ threshold: 0.2 })
 
   return (
-    <section id="about" className="py-20 lg:py-32 bg-dark-900">
+    <section id="about" className="py-16 lg:py-24 bg-dark-900">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image Column */}

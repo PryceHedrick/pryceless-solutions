@@ -11,7 +11,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
       </svg>
     ),
-    features: ['Responsive Design', 'Fast Loading', 'SEO Optimized', 'Modern Aesthetics'],
+    features: ['Looks perfect on every device your customers use', 'Sites that load fast — no lost customers', 'Get found when customers search for you', 'Modern design that builds trust'],
     gradient: 'from-blue-500 to-cyan-500'
   },
   {
@@ -23,7 +23,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
-    features: ['Custom Logic', 'User Authentication', 'Database Design', 'Admin Panels'],
+    features: ['Built exactly for how your business works', 'Keep your business data secure', 'Organize and access your data easily', 'Manage everything from one dashboard'],
     gradient: 'from-purple-500 to-pink-500'
   },
   {
@@ -35,7 +35,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     ),
-    features: ['Payment Processing', 'Inventory Sync', 'Order Management', 'Shopping Cart'],
+    features: ['Accept payments securely', 'Inventory updates automatically', 'Track orders from purchase to delivery', 'Smooth checkout that converts'],
     gradient: 'from-green-500 to-emerald-500'
   },
   {
@@ -47,7 +47,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
       </svg>
     ),
-    features: ['REST APIs', 'Data Sync', 'Workflow Automation', 'Third-Party Integrations'],
+    features: ['Connect your existing tools seamlessly', 'Data flows automatically between systems', 'Automate the repetitive stuff', 'Works with the software you already use'],
     gradient: 'from-orange-500 to-red-500'
   },
   {
@@ -59,7 +59,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     ),
-    features: ['Requirements Analysis', 'Tech Stack Advice', 'Project Roadmapping', 'Architecture Design'],
+    features: ['Understand exactly what you need', 'Pick the right tools for your budget', 'Clear plan before any code is written', 'Built to scale as your business grows'],
     gradient: 'from-yellow-500 to-orange-500'
   }
 ]
@@ -68,7 +68,7 @@ function Services() {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
 
   return (
-    <section id="services" className="py-20 lg:py-32 bg-dark-900">
+    <section id="services" className="py-16 lg:py-24 bg-dark-900">
       <div className="section-container">
         {/* Header */}
         <div

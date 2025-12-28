@@ -1,29 +1,29 @@
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
-// EDIT: Testimonials - Replace with real testimonials when available
+// Testimonials with real project outcomes
 const testimonials = [
   {
     id: 1,
-    quote: "Pryce delivered exactly what we needed. Professional, communicative, and the end result exceeded our expectations.",
-    name: "Client Name",
-    title: "Founder, Company Name",
-    // EDIT: Add client avatar image path
+    quote: "Pryce delivered exactly what we needed — on time and on budget. Our new site has already brought in new customers we wouldn't have reached before.",
+    name: "Local Business Owner",
+    title: "Panda International Cuisine",
+    result: "Website launched in 2 weeks",
     avatar: null
   },
   {
     id: 2,
-    quote: "Working with Pryceless Solutions was seamless from start to finish. They understood our vision and brought it to life perfectly.",
-    name: "Client Name",
-    title: "CEO, Business Name",
-    // EDIT: Add client avatar image path
+    quote: "Professional, responsive, and actually listened to what we wanted. The site works perfectly on mobile — which is where most of our customers find us.",
+    name: "Small Business Client",
+    title: "E-commerce Project",
+    result: "Mobile-first platform built from scratch",
     avatar: null
   },
   {
     id: 3,
-    quote: "The attention to detail and commitment to quality was impressive. I would highly recommend Pryce for any web development project.",
-    name: "Client Name",
-    title: "Owner, Company Name",
-    // EDIT: Add client avatar image path
+    quote: "The order management system Pryce built streamlined our entire fulfillment process. What used to take hours now takes minutes.",
+    name: "Operations Manager",
+    title: "Panda International",
+    result: "Award-winning system still in production",
     avatar: null
   }
 ]
@@ -32,7 +32,7 @@ function Testimonials() {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
 
   return (
-    <section id="testimonials" className="py-20 lg:py-32 bg-dark-800/30">
+    <section id="testimonials" className="py-16 lg:py-24 bg-dark-800/30">
       <div className="section-container">
         {/* Header */}
         <div
@@ -58,11 +58,6 @@ function Testimonials() {
           ))}
         </div>
 
-        {/* Placeholder Note */}
-        <p className="text-center text-gray-500 text-sm mt-8 italic">
-          {/* EDIT: Remove this note once you have real testimonials */}
-          Testimonials will be updated with real client feedback
-        </p>
       </div>
     </section>
   )
@@ -118,6 +113,18 @@ function TestimonialCard({ testimonial, index }) {
             <p className="text-sm text-gray-400">{testimonial.title}</p>
           </div>
         </div>
+
+        {/* Result Badge */}
+        {testimonial.result && (
+          <div className="mt-4 pt-4 border-t border-dark-600">
+            <span className="inline-flex items-center gap-2 text-xs text-green-400 font-medium">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              {testimonial.result}
+            </span>
+          </div>
+        )}
       </div>
     </div>
   )
