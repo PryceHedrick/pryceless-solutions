@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import { businessInfo } from '../data/seo-data';
+import { BUDGET_RANGES } from '../config/pricing';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -242,10 +243,10 @@ const Contact = () => {
                         className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-sky-500"
                       >
                         <option value="">Select a service</option>
-                        <option value="starter">Starter Website ($750)</option>
-                        <option value="professional">Professional Website ($1,800)</option>
-                        <option value="ecommerce">E-Commerce Store ($2,500+)</option>
-                        <option value="custom">Custom Web App ($3,500+)</option>
+                        <option value="starter">Starter Website ($600+)</option>
+                        <option value="professional">Professional Website ($1,650+)</option>
+                        <option value="ecommerce">E-Commerce Store ($2,250+)</option>
+                        <option value="custom">Custom Web App ($3,350+)</option>
                         <option value="redesign">Website Redesign</option>
                         <option value="other">Other</option>
                       </select>
@@ -259,11 +260,11 @@ const Contact = () => {
                         onChange={handleChange}
                         className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-sky-500"
                       >
-                        <option value="">Select budget</option>
-                        <option value="under1000">Under $1,000</option>
-                        <option value="1000-2000">$1,000 - $2,000</option>
-                        <option value="2000-5000">$2,000 - $5,000</option>
-                        <option value="5000+">$5,000+</option>
+                        {BUDGET_RANGES.map((range) => (
+                          <option key={range.value} value={range.value}>
+                            {range.label}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>

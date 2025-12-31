@@ -11,22 +11,25 @@
 
 export const HOLIDAY_PROMO = {
   // Master switch - set to false to remove all holiday elements
-  active: false,
+  active: true,
 
   // Discount amount in dollars
   discount: 150,
 
   // Promo end date (banner auto-hides after this date)
-  endDate: '2026-01-01',
+  endDate: '2025-01-31',
 
   // Banner message
-  message: 'Holiday Special: $150 off any project booked before Jan 1st',
+  message: 'Holiday Special: Save on all projects through January 31st',
 
   // Badge text for pricing cards
-  badgeText: '$150 OFF',
+  badgeText: 'Holiday Special',
 
   // Savings label
-  savingsText: 'Holiday Savings'
+  savingsText: 'Holiday Pricing',
+
+  // Urgency text
+  urgencyText: 'Holiday pricing ends January 31st'
 }
 
 /**

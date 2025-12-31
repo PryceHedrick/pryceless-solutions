@@ -12,6 +12,7 @@ import WhyWorkWithMe from '../components/WhyWorkWithMe';
 import PricingSection from '../components/Pricing';
 import FAQSection from '../components/FAQ';
 import ContactSection from '../components/Contact';
+import Footer from '../components/layout/Footer';
 import BackToTop from '../components/BackToTop';
 import { businessInfo, services, faqs } from '../data/seo-data';
 
@@ -131,6 +132,7 @@ const Home = () => {
         <FAQSection />
         <ContactSection />
       </main>
+      <Footer />
       <BackToTop />
     </>
   );
