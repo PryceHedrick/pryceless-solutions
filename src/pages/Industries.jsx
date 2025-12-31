@@ -36,7 +36,7 @@ const Industries = () => {
               Industries We <span className="text-sky-400">Serve</span>
             </h1>
             <p className="text-xl text-gray-300">
-              Specialized web solutions tailored to your industry's unique needs
+              Specialized web solutions tailored to your industry&apos;s unique needs
             </p>
           </div>
         </section>
@@ -116,9 +116,9 @@ const Industries = () => {
         {/* CTA */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Don't See Your Industry?</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">Don&apos;t See Your Industry?</h2>
             <p className="text-gray-300 mb-8">
-              We work with businesses of all types. Let's talk about your specific needs.
+              We work with businesses of all types. Let&apos;s talk about your specific needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

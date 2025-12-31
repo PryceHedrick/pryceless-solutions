@@ -47,7 +47,7 @@ function Testimonials() {
           </h2>
           <p className="section-subheading">
             {/* EDIT: Section description */}
-            Don't just take my word for it
+            Don&apos;t just take my word for it
           </p>
         </div>
 
@@ -84,7 +84,7 @@ function TestimonialCard({ testimonial, index }) {
 
         {/* Quote */}
         <blockquote className="text-gray-300 text-lg mb-6 flex-grow">
-          "{testimonial.quote}"
+          &quot;{testimonial.quote}&quot;
         </blockquote>
 
         {/* Author */}
@@ -97,6 +97,7 @@ function TestimonialCard({ testimonial, index }) {
                 src={testimonial.avatar}
                 alt={testimonial.name}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-gray-500">

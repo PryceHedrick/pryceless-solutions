@@ -60,7 +60,7 @@ function About() {
             <div className="relative max-w-md mx-auto lg:mx-0">
               {/* Main Image Placeholder */}
               <div className="rounded-2xl overflow-hidden glass-card">
-                <img src="/headshot.png" alt="Pryce Hedrick" className="w-full h-auto block" />
+                <img src="/headshot.png" alt="Pryce Hedrick" className="w-full h-auto block" loading="lazy" />
               </div>
 
               {/* Decorative Elements */}

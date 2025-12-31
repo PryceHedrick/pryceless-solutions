@@ -121,7 +121,7 @@ const Pricing = () => {
               Transparent <span className="text-sky-400">Pricing</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              No hidden fees. No surprise invoices. Know exactly what you're paying for upfront.
+              No hidden fees. No surprise invoices. Know exactly what you&apos;re paying for upfront.
             </p>
           </div>
         </section>
@@ -198,7 +198,7 @@ const Pricing = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Not Sure Which Package?</h2>
             <p className="text-gray-300 mb-8">
-              Let's chat about your project. I'll recommend the best option for your needs and budget.
+              Let&apos;s chat about your project. I&apos;ll recommend the best option for your needs and budget.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

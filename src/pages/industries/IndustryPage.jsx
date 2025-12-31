@@ -113,7 +113,7 @@ const IndustryPage = () => {
         <section className="py-16 px-4 bg-slate-800/50">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-white text-center mb-12">
-              What's Included in Your {industry.name} Website
+              What&apos;s Included in Your {industry.name} Website
             </h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {industry.features.map((feature, i) => (

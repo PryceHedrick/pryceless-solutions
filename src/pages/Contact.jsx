@@ -69,7 +69,7 @@ const Contact = () => {
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Let's Build Something <span className="text-sky-400">Great</span>
+              Let&apos;s Build Something <span className="text-sky-400">Great</span>
             </h1>
             <p className="text-xl text-gray-300">
               Ready to start your project? Get a free quote today.
@@ -145,15 +145,15 @@ const Contact = () => {
                 <ol className="space-y-3 text-gray-300 text-sm">
                   <li className="flex gap-3">
                     <span className="w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0">1</span>
-                    I'll review your project details within 24 hours
+                    I&apos;ll review your project details within 24 hours
                   </li>
                   <li className="flex gap-3">
                     <span className="w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0">2</span>
-                    We'll schedule a call to discuss your goals
+                    We&apos;ll schedule a call to discuss your goals
                   </li>
                   <li className="flex gap-3">
                     <span className="w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0">3</span>
-                    You'll receive a detailed proposal and quote
+                    You&apos;ll receive a detailed proposal and quote
                   </li>
                 </ol>
               </div>
@@ -171,7 +171,7 @@ const Contact = () => {
                     </svg>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
-                  <p className="text-gray-300">I'll get back to you within 24 hours.</p>
+                  <p className="text-gray-300">I&apos;ll get back to you within 24 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">

@@ -83,7 +83,7 @@ function Services() {
           </h2>
           <p className="section-subheading">
             {/* EDIT: Section description */}
-            From simple landing pages to complex web applications, I've got you covered
+            From simple landing pages to complex web applications, I&apos;ve got you covered
           </p>
         </div>
 

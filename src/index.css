@@ -62,6 +62,17 @@
            active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary-500/50;
   }
 
+  /* Focus states for accessibility */
+  .btn-primary:focus-visible,
+  .btn-secondary:focus-visible {
+    @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-dark-900;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-dark-900;
+  }
+
   /* Section container */
   .section-container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;

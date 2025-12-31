@@ -72,7 +72,7 @@ const AreasServed = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-6">Based in Loogootee, Serving All of Indiana</h2>
             <p className="text-gray-300 mb-8">
-              While we're headquartered in Loogootee, we work with businesses throughout Indiana and nationwide.
+              While we&apos;re headquartered in Loogootee, we work with businesses throughout Indiana and nationwide.
               All consultations and communication can be done remotely via video calls and email.
             </p>
             <div className="bg-slate-700 rounded-xl p-8">
@@ -99,7 +99,7 @@ const AreasServed = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Need a Website for Your Business?</h2>
             <p className="text-gray-300 mb-8">
-              Get a free quote today. We'll discuss your project and provide a custom proposal.
+              Get a free quote today. We&apos;ll discuss your project and provide a custom proposal.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

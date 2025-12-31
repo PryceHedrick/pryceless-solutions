@@ -2,63 +2,20 @@
 import { useState, useEffect, useRef } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 import { isPromoActive } from '../config/promo'
+import { PRICING } from '../config/pricing'
 
-// EDIT: Pricing tiers - Modify pricing and features here
-const pricingTiers = [
-  {
-    name: 'Starter',
-    price: 600,
-    originalPrice: 750,
-    priceNote: 'Starting at',
-    description: 'Clean and simple - perfect for getting online fast',
-    features: [
-      '1-2 page website',
-      'Mobile responsive design',
-      'Contact form integration',
-      '2 rounds of revisions',
-      '1-2 week delivery'
-    ],
-    bestFor: 'Personal sites, landing pages, coming soon pages',
-    highlighted: false,
-    ctaText: 'Get Started'
-  },
-  {
-    name: 'Professional',
-    price: 1650,
-    originalPrice: 1800,
-    priceNote: 'Starting at',
-    description: 'Everything a growing business needs to stand out',
-    features: [
-      'Up to 5 pages',
-      'Custom design & branding',
-      'Smooth animations & interactions',
-      'SEO optimization + Google Analytics',
-      '3 rounds of revisions',
-      '2-4 week delivery'
-    ],
-    bestFor: 'Small businesses, professional portfolios',
-    highlighted: true,
-    ctaText: 'Get Started'
-  },
-  {
-    name: 'Custom',
-    price: 3350,
-    originalPrice: 3500,
-    priceNote: 'Starting at',
-    description: 'Built from scratch for your specific needs',
-    features: [
-      'Web applications & dashboards',
-      'E-commerce solutions',
-      'API integrations',
-      'Complex functionality',
-      'Ongoing support available',
-      'Priority communication'
-    ],
-    bestFor: 'Businesses with unique requirements',
-    highlighted: false,
-    ctaText: 'Get Started'
-  }
-]
+// Generate pricing tiers from centralized config
+const pricingTiers = Object.entries(PRICING).map(([, tier]) => ({
+  name: tier.name,
+  price: tier.holidayPrice,
+  originalPrice: tier.basePrice,
+  priceNote: 'Starting at',
+  description: tier.description,
+  features: tier.features,
+  bestFor: tier.bestFor,
+  highlighted: tier.popular,
+  ctaText: 'Get Started'
+}))
 
 function Pricing() {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
@@ -92,7 +49,7 @@ function Pricing() {
           </h2>
           <p className="section-subheading">
             {/* EDIT: Section description */}
-            Every project starts with a free consultation. No commitment until we're both confident it's a fit.
+            Every project starts with a free consultation. No commitment until we&apos;re both confident it&apos;s a fit.
           </p>
         </div>
 

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
+import { BUDGET_RANGES } from '../config/pricing'
 
 // EDIT: Project type options for the dropdown
 const projectTypes = [
@@ -9,15 +10,6 @@ const projectTypes = [
   { value: 'ecommerce', label: 'E-Commerce' },
   { value: 'consulting', label: 'Technical Consulting' },
   { value: 'other', label: 'Other' }
-]
-
-// EDIT: Budget range options for the dropdown
-const budgetRanges = [
-  { value: '', label: 'Select budget range' },
-  { value: 'starter', label: 'Starter ($500 - $1,000)' },
-  { value: 'professional', label: 'Professional ($1,500 - $2,500)' },
-  { value: 'custom', label: 'Custom ($3,000+)' },
-  { value: 'not-sure', label: "Not sure yet — let's discuss" }
 ]
 
 function Contact() {
@@ -124,11 +116,11 @@ function Contact() {
           >
             <h2 className="section-heading">
               {/* EDIT: Section heading */}
-              Let's Build <span className="gradient-text">Something</span>
+              Let&apos;s Build <span className="gradient-text">Something</span>
             </h2>
             <p className="text-lg text-gray-300 mb-8">
               {/* EDIT: Section description */}
-              Got a project in mind? Fill out the form—I'll get back to you within 24 hours.
+              Got a project in mind? Fill out the form—I&apos;ll get back to you within 24 hours.
             </p>
 
             {/* Contact Info */}
@@ -202,7 +194,7 @@ function Contact() {
                     </svg>
                     <div>
                       <p className="font-semibold text-green-400">Message sent successfully!</p>
-                      <p className="text-green-300 text-sm">I'll get back to you within 24 hours.</p>
+                      <p className="text-green-300 text-sm">I&apos;ll get back to you within 24 hours.</p>
                     </div>
                   </div>
                 </div>
@@ -292,7 +284,7 @@ function Contact() {
                       onChange={handleChange}
                       className="form-select"
                     >
-                      {budgetRanges.map((range) => (
+                      {BUDGET_RANGES.map((range) => (
                         <option key={range.value} value={range.value}>
                           {range.label}
                         </option>
@@ -343,7 +335,7 @@ function Contact() {
                 </button>
 
                 <p className="text-center text-gray-500 text-sm">
-                  I'll never share your information with anyone else.
+                  I&apos;ll never share your information with anyone else.
                 </p>
               </form>
             </div>
