@@ -1,29 +1,26 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navigation from './components/layout/Navigation'
-import Footer from './components/layout/Footer'
+import { HelmetProvider } from 'react-helmet-async'
 
 // Pages
 import Home from './pages/Home'
-import Pricing from './pages/Pricing'
-import FAQ from './pages/FAQ'
-import Contact from './pages/Contact'
+import Services from './pages/Services'
+import Websites from './pages/services/Websites'
+import Visibility from './pages/services/Visibility'
+import Automation from './pages/services/Automation'
+import About from './pages/About'
+import Process from './pages/Process'
 import Portfolio from './pages/Portfolio'
-import Blog from './pages/Blog'
-import BlogPost from './pages/blog/BlogPost'
-import AreasServed from './pages/AreasServed'
-import ServiceAreaPage from './pages/areas/ServiceAreaPage'
-import Industries from './pages/Industries'
-import IndustryPage from './pages/industries/IndustryPage'
-import Links from './pages/Links'
+import Contact from './pages/Contact'
+import FAQ from './pages/FAQ'
 
 // 404 Page
 const NotFound = () => (
-  <div className="min-h-screen flex items-center justify-center bg-slate-900">
+  <div className="min-h-screen flex items-center justify-center bg-off-white">
     <div className="text-center">
-      <h1 className="text-6xl font-bold text-gray-500 mb-4">404</h1>
-      <p className="text-xl text-gray-400 mb-8">Page not found</p>
-      <a href="/" className="text-sky-400 hover:text-sky-300 transition-colors">
-        ← Back to Home
+      <h1 className="text-6xl font-bold text-primary mb-4">404</h1>
+      <p className="text-xl text-medium-gray mb-8">Page not found</p>
+      <a href="/" className="text-accent hover:text-accent-dark transition-colors">
+        &larr; Back to Home
       </a>
     </div>
   </div>
@@ -31,38 +28,26 @@ const NotFound = () => (
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Home page uses its own nav */}
-        <Route path="/" element={<Home />} />
+    <HelmetProvider>
+      <Router>
+        <Routes>
+          {/* Main Pages */}
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/websites" element={<Websites />} />
+          <Route path="/services/visibility" element={<Visibility />} />
+          <Route path="/services/automation" element={<Automation />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/process" element={<Process />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
 
-        {/* Links page is standalone */}
-        <Route path="/links" element={<Links />} />
-
-        {/* All other pages use shared layout */}
-        <Route path="/*" element={
-          <div className="flex flex-col min-h-screen bg-slate-900">
-            <Navigation />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/pricing" element={<Pricing />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/portfolio" element={<Portfolio />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/areas-served" element={<AreasServed />} />
-                <Route path="/areas/:slug" element={<ServiceAreaPage />} />
-                <Route path="/industries" element={<Industries />} />
-                <Route path="/industries/:slug" element={<IndustryPage />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        } />
-      </Routes>
-    </Router>
+          {/* 404 */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </HelmetProvider>
   )
 }
 
