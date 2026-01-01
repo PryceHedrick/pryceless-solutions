@@ -7,28 +7,41 @@ export default {
   theme: {
     extend: {
       colors: {
-        // EDIT: Primary brand colors
+        // Premium Dark Theme - NEVER pure black/white
+        'bg-primary': '#0a0a0f',
+        'bg-secondary': '#12121a',
+        'bg-tertiary': '#1a1a24',
+        'bg-hover': '#22222e',
+        'text-primary': '#f4f4f5',
+        'text-secondary': '#a1a1aa',
+        'text-muted': '#71717a',
+        'accent-primary': '#3b82f6',
+        'accent-glow': '#60a5fa',
+        'accent-success': '#22c55e',
+        'accent-warning': '#f59e0b',
+        // Legacy colors (for backwards compatibility)
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#3b82f6', // Main accent blue
+          500: '#3b82f6',
           600: '#2563eb',
           700: '#1d4ed8',
           800: '#1e40af',
           900: '#1e3a8a',
         },
-        // EDIT: Background colors
         dark: {
-          900: '#0f172a', // Main background
-          800: '#1e293b', // Card backgrounds
-          700: '#334155', // Lighter cards/borders
-          600: '#475569', // Even lighter elements
+          900: '#0a0a0f',
+          800: '#12121a',
+          700: '#1a1a24',
+          600: '#22222e',
         }
       },
       fontFamily: {
+        'display': ['DM Serif Display', 'Georgia', 'serif'],
+        'body': ['Inter', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       animation: {

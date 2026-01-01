@@ -136,7 +136,6 @@ function ProjectCard({ project, index, onClick }) {
             src={project.image}
             alt={project.title}
             className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
           />
 
           {/* Award Badge - Prominent positioning */}
@@ -326,7 +325,6 @@ function ProjectModal({ project, onClose }) {
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover object-top"
-              loading="lazy"
             />
           ) : (
             <div className="w-20 h-20 rounded-2xl bg-primary-500/20 flex items-center justify-center">

@@ -1,25 +1,64 @@
-/* HOLIDAY PROMO - Remove by setting HOLIDAY_PROMO.active = false in src/config/promo.js */
 import { useState, useEffect, useRef } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
-import { isPromoActive } from '../config/promo'
-import { PRICING } from '../config/pricing'
 
-// Generate pricing tiers from centralized config
-const pricingTiers = Object.entries(PRICING).map(([, tier]) => ({
-  name: tier.name,
-  price: tier.holidayPrice,
-  originalPrice: tier.basePrice,
-  priceNote: 'Starting at',
-  description: tier.description,
-  features: tier.features,
-  bestFor: tier.bestFor,
-  highlighted: tier.popular,
-  ctaText: 'Get Started'
-}))
+// CANONICAL PRICING - Do not modify without operator approval
+const pricingTiers = [
+  {
+    name: 'Starter',
+    price: 750,
+    priceNote: 'Starting at',
+    description: 'Clean and simple - perfect for getting online fast',
+    features: [
+      '1-2 page website',
+      'Mobile responsive design',
+      'Contact form integration',
+      'Basic SEO setup',
+      '2 rounds of revisions',
+      '1-2 week delivery'
+    ],
+    bestFor: 'Personal sites, landing pages, coming soon pages',
+    highlighted: false,
+    ctaText: 'Get Started'
+  },
+  {
+    name: 'Professional',
+    price: 1800,
+    priceNote: 'Starting at',
+    description: 'Everything a growing business needs to stand out',
+    features: [
+      'Up to 5 pages',
+      'Custom design & branding',
+      'Smooth animations & interactions',
+      'Full SEO optimization + Analytics',
+      '3 rounds of revisions',
+      '2-3 week delivery'
+    ],
+    bestFor: 'Small businesses, professional portfolios',
+    highlighted: true,
+    ctaText: 'Get Started'
+  },
+  {
+    name: 'Custom',
+    price: 3500,
+    priceNote: 'Starting at',
+    description: 'Built from scratch for your specific needs',
+    features: [
+      'Unlimited pages',
+      'Web applications & dashboards',
+      'E-commerce solutions',
+      'API integrations',
+      'Unlimited revisions',
+      '4-8 week delivery',
+      'Priority support'
+    ],
+    bestFor: 'Businesses with unique requirements',
+    highlighted: false,
+    ctaText: 'Get Started'
+  }
+]
 
 function Pricing() {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
-  const showPromo = isPromoActive()
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
@@ -35,20 +74,18 @@ function Pricing() {
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          {/* Urgency Indicator */}
+          {/* Availability Indicator */}
           <div className="mb-6">
             <span className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-2 rounded-full text-sm font-medium">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              Currently accepting 2 new projects for January
+              Currently accepting new projects
             </span>
           </div>
 
           <h2 className="section-heading">
-            {/* EDIT: Section heading */}
             Simple, Transparent <span className="gradient-text">Pricing</span>
           </h2>
           <p className="section-subheading">
-            {/* EDIT: Section description */}
             Every project starts with a free consultation. No commitment until we&apos;re both confident it&apos;s a fit.
           </p>
         </div>
@@ -61,7 +98,6 @@ function Pricing() {
               tier={tier}
               index={index}
               onCtaClick={scrollToContact}
-              showPromo={showPromo}
             />
           ))}
         </div>
@@ -69,7 +105,6 @@ function Pricing() {
         {/* Bottom Note */}
         <div className="text-center mt-12 max-w-2xl mx-auto">
           <p className="text-gray-400">
-            {/* EDIT: Bottom note */}
             <span className="text-primary-400 font-medium">50% upfront</span> to start,{' '}
             <span className="text-primary-400 font-medium">50% on completion</span>. For larger projects, we can break it into milestones.
           </p>
@@ -118,31 +153,14 @@ function useCountUp(end, duration = 1500, shouldStart = false) {
   return count
 }
 
-function PricingCard({ tier, index, onCtaClick, showPromo }) {
+function PricingCard({ tier, index, onCtaClick }) {
   const [cardRef, isVisible] = useScrollAnimation({ threshold: 0.2 })
   const delay = index * 150
-
-  // Animate to holiday price if promo is active, otherwise original price
-  const targetPrice = showPromo ? tier.price : tier.originalPrice
-  const animatedPrice = useCountUp(targetPrice, 1200, isVisible)
+  const animatedPrice = useCountUp(tier.price, 1200, isVisible)
 
   const formatPrice = (num) => {
     return '$' + num.toLocaleString()
   }
-
-  // Determine badge text - only ONE badge per card
-  const getBadgeText = () => {
-    if (tier.highlighted && showPromo) {
-      return 'Most Popular • Holiday Special'
-    } else if (tier.highlighted) {
-      return 'Most Popular'
-    } else if (showPromo) {
-      return 'Holiday Special'
-    }
-    return null
-  }
-
-  const badgeText = getBadgeText()
 
   return (
     <div
@@ -152,19 +170,14 @@ function PricingCard({ tier, index, onCtaClick, showPromo }) {
       } ${tier.highlighted ? 'md:-mt-4 md:mb-4' : ''}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      {/* Single Badge - Top Right, Flat Design */}
-      {badgeText && (
+      {/* Most Popular Badge */}
+      {tier.highlighted && (
         <div className="absolute -top-3 right-4 z-20">
-          <span className={`px-3 py-1.5 text-xs font-semibold rounded-md inline-block
-                           transition-all duration-500 ${
-                             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
-                           } ${
-                             tier.highlighted
-                               ? 'bg-primary-500 text-white shadow-md shadow-primary-500/20'
-                               : 'bg-cyan-400 text-dark-900 shadow-md shadow-cyan-400/20'
-                           }`}
+          <span className="px-3 py-1.5 text-xs font-semibold rounded-md inline-block
+                         bg-primary-500 text-white shadow-md shadow-primary-500/20
+                         transition-all duration-500"
                style={{ transitionDelay: `${delay + 200}ms` }}>
-            {badgeText}
+            Most Popular
           </span>
         </div>
       )}
@@ -187,31 +200,12 @@ function PricingCard({ tier, index, onCtaClick, showPromo }) {
         {/* Price Section */}
         <div className="mb-4">
           <span className="text-sm text-gray-400">{tier.priceNote}</span>
-
-          {/* HOLIDAY PROMO PRICING */}
-          {showPromo ? (
-            <div className="flex flex-col gap-0.5">
-              {/* Original price - strikethrough */}
-              <span className="text-base text-gray-500 line-through">
-                ${tier.originalPrice.toLocaleString()}
-              </span>
-              {/* New discounted price with animation */}
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-cyan-400">
-                  {isVisible ? formatPrice(animatedPrice) : '$0'}
-                </span>
-                <span className="text-xl font-bold text-cyan-400">+</span>
-              </div>
-            </div>
-          ) : (
-            /* Regular pricing (non-promo) */
-            <div className="flex items-baseline gap-1">
-              <span className="text-4xl font-bold text-white">
-                {isVisible ? formatPrice(animatedPrice) : '$0'}
-              </span>
-              <span className="text-xl font-bold text-white">+</span>
-            </div>
-          )}
+          <div className="flex items-baseline gap-1">
+            <span className="text-4xl font-bold text-white">
+              {isVisible ? formatPrice(animatedPrice) : '$0'}
+            </span>
+            {tier.name === 'Custom' && <span className="text-xl font-bold text-white">+</span>}
+          </div>
         </div>
 
         {/* Description */}
@@ -244,7 +238,7 @@ function PricingCard({ tier, index, onCtaClick, showPromo }) {
           </p>
         </div>
 
-        {/* CTA Button with smooth hover */}
+        {/* CTA Button */}
         <button
           onClick={onCtaClick}
           className={`w-full py-3 font-semibold rounded-lg transition-all duration-300 transform ${

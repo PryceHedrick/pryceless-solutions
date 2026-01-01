@@ -1,4 +1,7 @@
 import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { FadeIn } from './motion/FadeIn'
+import { MagneticButton } from './motion/MagneticButton'
 
 function Hero() {
   const canvasRef = useRef(null)

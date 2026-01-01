@@ -1,4 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+// Register GSAP plugins
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 /**
  * Custom hook for scroll-triggered animations using Intersection Observer
@@ -44,6 +51,66 @@ export function useScrollAnimation(options = {}) {
   }, [threshold, rootMargin, triggerOnce])
 
   return [ref, isVisible]
+}
+
+/**
+ * GSAP ScrollTrigger animation hook
+ * @param {Object} config - Animation configuration
+ */
+export function useGsapScrollAnimation(config = {}) {
+  const ref = useRef(null)
+  const timeline = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      timeline.current = gsap.timeline({
+        scrollTrigger: {
+          trigger: ref.current,
+          start: config.start || 'top 80%',
+          end: config.end || 'bottom 20%',
+          toggleActions: config.toggleActions || 'play none none reverse',
+          ...config.scrollTrigger
+        }
+      })
+
+      if (config.animation) {
+        config.animation(timeline.current, ref.current)
+      }
+    }, ref)
+
+    return () => ctx.revert()
+  }, [])
+
+  return ref
+}
+
+/**
+ * Parallax effect hook
+ * @param {number} speed - Parallax speed (0.5 = half speed)
+ */
+export function useParallax(speed = 0.5) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    if (!ref.current) return
+
+    const ctx = gsap.context(() => {
+      gsap.to(ref.current, {
+        y: () => window.innerHeight * speed,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: ref.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      })
+    }, ref)
+
+    return () => ctx.revert()
+  }, [speed])
+
+  return ref
 }
 
 export default useScrollAnimation

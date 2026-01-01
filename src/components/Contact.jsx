@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
-import { BUDGET_RANGES } from '../config/pricing'
 
 // EDIT: Project type options for the dropdown
 const projectTypes = [
@@ -10,6 +9,15 @@ const projectTypes = [
   { value: 'ecommerce', label: 'E-Commerce' },
   { value: 'consulting', label: 'Technical Consulting' },
   { value: 'other', label: 'Other' }
+]
+
+// EDIT: Budget range options for the dropdown - Canonical pricing
+const budgetRanges = [
+  { value: '', label: 'Select budget range' },
+  { value: 'starter', label: 'Starter (~$750)' },
+  { value: 'professional', label: 'Professional (~$1,800)' },
+  { value: 'custom', label: 'Custom ($3,500+)' },
+  { value: 'not-sure', label: 'Not sure yet' }
 ]
 
 function Contact() {
@@ -284,7 +292,7 @@ function Contact() {
                       onChange={handleChange}
                       className="form-select"
                     >
-                      {BUDGET_RANGES.map((range) => (
+                      {budgetRanges.map((range) => (
                         <option key={range.value} value={range.value}>
                           {range.label}
                         </option>

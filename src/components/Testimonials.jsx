@@ -97,7 +97,6 @@ function TestimonialCard({ testimonial, index }) {
                 src={testimonial.avatar}
                 alt={testimonial.name}
                 className="w-full h-full object-cover"
-                loading="lazy"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-gray-500">
