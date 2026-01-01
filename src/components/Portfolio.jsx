@@ -2,9 +2,52 @@ import { useState } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
 // Portfolio projects - real projects only (CTA card is separate)
+// Order: Live client work first, then award-winning, then personal projects
 const projects = [
   {
     id: 1,
+    title: 'CardGuys.store',
+    shortDescription: 'Live e-commerce platform that expanded a local business beyond eBay',
+    fullDescription: 'A complete e-commerce solution for Card Guys Sports Cards. Built a user-friendly storefront that syncs inventory automatically, accepts multiple payment methods, and captures customer emails for repeat business. Expanded their reach beyond eBay to a dedicated online presence they fully control.',
+    image: '/images/portfolio/cardguys/cart.png',
+    tags: ['E-Commerce', 'Live Site', 'Payment Processing'],
+    result: 'Live and processing orders',
+    features: [
+      'Inventory syncs automatically — no double-selling',
+      'Accepts PayPal and Venmo securely',
+      'Easy navigation helps customers find what they want',
+      'Email list captures repeat customers'
+    ],
+    links: {
+      github: null,
+      live: 'https://cardguys.store'
+    },
+    clientWork: true,
+    featured: true
+  },
+  {
+    id: 2,
+    title: 'Panda International OMS',
+    shortDescription: 'Award-winning order system that turned hours of manual work into minutes',
+    fullDescription: 'Order Management System built for Panda International that handles everything from order intake to shipping. Automatically generates FedEx labels, tracks packages in real-time, and manages inventory across multiple warehouses. What used to take hours of manual work now happens in minutes. This project won the Outstanding Senior Project Award at USI in 2024.',
+    image: '/images/portfolio/panda-oms/Panda_OMS_Dashboard.png',
+    tags: ['Business Automation', 'Shipping Integration', 'Award Winner'],
+    result: 'Still in production — processing orders daily',
+    features: [
+      'Shipping labels generated automatically — no manual entry',
+      'Track every package in real-time',
+      'Manage inventory across multiple locations',
+      'All orders from Amazon, eBay, and web in one place'
+    ],
+    links: {
+      github: 'https://github.com/PryceHedrick/OrderManagementSystem',
+      live: null
+    },
+    award: 'Outstanding Senior Project Award - USI 2024',
+    featured: true
+  },
+  {
+    id: 3,
     title: 'Vault - Pokemon TCG Portfolio Tracker',
     shortDescription: 'AI-powered investment tracker with real-time pricing and financial analytics',
     fullDescription: 'A comprehensive portfolio tracking application designed for Pokemon TCG collectors. Features a modern glassmorphism UI, AI-powered insights with portfolio health scoring, market momentum tracking, profit taking alerts, and concentration risk analysis. Track your collection value in real-time with beautiful animated dashboards.',
@@ -21,48 +64,6 @@ const projects = [
       github: 'https://github.com/PryceHedrick/vault',
       live: null
     },
-    featured: true
-  },
-  {
-    id: 2,
-    title: 'CardGuys.store E-Commerce Platform',
-    shortDescription: 'Online store that expanded a local business beyond eBay',
-    fullDescription: 'E-commerce platform I helped design and launch for Card Guys Sports Cards. Built a user-friendly storefront that syncs inventory automatically, accepts multiple payment methods, and captures customer emails for repeat business. Expanded their reach beyond eBay to a dedicated online presence they fully control.',
-    image: '/images/portfolio/cardguys/cart.png',
-    tags: ['E-Commerce', 'Payment Processing', 'Inventory Management'],
-    result: 'Expanded business reach beyond eBay marketplace',
-    features: [
-      'Inventory syncs automatically — no double-selling',
-      'Accepts PayPal and Venmo securely',
-      'Easy navigation helps customers find what they want',
-      'Email list captures repeat customers'
-    ],
-    links: {
-      github: null,
-      live: 'https://cardguys.store'
-    },
-    clientWork: true,
-    featured: true
-  },
-  {
-    id: 3,
-    title: 'Panda International OMS',
-    shortDescription: 'Order system that turned hours of manual work into minutes',
-    fullDescription: 'Order Management System built for Panda International that handles everything from order intake to shipping. Automatically generates FedEx labels, tracks packages in real-time, and manages inventory across multiple warehouses. What used to take hours of manual work now happens in minutes. This project won the Outstanding Senior Project Award at USI in 2024.',
-    image: '/images/portfolio/panda-oms/Panda_OMS_Dashboard.png',
-    tags: ['Business Automation', 'Shipping Integration', 'Inventory System'],
-    result: 'Still in production — processing orders daily',
-    features: [
-      'Shipping labels generated automatically — no manual entry',
-      'Track every package in real-time',
-      'Manage inventory across multiple locations',
-      'All orders from Amazon, eBay, and web in one place'
-    ],
-    links: {
-      github: 'https://github.com/PryceHedrick/OrderManagementSystem',
-      live: null
-    },
-    award: 'Outstanding Senior Project Award - USI 2024',
     featured: true
   }
 ]

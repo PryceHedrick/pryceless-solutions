@@ -1,6 +1,6 @@
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
-// EDIT: About section highlights - Why Work With Me
+// Why Work With Me - Client-focused benefits
 const highlights = [
   {
     icon: (
@@ -11,7 +11,7 @@ const highlights = [
       </svg>
     ),
     title: 'Solid Foundation',
-    description: 'CS degree from USI. Algorithms, data structures, real engineering principles—not just YouTube tutorials.'
+    description: 'CS degree from USI. I know what I\'m doing—not just copying tutorials.'
   },
   {
     icon: (
@@ -20,7 +20,7 @@ const highlights = [
       </svg>
     ),
     title: 'Proven Results',
-    description: 'Outstanding Senior Project Award 2024. Built an enterprise system still in production today.'
+    description: 'Award-winning work. Systems I built are still running in production today.'
   },
   {
     icon: (
@@ -28,8 +28,8 @@ const highlights = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
-    title: 'Code That Lasts',
-    description: 'Readable, maintainable, documented. Code you can build on—not throw away.'
+    title: 'Built To Last',
+    description: 'Sites that load fast, work on every device, and grow with your business.'
   },
   {
     icon: (
@@ -60,7 +60,7 @@ function About() {
             <div className="relative max-w-md mx-auto lg:mx-0">
               {/* Main Image Placeholder */}
               <div className="rounded-2xl overflow-hidden glass-card">
-                <img src="/headshot.png" alt="Pryce Hedrick" className="w-full h-auto block" loading="lazy" />
+                <img src="/headshot.png" alt="Pryce Hedrick" className="w-full h-auto block" />
               </div>
 
               {/* Decorative Elements */}
@@ -98,7 +98,13 @@ function About() {
 
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="text-lg">
-                I graduated from the University of Southern Indiana with degrees in Computer Science and Business Administration—while working full-time and raising a family. That taught me more than any textbook: how to manage time, prioritize ruthlessly, and deliver under real constraints. My senior capstone earned the Outstanding Senior Project Award, and that same discipline guides every project I take on: technically excellent, strategically sound, built to deliver.
+                I'm a web developer based in Southern Indiana with a Computer Science degree and a simple mission: build websites that actually help small businesses grow.
+              </p>
+              <p className="text-lg">
+                I started Pryceless Solutions because I saw too many local businesses paying too much for websites that didn't work, or settling for DIY templates that made them look amateur. You deserve better.
+              </p>
+              <p className="text-lg">
+                Every site I build is custom-designed for YOUR business, loads fast, looks professional on every device, and—most importantly—helps bring in customers. No monthly fees, no lock-in, no surprises.
               </p>
             </div>
 

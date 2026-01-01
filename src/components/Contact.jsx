@@ -1,23 +1,13 @@
 import { useState } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
-// EDIT: Project type options for the dropdown
+// Project type options - simplified
 const projectTypes = [
   { value: '', label: 'Select project type' },
-  { value: 'website', label: 'Website' },
-  { value: 'webapp', label: 'Web Application' },
+  { value: 'new-website', label: 'New Website' },
+  { value: 'redesign', label: 'Website Redesign' },
   { value: 'ecommerce', label: 'E-Commerce' },
-  { value: 'consulting', label: 'Technical Consulting' },
   { value: 'other', label: 'Other' }
-]
-
-// EDIT: Budget range options for the dropdown - Canonical pricing
-const budgetRanges = [
-  { value: '', label: 'Select budget range' },
-  { value: 'starter', label: 'Starter (~$750)' },
-  { value: 'professional', label: 'Professional (~$1,800)' },
-  { value: 'custom', label: 'Custom ($3,500+)' },
-  { value: 'not-sure', label: 'Not sure yet' }
 ]
 
 function Contact() {
@@ -28,7 +18,6 @@ function Contact() {
     name: '',
     email: '',
     projectType: '',
-    budget: '',
     message: ''
   })
 
@@ -77,7 +66,6 @@ function Contact() {
     setSubmitStatus(null)
 
     try {
-      // EDIT: Replace xzdpvvlr with your actual Formspree form ID
       const response = await fetch('https://formspree.io/f/xzdpvvlr', {
         method: 'POST',
         headers: {
@@ -87,7 +75,6 @@ function Contact() {
           name: formData.name,
           email: formData.email,
           projectType: formData.projectType,
-          budget: formData.budget,
           message: formData.message
         })
       })
@@ -98,7 +85,6 @@ function Contact() {
           name: '',
           email: '',
           projectType: '',
-          budget: '',
           message: ''
         })
       } else {
@@ -201,7 +187,7 @@ function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <div>
-                      <p className="font-semibold text-green-400">Message sent successfully!</p>
+                      <p className="font-semibold text-green-400">Thanks!</p>
                       <p className="text-green-300 text-sm">I&apos;ll get back to you within 24 hours.</p>
                     </div>
                   </div>
@@ -258,61 +244,39 @@ function Contact() {
                   {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
                 </div>
 
-                {/* Project Type & Budget - Side by Side on Desktop */}
-                <div className="grid sm:grid-cols-2 gap-5">
-                  {/* Project Type */}
-                  <div>
-                    <label htmlFor="projectType" className="block text-sm font-medium text-gray-300 mb-2">
-                      Project Type
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleChange}
-                      className="form-select"
-                    >
-                      {projectTypes.map((type) => (
-                        <option key={type.value} value={type.value}>
-                          {type.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Budget */}
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-medium text-gray-300 mb-2">
-                      Budget Range
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="form-select"
-                    >
-                      {budgetRanges.map((range) => (
-                        <option key={range.value} value={range.value}>
-                          {range.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                {/* Project Type */}
+                <div>
+                  <label htmlFor="projectType" className="block text-sm font-medium text-gray-300 mb-2">
+                    Project Type <span className="text-red-400">*</span>
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    className="form-select"
+                    required
+                  >
+                    {projectTypes.map((type) => (
+                      <option key={type.value} value={type.value}>
+                        {type.label}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 {/* Message */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Tell me about your project <span className="text-red-400">*</span>
+                    Tell me about your business and project <span className="text-red-400">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="What are you looking to build? What problems are you trying to solve?"
-                    rows={5}
+                    placeholder="Tell me about your business and what you're looking for..."
+                    rows={4}
                     className={`form-textarea ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                   />
                   {errors.message && <p className="mt-1 text-sm text-red-400">{errors.message}</p>}
@@ -334,7 +298,7 @@ function Contact() {
                     </>
                   ) : (
                     <>
-                      Send Message
+                      Get My Free Quote
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>

@@ -7,41 +7,45 @@ const pricingTiers = [
     name: 'Starter',
     price: 750,
     priceNote: 'Starting at',
-    description: 'Clean and simple - perfect for getting online fast',
+    description: 'Perfect for new businesses ready to look professional',
     features: [
-      '1-2 page website',
+      '1-2 page custom website',
       'Mobile responsive design',
       'Contact form integration',
       'Basic SEO setup',
       '2 rounds of revisions',
-      '1-2 week delivery'
+      '1-2 week delivery',
+      'You own everything'
     ],
-    bestFor: 'Personal sites, landing pages, coming soon pages',
+    guarantee: 'Revisions until you love it',
+    bestFor: 'New businesses, landing pages, personal brands',
     highlighted: false,
-    ctaText: 'Get Started'
+    ctaText: 'Get Your Free Quote'
   },
   {
     name: 'Professional',
     price: 1800,
     priceNote: 'Starting at',
-    description: 'Everything a growing business needs to stand out',
+    description: 'For established businesses ready to compete and grow',
     features: [
-      'Up to 5 pages',
-      'Custom design & branding',
+      'Up to 5 custom pages',
+      'Premium custom design',
       'Smooth animations & interactions',
       'Full SEO optimization + Analytics',
       '3 rounds of revisions',
-      '2-3 week delivery'
+      '2-3 week delivery',
+      '30 days free support'
     ],
-    bestFor: 'Small businesses, professional portfolios',
+    guarantee: 'Revisions until you love it',
+    bestFor: 'Restaurants, contractors, professional services',
     highlighted: true,
-    ctaText: 'Get Started'
+    ctaText: 'Most Popular - Get Started'
   },
   {
     name: 'Custom',
     price: 3500,
     priceNote: 'Starting at',
-    description: 'Built from scratch for your specific needs',
+    description: 'Complex projects that need a technical partner',
     features: [
       'Unlimited pages',
       'Web applications & dashboards',
@@ -51,9 +55,10 @@ const pricingTiers = [
       '4-8 week delivery',
       'Priority support'
     ],
-    bestFor: 'Businesses with unique requirements',
+    guarantee: 'Ongoing partnership available',
+    bestFor: 'E-commerce, SaaS products, complex business tools',
     highlighted: false,
-    ctaText: 'Get Started'
+    ctaText: 'Let\'s Discuss Your Project'
   }
 ]
 
@@ -102,8 +107,39 @@ function Pricing() {
           ))}
         </div>
 
-        {/* Bottom Note */}
-        <div className="text-center mt-12 max-w-2xl mx-auto">
+        {/* My Promise / Guarantee Section */}
+        <div className="text-center mt-16 max-w-2xl mx-auto">
+          <div className="glass-card p-8">
+            <h3 className="text-xl font-bold text-white mb-4">My Promise To You</h3>
+            <p className="text-gray-300 mb-6">
+              I don't stop until you love your website. Every project includes multiple revision rounds,
+              and I provide 30 days of free support after launch. If something breaks, I fix it. Simple as that.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Revisions until you're happy
+              </span>
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                30 days free support
+              </span>
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                You own everything
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Payment Terms Note */}
+        <div className="text-center mt-8 max-w-2xl mx-auto">
           <p className="text-gray-400">
             <span className="text-primary-400 font-medium">50% upfront</span> to start,{' '}
             <span className="text-primary-400 font-medium">50% on completion</span>. For larger projects, we can break it into milestones.
@@ -231,12 +267,24 @@ function PricingCard({ tier, index, onCtaClick }) {
         </ul>
 
         {/* Best For */}
-        <div className="mb-6 pb-6 border-b border-dark-700">
+        <div className="mb-4">
           <p className="text-sm">
             <span className="text-gray-500">Best for: </span>
             <span className="text-gray-300">{tier.bestFor}</span>
           </p>
         </div>
+
+        {/* Guarantee Badge */}
+        {tier.guarantee && (
+          <div className="mb-6 pb-6 border-b border-dark-700">
+            <span className="inline-flex items-center gap-2 text-xs text-green-400 font-medium bg-green-400/10 px-3 py-1.5 rounded-full">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              {tier.guarantee}
+            </span>
+          </div>
+        )}
 
         {/* CTA Button */}
         <button
