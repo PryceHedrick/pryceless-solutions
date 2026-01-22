@@ -2,11 +2,9 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import { businessInfo } from '../data/seo-data';
 import { getAllTiers, PAYMENT_TERMS } from '../config/pricing';
-import { isPromoActive, HOLIDAY_PROMO } from '../config/promo';
 
 const Pricing = () => {
   const allTiers = getAllTiers();
-  const showPromo = isPromoActive();
 
   const pricingSchema = {
     "@context": "https://schema.org",
@@ -21,7 +19,7 @@ const Pricing = () => {
         "position": index + 1,
         "name": tier.name,
         "description": tier.description,
-        "price": showPromo ? tier.holidayPrice : tier.basePrice,
+        "price": tier.basePrice,
         "priceCurrency": "USD",
         "seller": {
           "@type": "LocalBusiness",
@@ -57,14 +55,9 @@ const Pricing = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Transparent <span className="text-sky-400">Pricing</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               No hidden fees. No surprise invoices. Know exactly what you&apos;re paying for upfront.
             </p>
-            {showPromo && (
-              <p className="text-cyan-400 font-medium">
-                {HOLIDAY_PROMO.urgencyText}
-              </p>
-            )}
           </div>
         </section>
 
@@ -86,29 +79,13 @@ const Pricing = () => {
                       Most Popular
                     </span>
                   )}
-                  {showPromo && !tier.popular && (
-                    <span className="absolute -top-3 right-4 bg-cyan-400 text-slate-900 text-xs font-semibold px-2 py-1 rounded-full">
-                      {HOLIDAY_PROMO.badgeText}
-                    </span>
-                  )}
                   <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
 
-                  {/* Price with strikethrough for promo */}
+                  {/* Price */}
                   <div className="mb-4">
-                    {showPromo ? (
-                      <>
-                        <span className="text-lg text-gray-400 line-through mr-2">
-                          ${tier.basePrice.toLocaleString()}
-                        </span>
-                        <span className="text-3xl font-bold text-cyan-400">
-                          ${tier.holidayPrice.toLocaleString()}+
-                        </span>
-                      </>
-                    ) : (
-                      <span className="text-3xl font-bold text-white">
-                        ${tier.basePrice.toLocaleString()}+
-                      </span>
-                    )}
+                    <span className="text-3xl font-bold text-white">
+                      ${tier.basePrice.toLocaleString()}+
+                    </span>
                   </div>
 
                   <p className={`text-sm mb-6 ${tier.popular ? 'text-sky-100' : 'text-gray-400'}`}>

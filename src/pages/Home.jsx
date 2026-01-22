@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import SEOHead from '../components/SEOHead';
-import HolidayBanner from '../components/HolidayBanner';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -126,7 +125,6 @@ const Home = () => {
         canonical="/"
         schema={homeSchema}
       />
-      <HolidayBanner />
       <Navbar activeSection={activeSection} />
       <main>
         <Hero />
