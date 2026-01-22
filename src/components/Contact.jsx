@@ -251,7 +251,7 @@ function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="(555) 123-4567"
+                      placeholder="(812) 555-1234"
                       className="form-input"
                     />
                   </div>

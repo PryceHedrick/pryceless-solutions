@@ -4,29 +4,11 @@ import { businessInfo } from '../../data/seo-data';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const serviceAreas = [
-    { name: 'Bedford', slug: 'bedford' },
-    { name: 'Jasper', slug: 'jasper' },
-    { name: 'Washington', slug: 'washington' },
-    { name: 'Vincennes', slug: 'vincennes' },
-    { name: 'Bloomington', slug: 'bloomington' },
-    { name: 'Paoli', slug: 'paoli' },
-    { name: 'Mitchell', slug: 'mitchell' },
-    { name: 'Loogootee', slug: 'loogootee' }
-  ];
-
-  const industries = [
-    { name: 'Restaurants', slug: 'restaurants' },
-    { name: 'Contractors', slug: 'contractors' },
-    { name: 'Real Estate', slug: 'real-estate' },
-    { name: 'Healthcare', slug: 'healthcare' },
-    { name: 'Retail', slug: 'retail' }
-  ];
 
   return (
     <footer className="bg-slate-900 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Company Info */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Pryceless Solutions</h3>
@@ -76,35 +58,6 @@ const Footer = () => {
               <li><Link to="/blog" className="text-gray-400 hover:text-sky-400 transition-colors">Blog</Link></li>
               <li><Link to="/faq" className="text-gray-400 hover:text-sky-400 transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="text-gray-400 hover:text-sky-400 transition-colors">Contact</Link></li>
-              <li><Link to="/links" className="text-gray-400 hover:text-sky-400 transition-colors">All Links</Link></li>
-            </ul>
-          </div>
-
-          {/* Service Areas */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Service Areas</h3>
-            <ul className="space-y-2 text-sm">
-              {serviceAreas.map((area) => (
-                <li key={area.slug}>
-                  <Link to={`/areas/${area.slug}`} className="text-gray-400 hover:text-sky-400 transition-colors">
-                    Web Design {area.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Industries */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Industries We Serve</h3>
-            <ul className="space-y-2 text-sm">
-              {industries.map((industry) => (
-                <li key={industry.slug}>
-                  <Link to={`/industries/${industry.slug}`} className="text-gray-400 hover:text-sky-400 transition-colors">
-                    {industry.name} Websites
-                  </Link>
-                </li>
-              ))}
             </ul>
             <div className="mt-6">
               <Link
