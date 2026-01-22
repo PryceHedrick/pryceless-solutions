@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
+import InlineCTA from './InlineCTA'
 
 // Portfolio projects - real projects only (CTA card is separate)
 // Order: Live client work first, then award-winning, then personal projects
@@ -103,6 +104,9 @@ function Portfolio() {
           {/* CTA Card - Always last */}
           <CTACard index={projects.length} />
         </div>
+
+        {/* Inline CTA */}
+        <InlineCTA variant="portfolio" className="mt-12" />
       </div>
 
       {/* Project Modal */}

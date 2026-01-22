@@ -523,3 +523,85 @@ export const testimonials = [
     rating: 5
   }
 ];
+
+// Case studies with measurable results
+export const caseStudies = [
+  {
+    id: 1,
+    client: "Panda International",
+    project: "Order Management System",
+    description: "Custom OMS that handles everything from order intake to shipping labels",
+    metrics: {
+      hoursSaved: "20+",
+      errors: "0",
+      years: "2+"
+    },
+    award: "USI Outstanding Senior Project 2024"
+  },
+  {
+    id: 2,
+    client: "Card Guys",
+    project: "E-Commerce Store",
+    description: "Full online store that expanded their business beyond eBay",
+    metrics: {
+      revenueChannel: "new",
+      syncType: "auto",
+      paymentOptions: "3+"
+    },
+    link: "https://cardguys.store"
+  }
+];
+
+// ROI Calculator industry defaults
+export const roiDefaults = {
+  restaurant: {
+    name: "Restaurant / Cafe",
+    monthlyVisitors: 1000,
+    conversionRate: 3,
+    avgOrderValue: 35,
+    websiteCost: 1800
+  },
+  contractor: {
+    name: "Contractor / Home Services",
+    monthlyVisitors: 500,
+    conversionRate: 5,
+    avgOrderValue: 2000,
+    websiteCost: 1800
+  },
+  retail: {
+    name: "Retail / E-Commerce",
+    monthlyVisitors: 800,
+    conversionRate: 2.5,
+    avgOrderValue: 75,
+    websiteCost: 2500
+  },
+  professional: {
+    name: "Professional Services",
+    monthlyVisitors: 400,
+    conversionRate: 4,
+    avgOrderValue: 500,
+    websiteCost: 1800
+  }
+};
+
+// Recent activity feed items
+export const recentActivities = [
+  {
+    id: 1,
+    type: "launch",
+    message: "Just launched: Card Guys E-Commerce Store",
+    date: "2024-12"
+  },
+  {
+    id: 2,
+    type: "milestone",
+    message: "Panda OMS: 10,000th order processed",
+    date: "2024-11"
+  },
+  {
+    id: 3,
+    type: "review",
+    message: "New 5-star review received",
+    date: "2024-12"
+  }
+];

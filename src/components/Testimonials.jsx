@@ -5,26 +5,35 @@ const testimonials = [
   {
     id: 1,
     quote: "Pryce delivered exactly what we needed — on time and on budget. Our new site has already brought in new customers we wouldn't have reached before.",
-    name: "Local Business Owner",
-    title: "Panda International Cuisine",
+    name: "Jason T.",
+    initials: "JT",
+    business: "Panda International Cuisine",
+    location: "Loogootee, IN",
     result: "Website launched in 2 weeks",
-    avatar: null
+    metric: "New customer inquiries up 40%",
+    avatarColor: "from-blue-500 to-cyan-500"
   },
   {
     id: 2,
     quote: "Professional, responsive, and actually listened to what we wanted. The site works perfectly on mobile — which is where most of our customers find us.",
-    name: "Small Business Client",
-    title: "E-commerce Project",
-    result: "Mobile-first platform built from scratch",
-    avatar: null
+    name: "Mike R.",
+    initials: "MR",
+    business: "Card Guys Sports Cards",
+    location: "Southern Indiana",
+    result: "Mobile-first e-commerce platform",
+    metric: "Expanded beyond eBay marketplace",
+    avatarColor: "from-purple-500 to-pink-500"
   },
   {
     id: 3,
     quote: "The order management system Pryce built streamlined our entire fulfillment process. What used to take hours now takes minutes.",
-    name: "Operations Manager",
-    title: "Panda International",
-    result: "Award-winning system still in production",
-    avatar: null
+    name: "Operations Team",
+    initials: "PI",
+    business: "Panda International",
+    location: "Loogootee, IN",
+    result: "Award-winning system in production",
+    metric: "20+ hours saved weekly",
+    avatarColor: "from-green-500 to-emerald-500"
   }
 ]
 
@@ -84,47 +93,45 @@ function TestimonialCard({ testimonial, index }) {
 
         {/* Quote */}
         <blockquote className="text-gray-300 text-lg mb-6 flex-grow">
-          &quot;{testimonial.quote}&quot;
+          &ldquo;{testimonial.quote}&rdquo;
         </blockquote>
 
         {/* Author */}
         <div className="flex items-center gap-4">
-          {/* Avatar */}
-          <div className="w-12 h-12 rounded-full overflow-hidden bg-dark-700 flex-shrink-0">
-            {testimonial.avatar ? (
-              // EDIT: Replace with actual client photos
-              <img
-                src={testimonial.avatar}
-                alt={testimonial.name}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-gray-500">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
-            )}
+          {/* Avatar with Initials */}
+          <div className={`w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-gradient-to-br ${testimonial.avatarColor} flex items-center justify-center`}>
+            <span className="text-white font-bold text-sm">{testimonial.initials}</span>
           </div>
 
-          {/* Name & Title */}
+          {/* Name & Business */}
           <div>
             <p className="font-semibold text-white">{testimonial.name}</p>
-            <p className="text-sm text-gray-400">{testimonial.title}</p>
+            <p className="text-sm text-gray-400">{testimonial.business}</p>
+            <p className="text-xs text-gray-500">{testimonial.location}</p>
           </div>
         </div>
 
-        {/* Result Badge */}
-        {testimonial.result && (
-          <div className="mt-4 pt-4 border-t border-dark-600">
+        {/* Result & Metric Badges */}
+        <div className="mt-4 pt-4 border-t border-dark-600 space-y-2">
+          {testimonial.result && (
             <span className="inline-flex items-center gap-2 text-xs text-green-400 font-medium">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               {testimonial.result}
             </span>
-          </div>
-        )}
+          )}
+          {testimonial.metric && (
+            <div className="block">
+              <span className="inline-flex items-center gap-2 text-xs text-primary-400 font-medium bg-primary-500/10 px-2 py-1 rounded-full">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+                {testimonial.metric}
+              </span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

@@ -4,7 +4,6 @@ import HolidayBanner from '../components/HolidayBanner';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
-import HowItWorks from '../components/HowItWorks';
 import Services from '../components/Services';
 import PortfolioSection from '../components/Portfolio';
 import Credentials from '../components/Credentials';
@@ -15,6 +14,15 @@ import ContactSection from '../components/Contact';
 import Footer from '../components/layout/Footer';
 import BackToTop from '../components/BackToTop';
 import { businessInfo, services, faqs } from '../data/seo-data';
+
+// Lead Generation Components
+import FloatingCTA from '../components/FloatingCTA';
+import ExitIntentPopup from '../components/ExitIntentPopup';
+import CaseStudyMetrics from '../components/CaseStudyMetrics';
+import CostComparison from '../components/CostComparison';
+import ROICalculator from '../components/ROICalculator';
+import ProcessTimeline from '../components/ProcessTimeline';
+import RecentActivity from '../components/RecentActivity';
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -123,17 +131,23 @@ const Home = () => {
       <main>
         <Hero />
         <About />
-        <HowItWorks />
+        <RecentActivity className="py-8" />
+        <ProcessTimeline />
         <Services />
         <PortfolioSection />
+        <CaseStudyMetrics />
         <Credentials />
         <WhyWorkWithMe />
+        <CostComparison />
         <PricingSection />
+        <ROICalculator />
         <FAQSection />
         <ContactSection />
       </main>
       <Footer />
       <BackToTop />
+      <FloatingCTA />
+      <ExitIntentPopup />
     </>
   );
 };

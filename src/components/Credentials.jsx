@@ -1,4 +1,52 @@
+import { useState, useEffect, useRef } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
+
+// Animated counter hook
+function useCountUp(end, duration = 1500, shouldStart = false) {
+  const [count, setCount] = useState(0)
+  const countRef = useRef(null)
+
+  useEffect(() => {
+    if (!shouldStart) return
+
+    let startTime = null
+    const startValue = 0
+
+    const animate = (currentTime) => {
+      if (startTime === null) startTime = currentTime
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+
+      // Ease out cubic
+      const easeOut = 1 - Math.pow(1 - progress, 3)
+      const currentCount = Math.floor(startValue + (end - startValue) * easeOut)
+
+      setCount(currentCount)
+
+      if (progress < 1) {
+        countRef.current = requestAnimationFrame(animate)
+      }
+    }
+
+    countRef.current = requestAnimationFrame(animate)
+
+    return () => {
+      if (countRef.current) {
+        cancelAnimationFrame(countRef.current)
+      }
+    }
+  }, [end, duration, shouldStart])
+
+  return count
+}
+
+// Stats data
+const stats = [
+  { value: 12, suffix: '+', label: 'Projects Completed' },
+  { value: 100, suffix: '%', label: 'Client Satisfaction' },
+  { value: 24, suffix: 'hr', label: 'Response Time' },
+  { value: 2, suffix: '+', label: 'Years Experience' }
+]
 
 // EDIT: Credentials and achievements
 const credentials = [
@@ -57,9 +105,31 @@ function Credentials() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
+        {/* Stats Counters */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          {stats.map((stat, index) => (
+            <StatCounter key={index} stat={stat} index={index} isVisible={isVisible} />
+          ))}
+        </div>
+
+        {/* Award Badge - Prominent */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-yellow-500/20 to-amber-500/20 border border-yellow-500/30 rounded-xl">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-amber-500 flex items-center justify-center text-dark-900 shadow-lg shadow-yellow-500/30">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <div>
+              <p className="font-bold text-yellow-400">Outstanding Senior Project Award</p>
+              <p className="text-sm text-yellow-300/70">University of Southern Indiana, 2024</p>
+            </div>
+          </div>
+        </div>
+
         {/* Credentials Row */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-12 mb-12">
-          {credentials.map((credential, index) => (
+          {credentials.filter(c => c.title !== 'Outstanding Senior Project').map((credential, index) => (
             <div
               key={index}
               className="flex items-center gap-3 px-4 py-3 glass-card hover:bg-dark-700/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/10 w-full sm:w-auto min-h-[72px]"
@@ -114,6 +184,23 @@ function Credentials() {
         </div>
       </div>
     </section>
+  )
+}
+
+function StatCounter({ stat, index, isVisible }) {
+  const count = useCountUp(stat.value, 1200, isVisible)
+
+  return (
+    <div
+      className="text-center p-4 glass-card hover:bg-dark-700/50 transition-all duration-300"
+      style={{ animationDelay: `${index * 100}ms` }}
+    >
+      <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
+        {isVisible ? count : 0}
+        <span className="text-primary-400">{stat.suffix}</span>
+      </div>
+      <p className="text-sm text-gray-400">{stat.label}</p>
+    </div>
   )
 }
 

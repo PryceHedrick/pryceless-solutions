@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
+import InlineCTA from './InlineCTA'
+import GuaranteeBadge from './GuaranteeBadge'
 
 // CANONICAL PRICING - Do not modify without operator approval
 const pricingTiers = [
@@ -107,44 +109,21 @@ function Pricing() {
           ))}
         </div>
 
-        {/* My Promise / Guarantee Section */}
-        <div className="text-center mt-16 max-w-2xl mx-auto">
-          <div className="glass-card p-8">
-            <h3 className="text-xl font-bold text-white mb-4">My Promise To You</h3>
-            <p className="text-gray-300 mb-6">
-              I don't stop until you love your website. Every project includes multiple revision rounds,
-              and I provide 30 days of free support after launch. If something breaks, I fix it. Simple as that.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                Revisions until you're happy
-              </span>
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                30 days free support
-              </span>
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                You own everything
-              </span>
-            </div>
-          </div>
+        {/* Guarantee Badge */}
+        <div className="mt-12 max-w-xl mx-auto">
+          <GuaranteeBadge />
         </div>
 
-        {/* Payment Terms Note */}
+        {/* Bottom Note */}
         <div className="text-center mt-8 max-w-2xl mx-auto">
           <p className="text-gray-400">
             <span className="text-primary-400 font-medium">50% upfront</span> to start,{' '}
             <span className="text-primary-400 font-medium">50% on completion</span>. For larger projects, we can break it into milestones.
           </p>
         </div>
+
+        {/* Inline CTA */}
+        <InlineCTA variant="pricing" className="mt-12" />
       </div>
     </section>
   )

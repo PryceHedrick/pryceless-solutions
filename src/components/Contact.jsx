@@ -17,8 +17,8 @@ function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: '',
-    message: ''
+    phone: '',
+    projectType: ''
   })
 
   const [errors, setErrors] = useState({})
@@ -36,12 +36,6 @@ function Contact() {
       newErrors.email = 'Email is required'
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email'
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required'
-    } else if (formData.message.trim().length < 20) {
-      newErrors.message = 'Please provide more details (at least 20 characters)'
     }
 
     setErrors(newErrors)
@@ -74,8 +68,8 @@ function Contact() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          projectType: formData.projectType,
-          message: formData.message
+          phone: formData.phone,
+          projectType: formData.projectType
         })
       })
 
@@ -84,8 +78,8 @@ function Contact() {
         setFormData({
           name: '',
           email: '',
-          projectType: '',
-          message: ''
+          phone: '',
+          projectType: ''
         })
       } else {
         setSubmitStatus('error')
@@ -244,42 +238,43 @@ function Contact() {
                   {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
                 </div>
 
-                {/* Project Type */}
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium text-gray-300 mb-2">
-                    Project Type <span className="text-red-400">*</span>
-                  </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    className="form-select"
-                    required
-                  >
-                    {projectTypes.map((type) => (
-                      <option key={type.value} value={type.value}>
-                        {type.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                {/* Phone & Project Type - Side by Side on Desktop */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  {/* Phone */}
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                      Phone <span className="text-gray-500">(optional)</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="(555) 123-4567"
+                      className="form-input"
+                    />
+                  </div>
 
-                {/* Message */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Tell me about your business and project <span className="text-red-400">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your business and what you're looking for..."
-                    rows={4}
-                    className={`form-textarea ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
-                  />
-                  {errors.message && <p className="mt-1 text-sm text-red-400">{errors.message}</p>}
+                  {/* Project Type */}
+                  <div>
+                    <label htmlFor="projectType" className="block text-sm font-medium text-gray-300 mb-2">
+                      Project Type
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className="form-select"
+                    >
+                      {projectTypes.map((type) => (
+                        <option key={type.value} value={type.value}>
+                          {type.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 {/* Submit Button */}
@@ -298,7 +293,7 @@ function Contact() {
                     </>
                   ) : (
                     <>
-                      Get My Free Quote
+                      Get Started
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>

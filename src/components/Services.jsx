@@ -1,4 +1,5 @@
 import useScrollAnimation from '../hooks/useScrollAnimation'
+import InlineCTA from './InlineCTA'
 
 // EDIT: Services offered - Modify your services here
 const services = [
@@ -96,27 +97,8 @@ function Services() {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-12">
-          <p className="text-gray-400 mb-4">
-            {/* EDIT: CTA text */}
-            Not sure which service fits your needs?
-          </p>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className="btn-primary inline-flex items-center gap-2 text-sm sm:text-base"
-          >
-            <span className="sm:hidden">Free Consultation</span>
-            <span className="hidden sm:inline">Book a Free Consultation</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
+        {/* Inline CTA */}
+        <InlineCTA variant="services" className="mt-12" />
       </div>
     </section>
   )
