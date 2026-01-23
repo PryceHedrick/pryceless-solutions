@@ -27,6 +27,7 @@ import RecentActivity from '../components/RecentActivity';
 import FreeAuditCTA from '../components/FreeAuditCTA';
 import ServiceAreaSection from '../components/ServiceAreaSection';
 import AvailabilityBanner from '../components/AvailabilityBanner';
+import PainPoints from '../components/PainPoints';
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -54,6 +55,22 @@ const Home = () => {
   const homeSchema = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${businessInfo.url}/#organization`,
+        "name": businessInfo.name,
+        "url": businessInfo.url,
+        "logo": `${businessInfo.url}/og-image.png`,
+        "founder": {
+          "@type": "Person",
+          "name": businessInfo.owner
+        },
+        "sameAs": [
+          businessInfo.social.facebook,
+          businessInfo.social.linkedin,
+          businessInfo.social.github
+        ]
+      },
       {
         "@type": "WebSite",
         "@id": `${businessInfo.url}/#website`,
@@ -135,6 +152,7 @@ const Home = () => {
         <Hero />
         <TrustBadges />
         <About />
+        <PainPoints />
         <ServiceAreaSection />
         <Testimonials />
         <RecentActivity className="py-8" />
