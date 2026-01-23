@@ -84,7 +84,7 @@ function Portfolio() {
           }`}
         >
           <h2 className="section-heading">
-            What I <span className="gradient-text">Build</span>
+            Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="section-subheading">
             Your business could be featured here
