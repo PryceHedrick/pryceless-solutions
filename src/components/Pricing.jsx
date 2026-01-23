@@ -1,6 +1,7 @@
 import useScrollAnimation from '../hooks/useScrollAnimation'
 import InlineCTA from './InlineCTA'
 import GuaranteeBadge from './GuaranteeBadge'
+import { trackCTAClick, trackPricingInterest } from '../utils/analytics'
 
 // CANONICAL PRICING - Do not modify without operator approval
 const pricingTiers = [
@@ -66,7 +67,9 @@ const pricingTiers = [
 function Pricing() {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
 
-  const scrollToContact = () => {
+  const handleTierClick = (tierName, price) => {
+    trackCTAClick(`pricing_${tierName.toLowerCase()}`, { price })
+    trackPricingInterest(tierName, price)
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -103,7 +106,7 @@ function Pricing() {
               key={index}
               tier={tier}
               index={index}
-              onCtaClick={scrollToContact}
+              onCtaClick={() => handleTierClick(tier.name, tier.price)}
             />
           ))}
         </div>
