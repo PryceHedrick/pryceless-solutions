@@ -6,8 +6,8 @@
 export const businessInfo = {
   name: "Pryceless Solutions",
   owner: "Pryce Hedrick",
-  phone: "(812) 709-2406",
-  phoneLink: "tel:+18127092406",
+  phone: null, // Removed - use email or contact form instead
+  phoneLink: null,
   email: "prycehedrick@gmail.com",
   address: {
     street: "",
@@ -448,7 +448,7 @@ export const faqs = [
   {
     category: "Process",
     question: "How do I get started?",
-    answer: "Easy! Email prycehedrick@gmail.com, call (812) 709-2406, or use the contact form. We'll schedule a free 15-minute consultation to discuss your project, then provide a detailed quote within 24-48 hours."
+    answer: "Easy! Email prycehedrick@gmail.com or use the contact form. We'll schedule a free 15-minute consultation to discuss your project, then provide a detailed quote within 24-48 hours."
   },
   {
     category: "Process",
