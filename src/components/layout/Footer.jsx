@@ -1,14 +1,46 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { businessInfo } from '../../data/seo-data';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState('');
+  const [subscribeStatus, setSubscribeStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://formspree.io/f/xzdpvvlr', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          source: 'Newsletter Signup'
+        })
+      });
+
+      if (response.ok) {
+        setSubscribeStatus('success');
+        setEmail('');
+      } else {
+        setSubscribeStatus('error');
+      }
+    } catch {
+      setSubscribeStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
 
   return (
     <footer className="bg-slate-900 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Pryceless Solutions</h3>
@@ -51,6 +83,47 @@ const Footer = () => {
               <li><Link to="/faq" className="text-gray-400 hover:text-sky-400 transition-colors">FAQ</Link></li>
               <li><Link to="/contact" className="text-gray-400 hover:text-sky-400 transition-colors">Contact</Link></li>
             </ul>
+          </div>
+
+          {/* Newsletter Signup */}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Stay Updated</h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Get tips on growing your business online. No spam, ever.
+            </p>
+
+            {subscribeStatus === 'success' ? (
+              <div className="flex items-center gap-2 text-green-400 text-sm">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>You&apos;re subscribed!</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="space-y-3">
+                <div className="flex gap-2">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    required
+                    className="flex-1 px-3 py-2 bg-slate-800 border border-slate-700 rounded-md text-white text-sm placeholder-gray-500 focus:outline-none focus:border-sky-500 transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-md text-sm font-medium transition-colors disabled:opacity-50"
+                  >
+                    {isSubmitting ? '...' : 'Join'}
+                  </button>
+                </div>
+                {subscribeStatus === 'error' && (
+                  <p className="text-red-400 text-xs">Something went wrong. Try again.</p>
+                )}
+              </form>
+            )}
+
             <div className="mt-6">
               <Link
                 to="/contact"

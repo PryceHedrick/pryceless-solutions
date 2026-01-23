@@ -24,6 +24,7 @@ import CostComparison from '../components/CostComparison';
 import ROICalculator from '../components/ROICalculator';
 import ProcessTimeline from '../components/ProcessTimeline';
 import RecentActivity from '../components/RecentActivity';
+import FreeAuditCTA from '../components/FreeAuditCTA';
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -143,6 +144,7 @@ const Home = () => {
         <CostComparison />
         <PricingSection />
         <ROICalculator />
+        <FreeAuditCTA />
         <FAQSection />
         <ContactSection />
       </main>
