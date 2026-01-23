@@ -115,6 +115,9 @@ function Pricing() {
 
         {/* Bottom Note */}
         <div className="text-center mt-8 max-w-2xl mx-auto">
+          <p className="text-green-400 font-medium text-lg mb-3">
+            You don&apos;t pay until you&apos;re happy.
+          </p>
           <p className="text-gray-400">
             <span className="text-primary-400 font-medium">50% upfront</span> to start,{' '}
             <span className="text-primary-400 font-medium">50% on completion</span>. For larger projects, we can break it into milestones.
