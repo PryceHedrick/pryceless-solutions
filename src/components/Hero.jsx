@@ -126,10 +126,11 @@ function Hero() {
       {/* Content */}
       <div className="relative z-20 section-container text-center py-20">
         <div className="max-w-4xl mx-auto">
-          {/* Badge with pulse animation */}
+          {/* Badge with pulse animation - Local emphasis added */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-dark-800/50 border border-primary-500/30 text-gray-300 text-sm mb-8 animate-fade-in animate-badge-pulse">
             <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
-            {/* EDIT: Badge text */}
+            Loogootee, IN
+            <span className="text-gray-500">•</span>
             Available for new projects
           </div>
 
@@ -144,8 +145,13 @@ function Hero() {
           </p>
 
           {/* Value Proposition */}
-          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8 animate-fade-in-up delay-200">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-4 animate-fade-in-up delay-200">
             Professional results. Clear pricing. No surprises. Most sites launch in 2 weeks—you own everything, no monthly fees.
+          </p>
+
+          {/* Who this is for - Target audience clarity */}
+          <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto mb-8 animate-fade-in-up delay-250">
+            Perfect for <span className="text-primary-400">restaurants</span>, <span className="text-primary-400">contractors</span>, and <span className="text-primary-400">local service businesses</span> in Southern Indiana.
           </p>
 
           {/* Trust Stats */}
