@@ -98,10 +98,10 @@ function About() {
 
             <div className="space-y-4 text-gray-300 mb-8">
               <p className="text-lg">
-                I'm a web developer based in Southern Indiana with a Computer Science degree and a simple mission: build websites that actually help small businesses grow.
+                I&apos;m a web developer based in Southern Indiana with a Computer Science degree and a simple mission: build websites that actually help small businesses grow.
               </p>
               <p className="text-lg">
-                I started Pryceless Solutions because I saw too many local businesses paying too much for websites that didn't work, or settling for DIY templates that made them look amateur. You deserve better.
+                I started Pryceless Solutions because I saw too many local businesses paying too much for websites that didn&apos;t work, or settling for DIY templates that made them look amateur. You deserve better.
               </p>
               <p className="text-lg">
                 Every site I build is custom-designed for YOUR business, loads fast, looks professional on every device, and—most importantly—helps bring in customers. No monthly fees, no lock-in, no surprises.
