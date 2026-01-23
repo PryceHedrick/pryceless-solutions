@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import TrustBadges from '../components/TrustBadges';
 import About from '../components/About';
+import Testimonials from '../components/Testimonials';
 import Services from '../components/Services';
 import PortfolioSection from '../components/Portfolio';
 import Credentials from '../components/Credentials';
@@ -22,6 +24,10 @@ import CostComparison from '../components/CostComparison';
 import ROICalculator from '../components/ROICalculator';
 import ProcessTimeline from '../components/ProcessTimeline';
 import RecentActivity from '../components/RecentActivity';
+import FreeAuditCTA from '../components/FreeAuditCTA';
+import ServiceAreaSection from '../components/ServiceAreaSection';
+import AvailabilityBanner from '../components/AvailabilityBanner';
+import PainPoints from '../components/PainPoints';
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -49,6 +55,22 @@ const Home = () => {
   const homeSchema = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${businessInfo.url}/#organization`,
+        "name": businessInfo.name,
+        "url": businessInfo.url,
+        "logo": `${businessInfo.url}/og-image.png`,
+        "founder": {
+          "@type": "Person",
+          "name": businessInfo.owner
+        },
+        "sameAs": [
+          businessInfo.social.facebook,
+          businessInfo.social.linkedin,
+          businessInfo.social.github
+        ]
+      },
       {
         "@type": "WebSite",
         "@id": `${businessInfo.url}/#website`,
@@ -128,7 +150,11 @@ const Home = () => {
       <Navbar activeSection={activeSection} />
       <main>
         <Hero />
+        <TrustBadges />
         <About />
+        <PainPoints />
+        <ServiceAreaSection />
+        <Testimonials />
         <RecentActivity className="py-8" />
         <ProcessTimeline />
         <Services />
@@ -139,7 +165,11 @@ const Home = () => {
         <CostComparison />
         <PricingSection />
         <ROICalculator />
+        <FreeAuditCTA />
         <FAQSection />
+        <div className="section-container py-6">
+          <AvailabilityBanner variant="banner" />
+        </div>
         <ContactSection />
       </main>
       <Footer />

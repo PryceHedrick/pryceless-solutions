@@ -5,17 +5,38 @@ import { industries, businessInfo } from '../data/seo-data';
 const Industries = () => {
   const industriesSchema = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "Industries We Serve",
-    "itemListElement": industries.map((industry, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Service",
-        "name": industry.name,
-        "description": industry.description
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": businessInfo.url
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Industries",
+            "item": `${businessInfo.url}/industries`
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Industries We Serve",
+        "itemListElement": industries.map((industry, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "item": {
+            "@type": "Service",
+            "name": industry.name,
+            "description": industry.description
+          }
+        }))
       }
-    }))
+    ]
   };
 
   return (

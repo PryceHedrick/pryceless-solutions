@@ -56,19 +56,40 @@ const Portfolio = () => {
 
   const portfolioSchema = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Web Design Portfolio | Pryceless Solutions",
-    "description": "View our portfolio of custom websites for Indiana small businesses. See examples of e-commerce, restaurant, contractor, and professional service websites.",
-    "url": `${businessInfo.url}/portfolio`,
-    "mainEntity": {
-      "@type": "ItemList",
-      "itemListElement": projects.map((project, index) => ({
-        "@type": "CreativeWork",
-        "position": index + 1,
-        "name": project.title,
-        "description": project.description
-      }))
-    }
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": businessInfo.url
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Portfolio",
+            "item": `${businessInfo.url}/portfolio`
+          }
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "name": "Web Design Portfolio | Pryceless Solutions",
+        "description": "View our portfolio of custom websites for Indiana small businesses. See examples of e-commerce, restaurant, contractor, and professional service websites.",
+        "url": `${businessInfo.url}/portfolio`,
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": projects.map((project, index) => ({
+            "@type": "CreativeWork",
+            "position": index + 1,
+            "name": project.title,
+            "description": project.description
+          }))
+        }
+      }
+    ]
   };
 
   return (

@@ -5,12 +5,33 @@ import { serviceAreas, businessInfo } from '../data/seo-data';
 const AreasServed = () => {
   const areasSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": businessInfo.name,
-    "areaServed": serviceAreas.map(area => ({
-      "@type": "City",
-      "name": `${area.city}, ${area.state}`
-    }))
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": businessInfo.url
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Areas Served",
+            "item": `${businessInfo.url}/areas-served`
+          }
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "name": businessInfo.name,
+        "areaServed": serviceAreas.map(area => ({
+          "@type": "City",
+          "name": `${area.city}, ${area.state}`
+        }))
+      }
+    ]
   };
 
   return (
