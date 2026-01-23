@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 import InlineCTA from './InlineCTA'
 import GuaranteeBadge from './GuaranteeBadge'
@@ -116,6 +115,9 @@ function Pricing() {
 
         {/* Bottom Note */}
         <div className="text-center mt-8 max-w-2xl mx-auto">
+          <p className="text-green-400 font-medium text-lg mb-3">
+            You don&apos;t pay until you&apos;re happy.
+          </p>
           <p className="text-gray-400">
             <span className="text-primary-400 font-medium">50% upfront</span> to start,{' '}
             <span className="text-primary-400 font-medium">50% on completion</span>. For larger projects, we can break it into milestones.
@@ -129,49 +131,9 @@ function Pricing() {
   )
 }
 
-// Animated counter hook for price
-function useCountUp(end, duration = 1500, shouldStart = false) {
-  const [count, setCount] = useState(0)
-  const countRef = useRef(null)
-
-  useEffect(() => {
-    if (!shouldStart) return
-
-    let startTime = null
-    const startValue = 0
-
-    const animate = (currentTime) => {
-      if (startTime === null) startTime = currentTime
-      const elapsed = currentTime - startTime
-      const progress = Math.min(elapsed / duration, 1)
-
-      // Ease out cubic
-      const easeOut = 1 - Math.pow(1 - progress, 3)
-      const currentCount = Math.floor(startValue + (end - startValue) * easeOut)
-
-      setCount(currentCount)
-
-      if (progress < 1) {
-        countRef.current = requestAnimationFrame(animate)
-      }
-    }
-
-    countRef.current = requestAnimationFrame(animate)
-
-    return () => {
-      if (countRef.current) {
-        cancelAnimationFrame(countRef.current)
-      }
-    }
-  }, [end, duration, shouldStart])
-
-  return count
-}
-
 function PricingCard({ tier, index, onCtaClick }) {
   const [cardRef, isVisible] = useScrollAnimation({ threshold: 0.2 })
   const delay = index * 150
-  const animatedPrice = useCountUp(tier.price, 1200, isVisible)
 
   const formatPrice = (num) => {
     return '$' + num.toLocaleString()
@@ -212,12 +174,12 @@ function PricingCard({ tier, index, onCtaClick }) {
         {/* Tier Name */}
         <h3 className="text-xl font-bold text-white mb-2">{tier.name}</h3>
 
-        {/* Price Section */}
+        {/* Price Section - Always visible, no animation delay */}
         <div className="mb-4">
           <span className="text-sm text-gray-400">{tier.priceNote}</span>
           <div className="flex items-baseline gap-1">
             <span className="text-4xl font-bold text-white">
-              {isVisible ? formatPrice(animatedPrice) : '$0'}
+              {formatPrice(tier.price)}
             </span>
             {tier.name === 'Custom' && <span className="text-xl font-bold text-white">+</span>}
           </div>

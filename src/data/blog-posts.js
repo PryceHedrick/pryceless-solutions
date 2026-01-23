@@ -108,7 +108,6 @@ We understand that most small businesses in Bedford, Jasper, Washington, Vincenn
 
 Contact us for a free quote. We'll assess your needs and give you an honest recommendation - even if that means suggesting a different solution.
 
-📞 (812) 709-2406
 📧 prycehedrick@gmail.com
     `
   },
@@ -191,7 +190,6 @@ When local businesses launch websites, they typically see:
 
 Stop losing customers to competitors with websites. A free 15-minute consultation can show you exactly what you need.
 
-📞 (812) 709-2406
 📧 prycehedrick@gmail.com
     `
   },
@@ -291,7 +289,6 @@ To rank for "restaurants near me" searches:
 
 We've helped restaurants across Southern Indiana create websites that actually bring in customers. Starting at $1,800 for a complete restaurant website.
 
-📞 (812) 709-2406
 📧 prycehedrick@gmail.com
     `
   }

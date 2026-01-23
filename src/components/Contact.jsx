@@ -17,6 +17,7 @@ function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    businessName: '',
     phone: '',
     projectType: ''
   })
@@ -36,6 +37,10 @@ function Contact() {
       newErrors.email = 'Email is required'
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email'
+    }
+
+    if (!formData.businessName.trim()) {
+      newErrors.businessName = 'Business name is required'
     }
 
     setErrors(newErrors)
@@ -68,6 +73,7 @@ function Contact() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          businessName: formData.businessName,
           phone: formData.phone,
           projectType: formData.projectType
         })
@@ -78,6 +84,7 @@ function Contact() {
         setFormData({
           name: '',
           email: '',
+          businessName: '',
           phone: '',
           projectType: ''
         })
@@ -236,6 +243,23 @@ function Contact() {
                     className={`form-input ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
+                </div>
+
+                {/* Business Name */}
+                <div>
+                  <label htmlFor="businessName" className="block text-sm font-medium text-gray-300 mb-2">
+                    Business Name <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="businessName"
+                    name="businessName"
+                    value={formData.businessName}
+                    onChange={handleChange}
+                    placeholder="Your business name"
+                    className={`form-input ${errors.businessName ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : ''}`}
+                  />
+                  {errors.businessName && <p className="mt-1 text-sm text-red-400">{errors.businessName}</p>}
                 </div>
 
                 {/* Phone & Project Type - Side by Side on Desktop */}
