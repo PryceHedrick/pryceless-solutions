@@ -2,6 +2,14 @@ import { useState } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 import InlineCTA from './InlineCTA'
 
+// Filter categories
+const categories = [
+  { id: 'all', label: 'All' },
+  { id: 'retail', label: 'Retail' },
+  { id: 'restaurants', label: 'Restaurants' },
+  { id: 'services', label: 'Services' }
+]
+
 // Portfolio projects - real projects only (CTA card is separate)
 // Order: Live client work first, then award-winning, then personal projects
 const projects = [
@@ -12,6 +20,7 @@ const projects = [
     fullDescription: 'A complete e-commerce solution for Card Guys Sports Cards. Built a user-friendly storefront that syncs inventory automatically, accepts multiple payment methods, and captures customer emails for repeat business. Expanded their reach beyond eBay to a dedicated online presence they fully control.',
     image: '/images/portfolio/cardguys/cart.png',
     tags: ['E-Commerce', 'Live Site', 'Payment Processing'],
+    category: 'retail',
     result: 'Live and processing orders',
     features: [
       'Inventory syncs automatically — no double-selling',
@@ -33,6 +42,7 @@ const projects = [
     fullDescription: 'Order Management System built for Panda International that handles everything from order intake to shipping. Automatically generates FedEx labels, tracks packages in real-time, and manages inventory across multiple warehouses. What used to take hours of manual work now happens in minutes. This project won the Outstanding Senior Project Award at USI in 2024.',
     image: '/images/portfolio/panda-oms/Panda_OMS_Dashboard.png',
     tags: ['Business Automation', 'Shipping Integration', 'Award Winner'],
+    category: 'restaurants',
     result: 'Still in production — processing orders daily',
     features: [
       'Shipping labels generated automatically — no manual entry',
@@ -54,6 +64,7 @@ const projects = [
     fullDescription: 'A comprehensive portfolio tracking application designed for Pokemon TCG collectors. Features a modern glassmorphism UI, AI-powered insights with portfolio health scoring, market momentum tracking, profit taking alerts, and concentration risk analysis. Track your collection value in real-time with beautiful animated dashboards.',
     image: '/images/portfolio/vault/dashboard.png',
     tags: ['Python/Flask', 'AI Analytics', 'Real-Time Data'],
+    category: 'services',
     result: 'v2.0 released with AI-powered insights',
     features: [
       'AI portfolio health scoring and market momentum tracking',
@@ -71,7 +82,13 @@ const projects = [
 
 function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null)
+  const [activeFilter, setActiveFilter] = useState('all')
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
+
+  // Filter projects based on active category
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter(p => p.category === activeFilter)
 
   return (
     <section id="portfolio" className="py-16 lg:py-24 bg-dark-800/30">
@@ -79,7 +96,7 @@ function Portfolio() {
         {/* Header */}
         <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-10 transition-all duration-700 ${
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -91,18 +108,41 @@ function Portfolio() {
           </p>
         </div>
 
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveFilter(cat.id)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeFilter === cat.id
+                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30'
+                  : 'bg-dark-700 text-gray-300 hover:bg-dark-600 hover:text-white'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={index}
-              onClick={() => setSelectedProject(project)}
-            />
-          ))}
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                onClick={() => setSelectedProject(project)}
+              />
+            ))
+          ) : (
+            <div className="md:col-span-2 text-center py-12">
+              <p className="text-gray-400 text-lg">No projects in this category yet. Check back soon!</p>
+            </div>
+          )}
           {/* CTA Card - Always last */}
-          <CTACard index={projects.length} />
+          <CTACard index={filteredProjects.length} />
         </div>
 
         {/* Inline CTA */}
