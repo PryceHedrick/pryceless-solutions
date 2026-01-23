@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { trackCTAClick } from '../utils/analytics'
 
 function Hero() {
   const canvasRef = useRef(null)
@@ -172,7 +173,10 @@ function Hero() {
           {/* CTA Button - Single clear action */}
           <div className="flex justify-center animate-fade-in-up delay-300">
             <button
-              onClick={() => scrollToSection('pricing')}
+              onClick={() => {
+                trackCTAClick('hero_see_pricing')
+                scrollToSection('pricing')
+              }}
               className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-4 group"
             >
               See Pricing

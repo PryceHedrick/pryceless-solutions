@@ -52,11 +52,23 @@
   <meta name="msapplication-TileColor" content="#0ea5e9" />
   <meta name="theme-color" content="#0ea5e9" />
 
+  <!-- ========== GOOGLE ANALYTICS 4 ========== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TKJWD3N6M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8TKJWD3N6M', {
+      page_title: document.title,
+      send_page_view: true
+    });
+  </script>
+
   <!-- ========== PERFORMANCE ========== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
   <!-- ========== COMPLETE SCHEMA.ORG JSON-LD ========== -->
   <script type="application/ld+json">
