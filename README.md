@@ -46,11 +46,34 @@ npm run preview  # Preview production build
 ## Project Structure
 
 ```
-src/
-├── components/    # UI components
-├── hooks/         # Custom React hooks
-├── App.jsx        # Main app
-└── index.css      # Tailwind + global styles
+pryceless-solutions/
+├── .claude/              # Claude Code configuration
+│   ├── rules/            # Agent behavior rules
+│   ├── skills/           # Custom skills (command-center, agents)
+│   └── CLAUDE.md         # Main AI instructions
+├── docs/                 # Documentation and TODOs
+├── public/               # Static assets (favicons, images)
+│   └── images/portfolio/ # Portfolio screenshots
+├── scripts/              # Build utilities
+├── src/
+│   ├── components/       # React UI components
+│   │   ├── layout/       # Layout components (Navigation, Footer)
+│   │   └── motion/       # Animation components (FadeIn, etc.)
+│   ├── config/           # App configuration
+│   ├── data/             # Static data (SEO, blog posts)
+│   ├── hooks/            # Custom React hooks
+│   ├── pages/            # Page components
+│   │   ├── areas/        # Service area pages
+│   │   ├── blog/         # Blog pages
+│   │   └── industries/   # Industry pages
+│   ├── App.jsx           # Main app with routing
+│   ├── main.jsx          # Entry point
+│   └── index.css         # Tailwind + global styles
+├── index.html            # Vite entry HTML
+├── package.json          # Dependencies
+├── tailwind.config.js    # Tailwind configuration
+├── vite.config.js        # Vite configuration
+└── vercel.json           # Vercel deployment config
 ```
 
 ---
