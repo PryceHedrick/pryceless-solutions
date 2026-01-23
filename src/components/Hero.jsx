@@ -134,17 +134,17 @@ function Hero() {
 
           {/* Main Heading - Benefit Focused H1 */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 animate-fade-in-up">
-            Custom Websites That <span className="gradient-text">Bring In Customers</span>
+            Stop Losing Customers to <span className="gradient-text">Competitors With Websites</span>
           </h1>
 
           {/* Tagline */}
           <p className="text-lg sm:text-xl md:text-2xl text-primary-400 font-medium mb-6 animate-fade-in-up delay-100">
-            Professional websites for Indiana small businesses
+            I build websites that work as hard as you do
           </p>
 
           {/* Value Proposition */}
           <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8 animate-fade-in-up delay-200">
-            Get a website that makes you look established—without the agency price tag. Most sites launch in 2 weeks. No monthly fees. You own everything.
+            Professional results. Clear pricing. No surprises. Most sites launch in 2 weeks—you own everything, no monthly fees.
           </p>
 
           {/* Trust Stats */}
@@ -172,11 +172,10 @@ function Hero() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('pricing')}
               className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-4 group"
             >
-              <span className="sm:hidden">Free Quote</span>
-              <span className="hidden sm:inline">Get Your Free Quote</span>
+              See Pricing
               <svg
                 className="inline-block w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                 fill="none"
@@ -187,11 +186,10 @@ function Hero() {
               </svg>
             </button>
             <button
-              onClick={() => scrollToSection('portfolio')}
+              onClick={() => scrollToSection('contact')}
               className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-lg transition-all duration-300 text-lg"
             >
-              {/* EDIT: Secondary CTA text */}
-              See My Work
+              Get a Free Quote
             </button>
           </div>
 
