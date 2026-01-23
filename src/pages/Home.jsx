@@ -25,6 +25,7 @@ import ROICalculator from '../components/ROICalculator';
 import ProcessTimeline from '../components/ProcessTimeline';
 import RecentActivity from '../components/RecentActivity';
 import FreeAuditCTA from '../components/FreeAuditCTA';
+import ServiceAreaSection from '../components/ServiceAreaSection';
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -133,6 +134,7 @@ const Home = () => {
         <Hero />
         <TrustBadges />
         <About />
+        <ServiceAreaSection />
         <Testimonials />
         <RecentActivity className="py-8" />
         <ProcessTimeline />
