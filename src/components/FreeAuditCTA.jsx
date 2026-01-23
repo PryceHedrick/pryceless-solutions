@@ -70,23 +70,13 @@ function FreeAuditCTA({ className = '' }) {
 
             {/* Content */}
             <div className="relative glass-card p-8 lg:p-10">
-              {/* Icon */}
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-primary-500/20 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-              </div>
-
               {/* Header */}
               <div className="text-center mb-8">
                 <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3">
-                  Not Sure If You Need a New Website?
+                  Get a Free Website Audit
                 </h2>
                 <p className="text-gray-400 text-lg">
-                  Get a free 5-minute audit of your current online presence.
-                  I&apos;ll tell you what&apos;s working, what&apos;s not, and what it would take to fix it.
+                  I&apos;ll review your online presence and share honest feedback on what&apos;s working and what could improve.
                 </p>
               </div>
 

@@ -22,7 +22,7 @@ import ExitIntentPopup from '../components/ExitIntentPopup';
 import CaseStudyMetrics from '../components/CaseStudyMetrics';
 import CostComparison from '../components/CostComparison';
 import ROICalculator from '../components/ROICalculator';
-import ProcessTimeline from '../components/ProcessTimeline';
+import HowItWorks from '../components/HowItWorks';
 import RecentActivity from '../components/RecentActivity';
 import FreeAuditCTA from '../components/FreeAuditCTA';
 import ServiceAreaSection from '../components/ServiceAreaSection';
@@ -149,24 +149,25 @@ const Home = () => {
       />
       <Navbar activeSection={activeSection} />
       <main>
+        {/* Phase 2 Conversion Funnel - Optimized Order */}
         <Hero />
         <TrustBadges />
-        <About />
         <PainPoints />
-        <ServiceAreaSection />
-        <Testimonials />
-        <RecentActivity className="py-8" />
-        <ProcessTimeline />
+        <About />
         <Services />
+        <PricingSection />
+        <HowItWorks />
         <PortfolioSection />
         <CaseStudyMetrics />
+        <Testimonials />
         <Credentials />
         <WhyWorkWithMe />
         <CostComparison />
-        <PricingSection />
         <ROICalculator />
-        <FreeAuditCTA />
         <FAQSection />
+        <FreeAuditCTA />
+        <ServiceAreaSection />
+        <RecentActivity className="py-8" />
         <div className="section-container py-6">
           <AvailabilityBanner variant="banner" />
         </div>
