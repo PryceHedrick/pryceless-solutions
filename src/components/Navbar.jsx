@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 
-// EDIT: Navigation links - Add or remove sections here
+// EDIT: Navigation links - Ordered for conversion flow
 const navLinks = [
   { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'services', label: 'What I Build' },
+  { id: 'services', label: 'Services' },
   { id: 'pricing', label: 'Pricing' },
-  { id: 'faq', label: 'FAQ' },
+  { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },
 ]
 
