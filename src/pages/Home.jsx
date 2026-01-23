@@ -26,6 +26,7 @@ import ProcessTimeline from '../components/ProcessTimeline';
 import RecentActivity from '../components/RecentActivity';
 import FreeAuditCTA from '../components/FreeAuditCTA';
 import ServiceAreaSection from '../components/ServiceAreaSection';
+import AvailabilityBanner from '../components/AvailabilityBanner';
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -148,6 +149,9 @@ const Home = () => {
         <ROICalculator />
         <FreeAuditCTA />
         <FAQSection />
+        <div className="section-container py-6">
+          <AvailabilityBanner variant="banner" />
+        </div>
         <ContactSection />
       </main>
       <Footer />
