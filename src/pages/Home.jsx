@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import TrustBadges from '../components/TrustBadges';
 import About from '../components/About';
+import Testimonials from '../components/Testimonials';
 import Services from '../components/Services';
 import PortfolioSection from '../components/Portfolio';
 import Credentials from '../components/Credentials';
@@ -128,7 +130,9 @@ const Home = () => {
       <Navbar activeSection={activeSection} />
       <main>
         <Hero />
+        <TrustBadges />
         <About />
+        <Testimonials />
         <RecentActivity className="py-8" />
         <ProcessTimeline />
         <Services />
