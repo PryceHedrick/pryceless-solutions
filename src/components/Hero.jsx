@@ -169,8 +169,8 @@ function Hero() {
             </span>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+          {/* CTA Button - Single clear action */}
+          <div className="flex justify-center animate-fade-in-up delay-300">
             <button
               onClick={() => scrollToSection('pricing')}
               className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-4 group"
@@ -184,12 +184,6 @@ function Hero() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="border border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-lg transition-all duration-300 text-lg"
-            >
-              Get a Free Quote
             </button>
           </div>
 
