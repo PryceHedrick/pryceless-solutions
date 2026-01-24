@@ -2,38 +2,50 @@ import { useState } from 'react'
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
 // EDIT: FAQ items - Add or modify frequently asked questions here
+// Organized: Process → Pricing → Concerns (objection handling)
 const faqItems = [
+  // Process Questions
   {
     question: 'How does the free consultation work?',
-    answer: "We hop on a 30-minute call, you tell me what you're building, I ask questions to understand the scope. If it's a fit, I send a proposal. No pressure, no obligation."
+    answer: "We hop on a 15-30 minute call, you tell me what you're building, I ask questions to understand the scope. If it's a fit, I send a proposal. No pressure, no obligation."
   },
   {
     question: "What's your typical turnaround time?",
-    answer: "Landing pages: 1-2 weeks. Multi-page sites: 2-4 weeks. Web apps: 4-8 weeks. You'll get a specific timeline in your proposal."
-  },
-  {
-    question: "I don't know exactly what I need. Can you help?",
-    answer: "That's exactly what the consultation is for. Bring the idea, I'll help you shape it into a plan that fits your goals and budget."
-  },
-  {
-    question: 'Do you offer maintenance and support?',
-    answer: "Yes—monthly packages for ongoing updates and security, or hourly support for one-off fixes. We'll figure out what makes sense for you."
+    answer: "Starter sites: 1-2 weeks. Professional sites: 2-4 weeks. E-commerce: 4-6 weeks. Web apps: 4-8 weeks. You'll get a specific timeline in your proposal."
   },
   {
     question: "What's the payment structure?",
-    answer: '50% to start, 50% on completion. Larger projects can be split into milestones. I invoice via PayPal or bank transfer.'
+    answer: "50% deposit to start, 50% before launch. You don't pay the final balance until you're happy with the site. Larger projects can be split into milestones."
+  },
+  // Pricing Questions
+  {
+    question: "Do you charge monthly fees?",
+    answer: "No. You pay once and own it forever. The only ongoing cost is hosting (typically $0-20/month through Vercel). No surprise bills, no hidden fees."
   },
   {
-    question: 'Can you work with my existing website?',
-    answer: "Usually, yes. I'll take a look during our consultation and tell you what's possible. Most platforms are workable."
+    question: "Why are you cheaper than agencies?",
+    answer: "No overhead. You work directly with me — no account managers, project coordinators, or layers of bureaucracy. Same quality, fraction of the cost."
+  },
+  // Objection Handling - Common Hesitations
+  {
+    question: "I don't think I need a website right now.",
+    answer: "That's fair if word-of-mouth is working. But 70% of customers search online before visiting a local business. Without a website, they find your competitors. When you're ready, I'm here."
   },
   {
-    question: 'What if I need changes after launch?',
-    answer: 'Revisions during the project are included. After launch, you get 30 days of bug fixes. Beyond that, I offer hourly support or maintenance packages.'
+    question: "What if I don't like the design?",
+    answer: "You'll see the design before paying the final balance. Every package includes revision rounds to adjust colors, layouts, and content. You're never stuck with something you don't love."
   },
   {
-    question: 'Do you work with clients outside your area?',
-    answer: "Absolutely. Most of my work is remote—video calls, email, messaging. Time zones aren't an issue."
+    question: "Can I update the website myself after it's done?",
+    answer: "For text and image updates, I can train you or set up a simple CMS. For complex changes, I offer affordable maintenance packages. You're never locked in or held hostage."
+  },
+  {
+    question: "I had a bad experience with a web developer before.",
+    answer: "We've heard this too often. That's why we work differently: clear pricing upfront, regular check-ins (no ghosting), and you don't pay the final balance until you're happy. I'm local, accountable, and actually answer my phone."
+  },
+  {
+    question: "What happens after the website launches?",
+    answer: "All packages include 30-90 days of post-launch support. After that, no mandatory contracts — you're free. If you need updates later, just reach out."
   }
 ]
 

@@ -512,6 +512,42 @@ export const faqs = [
     category: "Comparison",
     question: "How are you different from other web designers?",
     answer: "Three key differences: 1) No monthly fees - you pay once and own it forever. 2) Modern technology - our sites are 3-5x faster than WordPress. 3) Personal service - you work directly with the developer, not account managers or overseas teams."
+  },
+  // Objection Handling Category
+  {
+    category: "Concerns",
+    question: "I already have someone who does my website. Why switch?",
+    answer: "If you're happy with your current provider, that's great! But if you're frustrated with slow updates, unexpected fees, or an outdated look, we might be worth a conversation. We offer free website audits to show you what's possible - no pressure, no sales pitch."
+  },
+  {
+    category: "Concerns",
+    question: "I don't think I need a website right now.",
+    answer: "That's fair if word-of-mouth is working. But about 70% of customers search online before visiting a local business. Without a website, they find your competitors instead. When you're ready, we'll be here - and a 15-minute call costs you nothing."
+  },
+  {
+    category: "Concerns",
+    question: "What if I don't like the design?",
+    answer: "You'll see the design before paying the final balance. Every package includes revision rounds to adjust colors, layouts, and content. We work collaboratively - you're never stuck with something you don't love."
+  },
+  {
+    category: "Concerns",
+    question: "Can I update the website myself after it's done?",
+    answer: "It depends on the site type. For content updates (text, images), we can train you or set up a simple CMS. For complex changes, we offer affordable maintenance packages or one-off updates. You're never locked in or held hostage."
+  },
+  {
+    category: "Concerns",
+    question: "What if my business grows and I need more features?",
+    answer: "Our sites are built to scale. We can add pages, features, e-commerce, booking systems, or anything else as your business grows. You won't need to start over - we expand what you have."
+  },
+  {
+    category: "Concerns",
+    question: "I had a bad experience with a web developer before.",
+    answer: "We've heard this too often. That's why we work differently: clear pricing upfront (no surprise bills), regular check-ins (no ghosting), and you don't pay the final balance until you're happy. We're local, accountable, and actually answer our phone."
+  },
+  {
+    category: "Concerns",
+    question: "What happens after the website launches?",
+    answer: "All packages include 30-90 days of post-launch support for bugs and minor tweaks. After that, you're free - no mandatory contracts. If you need updates later, just reach out. Many clients only contact us once a year for small refreshes."
   }
 ];
 

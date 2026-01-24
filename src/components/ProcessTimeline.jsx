@@ -80,7 +80,7 @@ function ProcessTimeline({ className = '' }) {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.1 })
 
   return (
-    <section className={`py-16 lg:py-24 bg-dark-900 ${className}`}>
+    <section id="how-it-works" className={`py-16 lg:py-24 bg-dark-900 ${className}`}>
       <div className="section-container">
         {/* Header */}
         <div
