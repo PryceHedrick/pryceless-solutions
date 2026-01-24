@@ -66,6 +66,13 @@ function CostComparison({ className = '' }) {
           <p className="section-subheading">
             Compare your options — the numbers speak for themselves
           </p>
+          <div className="mt-4 max-w-xl mx-auto">
+            <p className="text-gray-300 text-base leading-relaxed">
+              Tired of fighting with Wix at midnight?
+              <br />
+              <span className="text-primary-400 font-medium">Your website should be bringing in customers, not eating your weekends.</span>
+            </p>
+          </div>
         </div>
 
         {/* Comparison Table - Desktop */}

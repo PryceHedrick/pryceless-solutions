@@ -7,7 +7,6 @@ import About from '../components/About';
 import Testimonials from '../components/Testimonials';
 import Services from '../components/Services';
 import PortfolioSection from '../components/Portfolio';
-import Credentials from '../components/Credentials';
 import WhyWorkWithMe from '../components/WhyWorkWithMe';
 import PricingSection from '../components/Pricing';
 import FAQSection from '../components/FAQ';
@@ -20,11 +19,8 @@ import { businessInfo, services, faqs } from '../data/seo-data';
 import FloatingCTA from '../components/FloatingCTA';
 import ExitIntentPopup from '../components/ExitIntentPopup';
 import CaseStudyMetrics from '../components/CaseStudyMetrics';
-import CostComparison from '../components/CostComparison';
 import ROICalculator from '../components/ROICalculator';
-import HowItWorks from '../components/HowItWorks';
-import RecentActivity from '../components/RecentActivity';
-import FreeAuditCTA from '../components/FreeAuditCTA';
+import ProcessTimeline from '../components/ProcessTimeline';
 import ServiceAreaSection from '../components/ServiceAreaSection';
 import AvailabilityBanner from '../components/AvailabilityBanner';
 import PainPoints from '../components/PainPoints'
@@ -158,18 +154,14 @@ const Home = () => {
         <About />
         <Services />
         <PricingSection />
-        <HowItWorks />
+        <ProcessTimeline />
         <PortfolioSection />
         <CaseStudyMetrics />
         <Testimonials />
-        <Credentials />
         <WhyWorkWithMe />
-        <CostComparison />
         <ROICalculator />
         <FAQSection />
-        <FreeAuditCTA />
         <ServiceAreaSection />
-        <RecentActivity className="py-8" />
         <div className="section-container py-6">
           <AvailabilityBanner variant="banner" />
         </div>

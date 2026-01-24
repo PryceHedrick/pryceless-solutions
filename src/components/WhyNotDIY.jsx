@@ -73,6 +73,11 @@ function WhyNotDIY({ className = '' }) {
           <p className="section-subheading">
             You have options. Here&apos;s how they stack up.
           </p>
+          <p className="mt-4 text-gray-300 max-w-xl mx-auto">
+            Tired of fighting with Wix at midnight?
+            <br />
+            <span className="text-primary-400 font-medium">Your website should be bringing in customers, not eating your weekends.</span>
+          </p>
         </div>
 
         {/* Comparison Cards */}

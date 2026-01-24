@@ -50,7 +50,7 @@ function WhyWorkWithMe() {
         {/* Header */}
         <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-12 transition-all duration-700 ${
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -60,6 +60,22 @@ function WhyWorkWithMe() {
           <p className="section-subheading">
             What you get when we work together
           </p>
+        </div>
+
+        {/* vs. Agency Positioning */}
+        <div
+          className={`max-w-2xl mx-auto mb-16 transition-all duration-700 delay-100 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <div className="glass-card p-6 lg:p-8 text-center border-primary-500/30">
+            <p className="text-xl font-semibold text-white mb-2">
+              Big agency results. Small business relationship.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              No account managers. No weeks waiting for replies. Just direct access to the person building your site.
+            </p>
+          </div>
         </div>
 
         {/* Reasons Grid */}
