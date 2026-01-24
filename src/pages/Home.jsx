@@ -13,7 +13,7 @@ import FAQSection from '../components/FAQ';
 import ContactSection from '../components/Contact';
 import Footer from '../components/layout/Footer';
 import BackToTop from '../components/BackToTop';
-import { businessInfo, services, faqs } from '../data/seo-data';
+import { businessInfo, services, faqs, testimonials } from '../data/seo-data';
 
 // Lead Generation Components
 import FloatingCTA from '../components/FloatingCTA';
@@ -118,7 +118,28 @@ const Home = () => {
               "description": service.description
             }
           }))
-        }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": testimonials.length.toString(),
+          "reviewCount": testimonials.length.toString()
+        },
+        "review": testimonials.map(t => ({
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": t.name
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": t.rating.toString(),
+            "bestRating": "5"
+          },
+          "reviewBody": t.quote
+        }))
       },
       {
         "@type": "FAQPage",

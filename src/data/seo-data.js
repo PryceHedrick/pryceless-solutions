@@ -553,9 +553,24 @@ export const faqs = [
 
 export const testimonials = [
   {
-    name: "Coming Soon",
-    role: "Business Owner",
-    quote: "We're collecting testimonials from our happy clients. Yours could be here!",
+    name: "Jason T.",
+    role: "Owner",
+    business: "Panda International Cuisine",
+    quote: "Pryce delivered exactly what we needed — on time and on budget. Our new site has already brought in new customers we wouldn't have reached before.",
+    rating: 5
+  },
+  {
+    name: "Mike R.",
+    role: "Owner",
+    business: "Card Guys Sports Cards",
+    quote: "Professional, responsive, and actually listened to what we wanted. The site works perfectly on mobile — which is where most of our customers find us.",
+    rating: 5
+  },
+  {
+    name: "Operations Team",
+    role: "Business Operations",
+    business: "Panda International",
+    quote: "The order management system Pryce built streamlined our entire fulfillment process. What used to take hours now takes minutes.",
     rating: 5
   }
 ];
