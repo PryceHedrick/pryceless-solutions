@@ -17,7 +17,6 @@ import { businessInfo, services, faqs } from '../data/seo-data';
 
 // Lead Generation Components
 import FloatingCTA from '../components/FloatingCTA';
-import ExitIntentPopup from '../components/ExitIntentPopup';
 import CaseStudyMetrics from '../components/CaseStudyMetrics';
 import ROICalculator from '../components/ROICalculator';
 import ProcessTimeline from '../components/ProcessTimeline';
@@ -170,7 +169,6 @@ const Home = () => {
       <Footer />
       <BackToTop />
       <FloatingCTA />
-      <ExitIntentPopup />
     </>
   );
 };
