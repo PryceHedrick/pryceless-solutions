@@ -6,8 +6,8 @@
 export const businessInfo = {
   name: "Pryceless Solutions",
   owner: "Pryce Hedrick",
-  phone: null, // Add Google Voice number here once created
-  phoneLink: null,
+  phone: "(812) 610-9805",
+  phoneLink: "tel:+18126109805",
   email: "prycehedrick@gmail.com",
   address: {
     street: "",
