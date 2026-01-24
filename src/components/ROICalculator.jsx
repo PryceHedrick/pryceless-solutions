@@ -122,7 +122,7 @@ function ROICalculator({ className = '' }) {
                     onClick={() => handleIndustryChange(key)}
                     className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${
                       selectedIndustry === key
-                        ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30'
+                        ? 'bg-primary-600 text-white shadow-lg shadow-primary-500/30'
                         : 'bg-dark-700 text-gray-300 hover:bg-dark-600'
                     }`}
                   >
@@ -135,7 +135,7 @@ function ROICalculator({ className = '' }) {
             {/* Input Sliders */}
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label id="visitors-label" className="block text-sm font-medium text-gray-300 mb-2">
                   Monthly Website Visitors
                 </label>
                 <input
@@ -146,6 +146,10 @@ function ROICalculator({ className = '' }) {
                   value={values.monthlyVisitors}
                   onChange={(e) => handleValueChange('monthlyVisitors', e.target.value)}
                   className="w-full h-2 bg-dark-600 rounded-lg appearance-none cursor-pointer accent-primary-500"
+                  aria-labelledby="visitors-label"
+                  aria-valuemin={100}
+                  aria-valuemax={5000}
+                  aria-valuenow={values.monthlyVisitors}
                 />
                 <div className="flex justify-between text-sm mt-1">
                   <span className="text-gray-500">100</span>
@@ -155,7 +159,7 @@ function ROICalculator({ className = '' }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label id="conversion-label" className="block text-sm font-medium text-gray-300 mb-2">
                   Conversion Rate (%)
                 </label>
                 <input
@@ -166,6 +170,10 @@ function ROICalculator({ className = '' }) {
                   value={values.conversionRate}
                   onChange={(e) => handleValueChange('conversionRate', e.target.value)}
                   className="w-full h-2 bg-dark-600 rounded-lg appearance-none cursor-pointer accent-primary-500"
+                  aria-labelledby="conversion-label"
+                  aria-valuemin={0.5}
+                  aria-valuemax={10}
+                  aria-valuenow={values.conversionRate}
                 />
                 <div className="flex justify-between text-sm mt-1">
                   <span className="text-gray-500">0.5%</span>
@@ -175,7 +183,7 @@ function ROICalculator({ className = '' }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label id="ordervalue-label" className="block text-sm font-medium text-gray-300 mb-2">
                   Average Order/Job Value ($)
                 </label>
                 <input
@@ -186,6 +194,10 @@ function ROICalculator({ className = '' }) {
                   value={values.avgOrderValue}
                   onChange={(e) => handleValueChange('avgOrderValue', e.target.value)}
                   className="w-full h-2 bg-dark-600 rounded-lg appearance-none cursor-pointer accent-primary-500"
+                  aria-labelledby="ordervalue-label"
+                  aria-valuemin={25}
+                  aria-valuemax={5000}
+                  aria-valuenow={values.avgOrderValue}
                 />
                 <div className="flex justify-between text-sm mt-1">
                   <span className="text-gray-500">$25</span>
@@ -195,7 +207,7 @@ function ROICalculator({ className = '' }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label id="investment-label" className="block text-sm font-medium text-gray-300 mb-2">
                   Website Investment ($)
                 </label>
                 <input
@@ -206,6 +218,10 @@ function ROICalculator({ className = '' }) {
                   value={values.websiteCost}
                   onChange={(e) => handleValueChange('websiteCost', e.target.value)}
                   className="w-full h-2 bg-dark-600 rounded-lg appearance-none cursor-pointer accent-primary-500"
+                  aria-labelledby="investment-label"
+                  aria-valuemin={750}
+                  aria-valuemax={5000}
+                  aria-valuenow={values.websiteCost}
                 />
                 <div className="flex justify-between text-sm mt-1">
                   <span className="text-gray-500">$750</span>

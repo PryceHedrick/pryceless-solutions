@@ -123,7 +123,7 @@ const Footer = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-md text-sm font-medium transition-colors disabled:opacity-50"
+                    className="px-4 py-2 bg-sky-700 hover:bg-sky-800 text-white rounded-md text-sm font-medium transition-colors disabled:opacity-50"
                   >
                     {isSubmitting ? '...' : 'Join'}
                   </button>
@@ -137,7 +137,7 @@ const Footer = () => {
             <div className="mt-6">
               <Link
                 to="/contact"
-                className="inline-block px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-md text-sm font-medium transition-colors"
+                className="inline-block px-4 py-2 bg-sky-700 hover:bg-sky-800 text-white rounded-md text-sm font-medium transition-colors"
               >
                 Get a Free Quote
               </Link>
@@ -151,7 +151,7 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               &copy; {currentYear} Pryceless Solutions. All rights reserved.
             </p>
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-400 text-sm">
               You own your website. No monthly fees. No lock-in.
             </p>
           </div>

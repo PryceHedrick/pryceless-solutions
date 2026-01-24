@@ -21,7 +21,10 @@ function Hero() {
 
     const createParticles = () => {
       particles = []
-      const particleCount = Math.floor((canvas.width * canvas.height) / 15000)
+      // Reduce particle count on mobile for better performance
+      const isMobile = canvas.width < 768
+      const divisor = isMobile ? 25000 : 15000
+      const particleCount = Math.floor((canvas.width * canvas.height) / divisor)
 
       for (let i = 0; i < particleCount; i++) {
         particles.push({
@@ -63,17 +66,18 @@ function Hero() {
         ctx.fillStyle = `rgba(59, 130, 246, ${particle.opacity})`
         ctx.fill()
 
-        // Draw connections
+        // Draw connections (reduced distance on mobile for performance)
+        const connectionDistance = canvas.width < 768 ? 100 : 150
         particles.slice(index + 1).forEach((otherParticle) => {
           const dx = particle.x - otherParticle.x
           const dy = particle.y - otherParticle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 150) {
+          if (distance < connectionDistance) {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / 150)})`
+            ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / connectionDistance)})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
