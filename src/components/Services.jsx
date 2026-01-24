@@ -80,7 +80,7 @@ function Services() {
         >
           <h2 className="section-heading">
             {/* EDIT: Section heading */}
-            What I <span className="gradient-text">Build</span>
+            What I Can <span className="gradient-text">Build For You</span>
           </h2>
           <p className="section-subheading">
             {/* EDIT: Section description */}

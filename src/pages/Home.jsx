@@ -27,7 +27,8 @@ import RecentActivity from '../components/RecentActivity';
 import FreeAuditCTA from '../components/FreeAuditCTA';
 import ServiceAreaSection from '../components/ServiceAreaSection';
 import AvailabilityBanner from '../components/AvailabilityBanner';
-import PainPoints from '../components/PainPoints';
+import PainPoints from '../components/PainPoints'
+import WhyNotDIY from '../components/WhyNotDIY';
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState('hero');
@@ -152,6 +153,7 @@ const Home = () => {
         {/* Phase 2 Conversion Funnel - Optimized Order */}
         <Hero />
         <TrustBadges />
+        <WhyNotDIY />
         <PainPoints />
         <About />
         <Services />

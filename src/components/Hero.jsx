@@ -151,7 +151,7 @@ function Hero() {
 
           {/* Who this is for - Target audience clarity */}
           <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto mb-8 animate-fade-in-up delay-250">
-            Perfect for <span className="text-primary-400">restaurants</span>, <span className="text-primary-400">contractors</span>, and <span className="text-primary-400">local service businesses</span> in Southern Indiana.
+            Built specifically for <span className="text-white font-medium">restaurants</span>, <span className="text-white font-medium">contractors</span>, and <span className="text-white font-medium">local service businesses</span> in Southern Indiana who need a website that actually brings customers.
           </p>
 
           {/* Trust Stats */}
