@@ -1,121 +1,93 @@
 # Core Status — Session Complete
-## Updated: 2026-01-23
+## Updated: 2026-01-24
 
 ## Session Summary
 
-This session had two phases:
-1. **Phase 3 Strategy Implementation** (Primary Builder Agent)
-2. **Page Streamlining** (Direct edits after user feedback)
+This session focused on:
+1. **Deployment attempt** (Vercel CLI needs re-auth)
+2. **Client Outreach Setup** (Research + drafts ready)
 
 ---
 
-## Phase 3 Strategy Implementation (Complete)
+## Deployment Status
 
-### Shadow Recommendations Implemented
-- [x] R3C: vs. DIY copy — Added to WhyNotDIY
-- [x] R4A: Hero stats — "Every Project Delivered On Time"
-- [x] R3D: vs. Agency copy — Added to WhyWorkWithMe
-- [x] R4B: TrustBadges — "Outstanding Project — Built for Real Business"
-
----
-
-## Page Streamlining (Complete)
-
-### Removed Sections
-
-| Section | Reason |
-|---------|--------|
-| FreeAuditCTA | User preference - too much clutter |
-| HowItWorks | Replaced with ProcessTimeline (clean spectrum design, no emojis) |
-| CostComparison | Redundant with WhyNotDIY (consolidated) |
-| Credentials | Redundant with WhyWorkWithMe (consolidated) |
-| RecentActivity | User preference - simplified page |
-| ExitIntentPopup | Consistent with removing audit content |
-
-### Component Changes
-
-| Component | Change |
-|-----------|--------|
-| ProcessTimeline | Now used instead of HowItWorks (spectrum gradient, SVG icons) |
-| WhyNotDIY | Added vs. DIY positioning copy |
-| WhyWorkWithMe | Added vs. Agency positioning callout |
-| About | Removed duplicate credibility cards (4 highlights removed) |
-| Hero | Updated stats: "Every Project Delivered On Time" |
-| TrustBadges | Updated award: "Built for Real Business" |
+- Build: PASSING (483 modules, 276KB bundle)
+- Git: All changes committed and pushed to `origin/main`
+- Vercel CLI: Token expired, needs `vercel login`
+- **If GitHub integration is enabled**, site auto-deploys on push (check Vercel dashboard)
 
 ---
 
-## Metrics
+## Client Outreach Progress
 
-| Metric | Before | After | Change |
-|--------|--------|-------|--------|
-| Sections | 18 | 14 | -4 |
-| Bundle size | 296KB | 275KB | -21KB (7%) |
-| Modules | 488 | 483 | -5 |
+### Hot Leads Identified (Score 18 - Loogootee, No Website)
 
----
+| Business | Phone | Key Hook | Status |
+|----------|-------|----------|--------|
+| **Pizza Junction** | (812) 295-3333 | 34 years, owner Tom Harker, #1 pizza | Ready to message on Facebook |
+| **Break Time Bar & Grill** | (812) 295-5531 | "Best tenderloin in Indiana", dead website | Ready for outreach |
+| **Biggin's Place** | (812) 295-2222 | People drive 1hr for pizza, no website | Ready for outreach |
 
-## Current Page Structure
+### Downgraded (Already Have Websites)
+- Corner Cafe - Has Toast online ordering
+- China Wok - Has website with online ordering
 
-```
-1. Hero
-2. TrustBadges
-3. WhyNotDIY (+ vs. DIY copy)
-4. PainPoints
-5. About (streamlined)
-6. Services
-7. PricingSection
-8. ProcessTimeline (clean design)
-9. PortfolioSection
-10. CaseStudyMetrics
-11. Testimonials
-12. WhyWorkWithMe (+ vs. Agency copy)
-13. ROICalculator
-14. FAQSection
-15. ServiceAreaSection
-16. AvailabilityBanner
-17. ContactSection
-```
+### Files Created/Updated (in `prospects/` - gitignored)
+
+| File | Contents |
+|------|----------|
+| `client-prospects.csv` | Updated with research findings, phone numbers, priority scores |
+| `outreach-templates.md` | Updated with personal phone (812) 709-2406 |
+| `drafts/pizza-junction-email.md` | Personalized outreach + walk-in notes |
+| `drafts/break-time-email.md` | Dead website angle + strategy |
+| `drafts/biggins-place-email.md` | Pizza reputation hook |
 
 ---
 
-## Build Status
-PASSING (483 modules, 275KB bundle, 2.30s)
+## Phone Numbers
 
----
-
-## Files Changed This Session
-
-### By Primary Builder Agent
-- src/components/CostComparison.jsx (added vs. DIY copy)
-- src/components/Hero.jsx (updated trust stats)
-- src/components/WhyWorkWithMe.jsx (added vs. Agency callout)
-- src/components/TrustBadges.jsx (updated award copy)
-
-### By Direct Edits (Streamlining)
-- src/pages/Home.jsx (removed 6 component imports/usages)
-- src/components/About.jsx (removed duplicate highlights array)
-- src/components/WhyNotDIY.jsx (moved vs. DIY copy here from CostComparison)
+| Use | Number |
+|-----|--------|
+| Website (business) | (812) 610-9805 |
+| Outreach (personal) | (812) 709-2406 |
 
 ---
 
 ## Next Session Pickup
 
-### Ready to Review
-- Live site should reflect all changes
-- Run `npm run dev` to preview locally
+### Immediate Actions
+1. **Pizza Junction** - Message on Facebook (draft ready, browser was opened)
+   - Search "Pizza Junction Loogootee" on Facebook
+   - Send the message from `drafts/pizza-junction-email.md`
+   - Update CSV status to "Contacted"
 
-### Potential Future Work
-- Deploy to production if not auto-deployed
-- Begin client outreach (prospects folder created - gitignored)
-- Consider mobile testing
-- Monitor performance metrics
+2. **Break Time** - Walk-in recommended (bar = owner usually on-site)
+   - Go during slower hours (weekday afternoon)
+   - Use the dead website angle
 
-### Unused Components (Can Delete Later)
-- src/components/FreeAuditCTA.jsx
-- src/components/HowItWorks.jsx
-- src/components/CostComparison.jsx (now redundant)
-- src/components/Credentials.jsx
-- src/components/RecentActivity.jsx
-- src/components/ExitIntentPopup.jsx
-- src/hooks/useExitIntent.js
+3. **Biggin's Place** - Email or walk-in
+   - Wed/Thu around 5pm is good timing
+
+### Vercel Deployment
+- Run `vercel login` to re-authenticate
+- Then `vercel --prod --yes` to deploy
+- Or check if GitHub auto-deploy is already working
+
+### Other Pending
+- Research more Jasper businesses (13 restaurants still need website verification)
+- Consider mobile testing on live site
+
+---
+
+## Build Status
+PASSING (483 modules, 276KB bundle, 2.60s)
+
+---
+
+## Previous Session Work (2026-01-23)
+
+- Phase 3 Strategy Implementation (complete)
+- Page Streamlining (removed 6 sections, -21KB bundle)
+- Unused components deleted (1,173 lines removed)
+
+See git history for details.
