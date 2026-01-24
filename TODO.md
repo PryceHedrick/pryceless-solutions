@@ -1,72 +1,46 @@
-# TODO — Pryceless Solutions Phase 2 Positioning Fixes
+# TODO — Pryceless Solutions Phase 3
 
 ## Current Iteration: 1 of 30
+
+## Progress Graph
+```
+Phase 2 ████████████████████ 100%
+Phase 3 ██░░░░░░░░░░░░░░░░░░  10%
+```
 
 ## Tasks
 
 ### Priority 1: Blockers
-- [NONE]
+- [x] T0: Initialize Phase 3 coordination ✓
 
-### Priority 2: High Priority (Phase 2 Fixes)
-- [x] T1: Add local emphasis to Hero above-fold (Loogootee, IN / Southern Indiana) ✓
-- [x] T2: Add "who is this for" clarity to Hero (target audience statement) ✓
+### Priority 2: Shadow Recommendations
+- [ ] T1: Check /SYNC/strategy-input.md for recommendations (none yet)
 
-### Priority 3: Verification
-- [x] T3: Verify build passes ✓
-- [x] T4: Verify lint passes ✓
-- [x] T5: Commit changes with proper messages ✓
+### Priority 3: High Impact (Conversion)
+- [ ] T2: Add differentiation section — "Why Pryceless vs DIY/Agencies"
+- [ ] T3: Strengthen target market clarity in hero and above-fold content
+- [ ] T4: Optimize section order for faster path to pricing
 
-## Progress
-- Total: 5 tasks
-- Complete: 5 tasks
-- Remaining: 0 tasks
-- Progress: 100%
+### Priority 4: Quick Wins
+- [ ] T5: Consolidate trust messaging (reduce duplicate trust sections)
+- [ ] T6: Fix duplicate "What I Build" headers (Services vs Portfolio)
 
-## Blocked Items
-- [NONE]
+### Priority 5: Polish
+- [ ] T7: Review and optimize CTA hierarchy
 
-## Acceptance Criteria
-- [x] Hero section shows local emphasis (Loogootee/Southern Indiana) above the fold
-- [x] Hero section clearly states who the service is for (local small businesses)
-- [x] Build passes: `npm run build`
-- [x] Lint passes: `npm run lint`
-- [x] Changes committed with conventional commit message
+## Completion Status
+- Total: 7 tasks (excluding T0)
+- Complete: 0 tasks
+- Progress: 10%
 
-## Iteration Log
+## Phase 3 Success Criteria
+- [ ] Target market unmistakable in 5 seconds
+- [ ] Differentiation clear vs Wix/agencies
+- [ ] Conversion funnel tighter than Phase 2
+- [ ] All [READY] Shadow recommendations implemented
+- [ ] All TODO items checked
+- [ ] Final build passes
 
-### Iteration 1 — 2026-01-23
-**Ralph:** Builder Ralph 🔨
-**Phase:** 3 — EXECUTE
-**Completed:**
-- Added "Loogootee, IN" to hero badge (local emphasis above fold)
-- Added target audience statement after value proposition
-- Verified build passes (488 modules, 2.30s)
-- Verified lint passes (0 warnings)
-- Committed: `1cb3d5f`
-
-**Files Modified:**
-- src/components/Hero.jsx (2 edits: badge text, target audience line)
-- TODO.md (created)
-
-**Commit:** `feat(hero): add local emphasis and target audience clarity`
-
-## Changes Made
-
-### Hero.jsx Changes
-
-**Before (badge):**
-```
-Available for new projects
-```
-
-**After (badge):**
-```
-Loogootee, IN • Available for new projects
-```
-
-**Added (target audience):**
-```jsx
-<p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto mb-8 animate-fade-in-up delay-250">
-  Perfect for restaurants, contractors, and local service businesses in Southern Indiana.
-</p>
-```
+## Next Function Focus
+After T0 completes:
+→ T2: Create differentiation section
