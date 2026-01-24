@@ -7,7 +7,7 @@
   <!-- HOMEPAGE - Highest Priority -->
   <url>
     <loc>https://prycehedrick.com/</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,49 +15,49 @@
   <!-- MAIN PAGES - High Priority -->
   <url>
     <loc>https://prycehedrick.com/pricing</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/contact</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/portfolio</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/faq</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/blog</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/areas-served</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/industries</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -65,56 +65,56 @@
   <!-- SERVICE AREA PAGES - Medium Priority -->
   <url>
     <loc>https://prycehedrick.com/areas/loogootee-indiana</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/areas/bedford-indiana</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/areas/jasper-indiana</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/areas/washington-indiana</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/areas/vincennes-indiana</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/areas/bloomington-indiana</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/areas/paoli-indiana</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/areas/mitchell-indiana</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -122,35 +122,35 @@
   <!-- INDUSTRY PAGES - Medium Priority -->
   <url>
     <loc>https://prycehedrick.com/industries/restaurant-website-design</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/industries/barbershop-salon-website-design</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/industries/contractor-website-design</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/industries/retail-ecommerce-website-design</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://prycehedrick.com/industries/professional-services-website-design</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
