@@ -21,8 +21,15 @@ import AvailabilityBanner from '../components/AvailabilityBanner';
 import PainPoints from '../components/PainPoints'
 import WhyNotDIY from '../components/WhyNotDIY';
 
+// Exit Intent Popup
+import { useExitIntent } from '../hooks/useExitIntent';
+import ExitIntentPopup from '../components/ExitIntentPopup';
+
 const Home = () => {
   const [activeSection, setActiveSection] = useState('hero');
+
+  // Exit intent popup - triggers after 5 seconds, suppressed for 7 days after dismiss
+  const { showPopup, dismiss, convert } = useExitIntent({ delay: 5000 });
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
@@ -182,6 +189,11 @@ const Home = () => {
       <Footer />
       <BackToTop />
       <FloatingCTA />
+      <ExitIntentPopup
+        isOpen={showPopup}
+        onDismiss={dismiss}
+        onConvert={convert}
+      />
     </>
   );
 };
