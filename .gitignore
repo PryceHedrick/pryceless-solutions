@@ -45,3 +45,6 @@ coverage
 # Business data (keep private)
 prospects/
 PRIVACY-CLEANUP-CHECKLIST.md
+
+# Lighthouse audit files
+lighthouse*.json
