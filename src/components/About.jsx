@@ -1,8 +1,49 @@
 import useScrollAnimation from '../hooks/useScrollAnimation'
 
+const differentiators = [
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+      </svg>
+    ),
+    title: 'Solid Foundation',
+    description: "CS degree + 5 years of real-world experience. Software that's architected correctly from the start."
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+      </svg>
+    ),
+    title: 'Proven Results',
+    description: "Award-winning work still running in production today. Not just demos—real systems for real businesses."
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    ),
+    title: 'Code That Lasts',
+    description: "Clean architecture and documentation. When you scale or bring on another developer, the codebase is an asset."
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      </svg>
+    ),
+    title: 'No Surprises',
+    description: "Regular updates, realistic timelines, and direct communication. You hear from me first, not when something's late."
+  }
+]
+
 function About() {
   const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 })
   const [imageRef, imageVisible] = useScrollAnimation({ threshold: 0.2 })
+  const [diffRef, diffVisible] = useScrollAnimation({ threshold: 0.1 })
 
   return (
     <section id="about" className="py-16 lg:py-24 bg-dark-900">
@@ -76,6 +117,43 @@ function About() {
               </p>
             </div>
 
+          </div>
+        </div>
+
+        {/* Why Work With Me - Differentiators */}
+        <div
+          ref={diffRef}
+          className={`mt-16 lg:mt-24 transition-all duration-700 ${
+            diffVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          {/* Tagline */}
+          <div className="text-center mb-10">
+            <div className="glass-card p-6 lg:p-8 max-w-2xl mx-auto border-primary-500/30">
+              <p className="text-xl font-semibold text-white mb-2">
+                Big agency results. Small business relationship.
+              </p>
+              <p className="text-gray-300 leading-relaxed">
+                No account managers. No weeks waiting for replies. Just direct access to the person building your site.
+              </p>
+            </div>
+          </div>
+
+          {/* Differentiators Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            {differentiators.map((item, index) => (
+              <div
+                key={index}
+                className="glass-card p-5 hover:bg-dark-700/50 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-500/10"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center text-primary-400 mb-3">
+                  {item.icon}
+                </div>
+                <h3 className="text-base font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

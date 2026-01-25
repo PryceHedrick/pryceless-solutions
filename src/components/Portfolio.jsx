@@ -33,7 +33,12 @@ const projects = [
       live: 'https://cardguys.store'
     },
     clientWork: true,
-    featured: true
+    featured: true,
+    metrics: [
+      { value: 'New', label: 'Revenue Channel' },
+      { value: 'Auto', label: 'Inventory Sync' },
+      { value: '3+', label: 'Payment Options' }
+    ]
   },
   {
     id: 2,
@@ -55,7 +60,12 @@ const projects = [
       live: null
     },
     award: 'Outstanding Senior Project Award - USI 2024',
-    featured: true
+    featured: true,
+    metrics: [
+      { value: '20+', label: 'Hours Saved Weekly' },
+      { value: '0', label: 'Shipping Errors' },
+      { value: '2+', label: 'Years in Production' }
+    ]
   },
   {
     id: 3,
@@ -220,13 +230,25 @@ function ProjectCard({ project, index, onClick }) {
 
           {/* Result Badge */}
           {project.result && (
-            <div className="mb-5">
+            <div className="mb-4">
               <span className="inline-flex items-center gap-2 text-xs text-green-400 font-medium bg-green-400/10 px-3 py-1.5 rounded-full">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 {project.result}
               </span>
+            </div>
+          )}
+
+          {/* Metrics Grid */}
+          {project.metrics && (
+            <div className="grid grid-cols-3 gap-2 mb-4">
+              {project.metrics.map((metric, i) => (
+                <div key={i} className="text-center p-2 bg-dark-700/50 rounded-lg">
+                  <div className="text-sm font-bold text-primary-400">{metric.value}</div>
+                  <div className="text-[10px] text-gray-400">{metric.label}</div>
+                </div>
+              ))}
             </div>
           )}
 

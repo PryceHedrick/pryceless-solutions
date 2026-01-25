@@ -2,12 +2,10 @@ import { useEffect, useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import TrustBadges from '../components/TrustBadges';
 import About from '../components/About';
 import Testimonials from '../components/Testimonials';
 import Services from '../components/Services';
 import PortfolioSection from '../components/Portfolio';
-import WhyWorkWithMe from '../components/WhyWorkWithMe';
 import PricingSection from '../components/Pricing';
 import FAQSection from '../components/FAQ';
 import ContactSection from '../components/Contact';
@@ -17,10 +15,8 @@ import { businessInfo, services, faqs, testimonials } from '../data/seo-data';
 
 // Lead Generation Components
 import FloatingCTA from '../components/FloatingCTA';
-import CaseStudyMetrics from '../components/CaseStudyMetrics';
 import ROICalculator from '../components/ROICalculator';
 import ProcessTimeline from '../components/ProcessTimeline';
-import ServiceAreaSection from '../components/ServiceAreaSection';
 import AvailabilityBanner from '../components/AvailabilityBanner';
 import PainPoints from '../components/PainPoints'
 import WhyNotDIY from '../components/WhyNotDIY';
@@ -166,22 +162,18 @@ const Home = () => {
       />
       <Navbar activeSection={activeSection} />
       <main>
-        {/* Phase 2 Conversion Funnel - Optimized Order */}
+        {/* Optimized Conversion Flow: Problem → Solution → Proof → Action */}
         <Hero />
-        <TrustBadges />
-        <WhyNotDIY />
         <PainPoints />
+        <WhyNotDIY />
         <About />
         <Services />
         <PricingSection />
         <ProcessTimeline />
         <PortfolioSection />
-        <CaseStudyMetrics />
         <Testimonials />
-        <WhyWorkWithMe />
         <ROICalculator />
         <FAQSection />
-        <ServiceAreaSection />
         <div className="section-container py-6">
           <AvailabilityBanner variant="banner" />
         </div>

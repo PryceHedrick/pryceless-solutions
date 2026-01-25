@@ -8,10 +8,10 @@ const comparisonOptions = [
     tagline: "It's Cheap, But...",
     color: 'gray',
     points: [
-      { text: 'Template look — you blend in', negative: true },
-      { text: '40+ hours of your time', negative: true },
-      { text: 'No SEO help', negative: true },
-      { text: 'You maintain it forever', negative: true }
+      { text: 'Template look — you blend in with competitors', negative: true },
+      { text: 'Your next 3 weekends gone', negative: true },
+      { text: 'No SEO = invisible on Google', negative: true },
+      { text: '$20/mo forever + your time', negative: true }
     ]
   },
   {
@@ -20,10 +20,10 @@ const comparisonOptions = [
     tagline: "It's Pro, But...",
     color: 'gray',
     points: [
-      { text: '$5,000+ cost to start', negative: true },
-      { text: 'Monthly retainer fees', negative: true },
-      { text: 'Slow turnaround (weeks)', negative: true },
-      { text: 'Cookie-cutter process', negative: true }
+      { text: '$5,000-$15,000 just to start', negative: true },
+      { text: '$500+/mo retainer fees', negative: true },
+      { text: '6-8 weeks before you see anything', negative: true },
+      { text: 'You talk to a manager, not the builder', negative: true }
     ]
   },
   {
@@ -33,10 +33,10 @@ const comparisonOptions = [
     color: 'primary',
     highlighted: true,
     points: [
-      { text: 'Custom design — stand out', negative: false },
-      { text: 'One-time price, you own it', negative: false },
-      { text: '2-week average delivery', negative: false },
-      { text: 'Built for your business', negative: false }
+      { text: 'Custom design — you stand out', negative: false },
+      { text: 'One price, you own it forever', negative: false },
+      { text: 'Live in 2 weeks, not 2 months', negative: false },
+      { text: 'Direct line to the person building it', negative: false }
     ]
   }
 ]
