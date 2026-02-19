@@ -15,7 +15,6 @@ import { businessInfo, services, faqs, testimonials } from '../data/seo-data';
 
 // Lead Generation Components
 import FloatingCTA from '../components/FloatingCTA';
-import ROICalculator from '../components/ROICalculator';
 import ProcessTimeline from '../components/ProcessTimeline';
 import AvailabilityBanner from '../components/AvailabilityBanner';
 import PainPoints from '../components/PainPoints'
@@ -179,7 +178,6 @@ const Home = () => {
         <ProcessTimeline />
         <PortfolioSection />
         <Testimonials />
-        <ROICalculator />
         <FAQSection />
         <div className="section-container py-6">
           <AvailabilityBanner variant="banner" />

@@ -5,6 +5,7 @@ import InlineCTA from './InlineCTA'
 // Filter categories
 const categories = [
   { id: 'all', label: 'All' },
+  { id: 'ai', label: 'AI/Automation' },
   { id: 'retail', label: 'Retail' },
   { id: 'restaurants', label: 'Restaurants' },
   { id: 'services', label: 'Services' }
@@ -15,6 +16,32 @@ const categories = [
 const projects = [
   {
     id: 1,
+    title: 'ARI — Autonomous AI Operating System',
+    shortDescription: 'Multi-agent AI OS built from scratch — 7 security layers, 6,500+ tests, runs 24/7',
+    fullDescription: 'ARI is a local-first, multi-agent AI operating system I designed and built entirely from scratch. Seven security layers. Constitutional governance. 6,500+ automated tests. Telegram interface, market intelligence engine, autonomous briefing scheduler with 35+ tasks, and an MCP server that integrates directly with Claude Code. It runs 24/7 on a Mac Mini.',
+    image: '/images/portfolio/ari/dashboard.png',
+    tags: ['AI/Automation', 'Personal Project', 'TypeScript'],
+    category: 'ai',
+    result: 'Active — running daily on Mac Mini',
+    features: [
+      '7-layer security architecture with constitutional governance',
+      'Telegram interface for daily briefings and market alerts',
+      'Autonomous scheduler with 35+ tasks (weather, market, career)',
+      'MCP server integrating directly with Claude Code'
+    ],
+    links: {
+      github: 'https://github.com/Ari-OS/ARI',
+      live: null
+    },
+    featured: true,
+    metrics: [
+      { value: '6,500+', label: 'Automated Tests' },
+      { value: '35+', label: 'Scheduled Tasks' },
+      { value: '7', label: 'Security Layers' }
+    ]
+  },
+  {
+    id: 2,
     title: 'CardGuys.store',
     shortDescription: 'Live e-commerce platform that expanded a local business beyond eBay',
     fullDescription: 'A complete e-commerce solution for Card Guys Sports Cards. Built a user-friendly storefront that syncs inventory automatically, accepts multiple payment methods, and captures customer emails for repeat business. Expanded their reach beyond eBay to a dedicated online presence they fully control.',
@@ -41,7 +68,7 @@ const projects = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     title: 'Panda International OMS',
     shortDescription: 'Award-winning order system that turned hours of manual work into minutes',
     fullDescription: 'Order Management System built for Panda International that handles everything from order intake to shipping. Automatically generates FedEx labels, tracks packages in real-time, and manages inventory across multiple warehouses. What used to take hours of manual work now happens in minutes. This project won the Outstanding Senior Project Award at USI in 2024.',
@@ -68,7 +95,7 @@ const projects = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: 'Vault - Pokemon TCG Portfolio Tracker',
     shortDescription: 'AI-powered investment tracker with real-time pricing and financial analytics',
     fullDescription: 'A comprehensive portfolio tracking application designed for Pokemon TCG collectors. Features a modern glassmorphism UI, AI-powered insights with portfolio health scoring, market momentum tracking, profit taking alerts, and concentration risk analysis. Track your collection value in real-time with beautiful animated dashboards.',

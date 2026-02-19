@@ -4,6 +4,18 @@ import InlineCTA from './InlineCTA'
 // EDIT: Services offered - Modify your services here
 const services = [
   {
+    id: 'service-ai-consulting',
+    title: 'AI Consulting & Automation',
+    description: 'Your systems, working smarter. Connect AI to your business.',
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      </svg>
+    ),
+    features: ['AI workflow integration — Claude, GPT, and other LLMs', 'Intelligent automation — eliminate repetitive tasks', 'Custom AI applications — chatbots, data processors', 'AI strategy consulting — find where AI saves time and money'],
+    gradient: 'from-violet-500 to-purple-500'
+  },
+  {
     id: 'service-custom-websites',
     title: 'Custom Websites',
     description: 'Get online fast with a site that looks great and loads faster.',
@@ -54,7 +66,7 @@ const services = [
   {
     id: 'service-consulting',
     title: 'Technical Consulting',
-    description: "Not sure where to start? Let's figure it out together.",
+    description: "Not sure if AI is right for you? Let's find out — no fluff, just honest analysis.",
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />

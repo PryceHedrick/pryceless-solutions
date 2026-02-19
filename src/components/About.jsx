@@ -75,8 +75,8 @@ function About() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-white font-semibold">5+ Years</p>
-                    <p className="text-gray-400 text-sm">Coding Experience</p>
+                    <p className="text-white font-semibold">USI 2024</p>
+                    <p className="text-gray-400 text-sm">Outstanding Senior Project Award</p>
                   </div>
                 </div>
               </div>
@@ -97,13 +97,16 @@ function About() {
 
             <div className="space-y-4 text-gray-300 mb-6">
               <p className="text-lg">
-                I&apos;m a web developer based in Southern Indiana with a Computer Science degree and a simple mission: build websites that actually help small businesses grow.
+                CS grad from USI. IT technician by day. Builder by night.
               </p>
               <p className="text-lg">
-                I started Pryceless Solutions because I saw too many local businesses paying too much for websites that didn&apos;t work, or settling for DIY templates that made them look amateur. You deserve better.
+                My biggest current project is ARI — a multi-agent AI operating system I designed and built entirely from scratch. Seven security layers. Constitutional governance. 6,500+ automated tests. Telegram interface, market monitoring, a scheduler that runs 35+ tasks, and an MCP server that connects directly to Claude Code. It runs 24/7 on a Mac Mini.
               </p>
               <p className="text-lg">
-                Every site I build is custom-designed for YOUR business, loads fast, looks professional on every device, and—most importantly—helps bring in customers. No monthly fees, no lock-in, no surprises.
+                I started Pryceless Solutions to help local businesses get professional websites without agency prices. Now I&apos;m adding AI consulting — helping businesses integrate AI tools that actually do something useful.
+              </p>
+              <p className="text-lg">
+                I care about code that works, systems that last, and not wasting your time or mine.
               </p>
             </div>
 

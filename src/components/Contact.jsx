@@ -9,6 +9,7 @@ const projectTypes = [
   { value: 'new-website', label: 'New Website' },
   { value: 'redesign', label: 'Website Redesign' },
   { value: 'ecommerce', label: 'E-Commerce' },
+  { value: 'ai-consulting', label: 'AI Consulting' },
   { value: 'other', label: 'Other' }
 ]
 

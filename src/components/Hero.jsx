@@ -141,22 +141,17 @@ function Hero() {
 
           {/* Main Heading - Benefit Focused H1 */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 animate-fade-in-up">
-            Stop Losing Customers to <span className="gradient-text">Competitors With Websites</span>
+            Websites That Convert. <span className="gradient-text">AI That Automates.</span>
           </h1>
 
           {/* Tagline */}
           <p className="text-lg sm:text-xl md:text-2xl text-primary-400 font-medium mb-6 animate-fade-in-up delay-100">
-            I build websites that work as hard as you do
+            Full-stack developer & AI systems architect from Southern Indiana.
           </p>
 
           {/* Value Proposition */}
           <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-4 animate-fade-in-up delay-200">
-            Professional results. Clear pricing. No surprises. Most sites launch in 2 weeks—you own everything, no monthly fees.
-          </p>
-
-          {/* Who this is for - Target audience clarity */}
-          <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto mb-8 animate-fade-in-up delay-250">
-            Built specifically for <span className="text-white font-medium">restaurants</span>, <span className="text-white font-medium">contractors</span>, and <span className="text-white font-medium">local service businesses</span> in Southern Indiana who need a website that actually brings customers.
+            Custom websites in 2 weeks. AI automation that runs while you sleep. You own everything — no monthly fees, no lock-in.
           </p>
 
           {/* Trust Stats */}
@@ -185,20 +180,12 @@ function Hero() {
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up delay-300">
             <button
               onClick={() => {
-                trackCTAClick('hero_see_pricing')
-                scrollToSection('pricing')
+                trackCTAClick('hero_see_services')
+                scrollToSection('services')
               }}
               className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-4 group"
             >
-              See Pricing
-              <svg
-                className="inline-block w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              See Services →
             </button>
             {businessInfo.phone && businessInfo.phoneLink && (
               <a
