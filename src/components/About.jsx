@@ -100,9 +100,6 @@ function About() {
                 CS grad from USI. IT technician by day. Builder by night.
               </p>
               <p className="text-lg">
-                My biggest current project is ARI — a multi-agent AI operating system I designed and built entirely from scratch. Seven security layers. Constitutional governance. 6,500+ automated tests. Telegram interface, market monitoring, a scheduler that runs 35+ tasks, and an MCP server that connects directly to Claude Code. It runs 24/7 on a Mac Mini.
-              </p>
-              <p className="text-lg">
                 I started Pryceless Solutions to help local businesses get professional websites without agency prices. Now I&apos;m adding AI consulting — helping businesses integrate AI tools that actually do something useful.
               </p>
               <p className="text-lg">
